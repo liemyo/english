@@ -1,0 +1,1583 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script>/* phones + small tablets: whole app at 88% (layout widens to fill the screen); max-scale stops iOS zooming into inputs */
+if (Math.min(screen.width, screen.height) <= 820) document.querySelector('meta[name=viewport]').content = 'width=device-width, initial-scale=0.88, minimum-scale=0.88, maximum-scale=0.88, viewport-fit=cover';</script>
+<title>English Course</title>
+<meta name="description" content="English Course: belajar bahasa Inggris dengan terjemahan Indonesia — level Dasar, Umum, Fasih, kosakata, struktur, percakapan, games, dan progres 0–100% yang tersinkron di HP dan laptop.">
+<meta name="theme-color" content="#3355d6">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%233355d6'/><text x='50' y='66' font-family='Arial' font-weight='700' font-size='46' fill='white' text-anchor='middle'>En</text></svg>">
+<style>:root{--bg:#f4f6fb;--card:#fff;--soft:#eceff6;--line:#dfe3ec;--text:#161a24;--muted:#646b7a;--acc:#3355d6;--acc-ink:#fff;--ok:#1f9d55;--okbg:#e3f6ea;--red:#d6383e;--redbg:#fde7e8;--shadow:0 1px 2px rgba(10,20,50,.05),0 4px 14px rgba(10,20,50,.05);color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0f1218;--card:#181c24;--soft:#232834;--line:#2c3240;--text:#eef1f6;--muted:#9aa2b2;--acc:#7c9bff;--acc-ink:#0b1230;--ok:#4ad08a;--okbg:#14301f;--red:#ff6b70;--redbg:#3a1a1c;--shadow:none;color-scheme:dark}}
+:root[data-theme=dark]{--bg:#0f1218;--card:#181c24;--soft:#232834;--line:#2c3240;--text:#eef1f6;--muted:#9aa2b2;--acc:#7c9bff;--acc-ink:#0b1230;--ok:#4ad08a;--okbg:#14301f;--red:#ff6b70;--redbg:#3a1a1c;--shadow:none;color-scheme:dark}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--text);font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",sans-serif;-webkit-text-size-adjust:100%}
+button,input,select,textarea{font:inherit;color:inherit}
+input,select,textarea{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:8px 11px;min-width:0;color:var(--text)}
+input:focus{outline:2px solid color-mix(in srgb,var(--acc) 45%,transparent);border-color:var(--acc)}
+a{color:inherit}
+.btn{border:1px solid var(--line);background:var(--card);border-radius:10px;padding:8px 13px;cursor:pointer;font-weight:600;text-align:center}
+.btn:hover{background:var(--soft)}
+.btn:disabled{opacity:.45;cursor:default}
+.btn.primary{background:var(--acc);border-color:var(--acc);color:var(--acc-ink)}
+.btn.primary:hover{filter:brightness(1.07)}
+.btn.danger{color:var(--red)}
+.btn.sm{padding:4px 10px;font-size:13px}
+.btn.big{padding:12px 18px;font-size:16px;border-radius:12px}
+.btn small{font-weight:500;opacity:.8}
+.muted{color:var(--muted)}.small{font-size:13px}.center{text-align:center}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow)}
+/* top bar */
+.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.top-in{padding:10px 24px;display:flex;align-items:center;gap:16px}
+.brand{display:flex;align-items:center;gap:9px;font-weight:800;font-size:17px;text-decoration:none;flex:none}
+.logo{width:32px;height:32px;border-radius:10px;display:grid;place-items:center;background:linear-gradient(135deg,#4f7bff,#2747c9);color:#fff;font-size:14px;font-weight:800;letter-spacing:-.02em}
+.tabs{display:flex;gap:4px;flex:1;justify-content:center}
+.tab{border:0;background:none;border-radius:10px;padding:7px 14px;cursor:pointer;font-weight:600;color:var(--muted);display:flex;gap:6px;align-items:center}
+.tab:hover{background:var(--soft)}
+.tab.on{background:color-mix(in srgb,var(--acc) 15%,transparent);color:var(--acc)}
+.bnav{display:none}
+.top-r{display:flex;align-items:center;gap:10px;flex:none}
+.pill{font-weight:800;font-size:13px;padding:4px 10px;border-radius:99px;background:color-mix(in srgb,var(--acc) 15%,transparent);color:var(--acc)}
+.sync{font-size:12px;color:var(--muted);white-space:nowrap}
+.chip{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--card);border-radius:99px;padding:5px 11px;cursor:pointer;font-weight:600;font-size:13px;white-space:nowrap}
+.main{padding:20px 24px 110px}
+.viewing{margin-bottom:14px;padding:8px 12px;border-radius:12px;background:color-mix(in srgb,var(--acc) 12%,transparent);display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.head h1,.hero h1,.u-t h1{margin:0;font-size:24px;letter-spacing:-.01em}
+.sh{font-size:15px;margin:26px 2px 10px;display:flex;align-items:center;gap:10px;justify-content:space-between}
+.bar{height:8px;border-radius:99px;background:var(--soft);overflow:hidden;margin:8px 0 6px}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--acc),color-mix(in srgb,var(--acc) 60%,#19c2b0));border-radius:99px;transition:width .3s}
+/* home */
+.hero{display:flex;gap:26px;align-items:center;padding:22px 26px}
+.hero-ring{display:flex;flex-direction:column;align-items:center;gap:6px;flex:none}
+.rk{font-weight:800}
+.hero-t{flex:1;min-width:0;display:flex;flex-direction:column;gap:10px}
+.hero-t p{margin:0}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.kpis>div{background:var(--soft);border-radius:12px;padding:10px 12px;display:flex;flex-direction:column}
+.kpis b{font-size:20px}.kpis span{font-size:12.5px;color:var(--muted)}
+.hero .btn.big{align-self:flex-start}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.lvl{text-align:left;padding:16px;cursor:pointer;display:flex;flex-direction:column;gap:2px}
+.lvl:hover{border-color:var(--acc)}
+.lvl.locked{opacity:.65}
+.lvl p{margin:8px 0 4px}
+.lvl-h{display:flex;gap:10px;align-items:center}
+.lvl-i{font-size:28px}.lvl-p{margin-left:auto;font-weight:800;font-size:18px;color:var(--acc)}
+.cats{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.catb{display:flex;flex-direction:column;align-items:center;gap:2px;padding:14px 8px;cursor:pointer}
+.catb span{font-size:26px}.catb:hover,.gtile:hover:not(:disabled),.ucard:hover{border-color:var(--acc)}
+.games{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.games.mini{grid-template-columns:repeat(7,minmax(0,1fr))}
+.games.mini .gtile .small{display:none}
+.gtile{display:flex;flex-direction:column;align-items:flex-start;gap:4px;padding:16px;cursor:pointer;text-align:left}
+.games.mini .gtile{align-items:center;text-align:center;padding:12px 6px}
+.gtile:disabled{opacity:.5;cursor:not-allowed}
+.gi{font-size:30px}
+.how ol{margin:0;padding:16px 18px 16px 36px;display:flex;flex-direction:column;gap:8px}
+/* learn */
+.seg3{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;background:var(--soft);padding:5px;border-radius:14px}
+.seg3 button{border:0;background:none;padding:10px;border-radius:10px;font-weight:700;cursor:pointer}
+.seg3 button.on{background:var(--card);box-shadow:var(--shadow);color:var(--acc)}
+.seg3 small{color:var(--muted);font-weight:600}
+.lvl-d{margin:10px 2px}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.chipb{border:1px solid var(--line);background:var(--card);border-radius:99px;padding:5px 12px;font-size:13.5px;cursor:pointer;font-weight:600}
+.chipb.on{border-color:var(--acc);background:color-mix(in srgb,var(--acc) 14%,transparent);color:var(--acc)}
+.chipb:disabled{opacity:.4;cursor:default}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.grid.dim{opacity:.55}
+.ucard{text-align:left;padding:14px 16px;display:flex;flex-direction:column;gap:2px;cursor:pointer}
+.ucard.done{border-color:color-mix(in srgb,var(--ok) 50%,var(--line))}
+.uc-h{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--muted);font-weight:600}
+.uc-i{width:28px;height:28px;border-radius:8px;display:grid;place-items:center;background:var(--soft);font-size:15px}
+.uc-n{font-size:16px;margin-top:4px}
+.ok{color:var(--ok);font-weight:800;margin-left:auto}
+.lockbox{padding:14px 16px;margin-bottom:14px;display:flex;flex-direction:column;gap:10px;align-items:flex-start}
+/* unit */
+.u-head{display:flex;gap:16px;align-items:flex-start;margin-bottom:16px}
+.u-t{flex:1;min-width:0}
+.u-s{display:flex;flex-direction:column;align-items:flex-end}.u-s b{font-size:24px;color:var(--acc)}
+.words{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px}
+.word{padding:12px 14px;display:flex;flex-direction:column;gap:4px}
+.w-h{display:flex;align-items:center;gap:8px}
+.w-en{font-size:18px}
+.dots{margin-left:auto;color:var(--acc);font-size:11px;letter-spacing:1px}
+.w-id{font-weight:600;color:var(--acc)}
+.w-ex{display:flex;gap:6px;align-items:flex-start;font-size:13.5px;border-top:1px dashed var(--line);padding-top:6px}
+.spk{border:0;background:color-mix(in srgb,var(--acc) 12%,transparent);color:var(--acc);border-radius:50%;width:32px;height:32px;flex:none;cursor:pointer;font-size:15px;display:inline-grid;place-items:center;padding:0}
+.spk:hover{background:color-mix(in srgb,var(--acc) 22%,transparent)}
+.spk.sm{width:26px;height:26px;font-size:12px}
+.spk.xl{width:64px;height:64px;font-size:28px}
+.gram{padding:6px 20px 12px;line-height:1.65}
+.gram .tip{background:color-mix(in srgb,#f5a623 16%,transparent);padding:10px 12px;border-radius:10px}
+.gt{border-collapse:collapse;width:100%;max-width:560px}
+.gt th,.gt td{border:1px solid var(--line);padding:6px 10px;text-align:left}
+.gt th{background:var(--soft)}
+.pat{padding:12px;display:flex;flex-direction:column;gap:8px}
+.pat code{background:var(--soft);padding:8px 12px;border-radius:8px;font-size:14px;white-space:normal}
+.list{padding:4px 0}
+.list .row{display:flex;gap:10px;align-items:flex-start;padding:10px 14px;border-top:1px solid var(--line)}
+.list .row:first-child{border-top:0}
+.two-col{display:grid;grid-template-columns:1fr 1fr}
+.two-col .row:nth-child(2){border-top:0}
+.dlgbox{padding:14px;display:flex;flex-direction:column;gap:10px}
+.bub{display:flex;gap:8px;max-width:80%;align-items:flex-start}
+.bub>div{background:var(--soft);padding:9px 12px;border-radius:14px;transition:box-shadow .2s}
+.bub.r{align-self:flex-end;flex-direction:row-reverse}
+.bub.r>div{background:color-mix(in srgb,var(--acc) 14%,transparent)}
+.bub.on>div{box-shadow:0 0 0 2px var(--acc)}
+.bub .sp{width:26px;height:26px;border-radius:50%;background:var(--acc);color:var(--acc-ink);display:grid;place-items:center;font-weight:800;font-size:12px;flex:none}
+.bub .spk{margin-right:6px;vertical-align:middle}
+.u-act{position:sticky;bottom:12px;margin-top:18px;display:grid;grid-template-columns:1fr auto auto 1fr;gap:10px;padding:10px;background:color-mix(in srgb,var(--card) 92%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:16px;box-shadow:0 8px 30px rgba(0,0,0,.12)}
+.u-act>:first-child{justify-self:start}.u-act>:last-child{justify-self:end}
+/* runner */
+.main.running{max-width:none}
+.run-h{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:10px;margin-bottom:8px}
+.run-h>b{font-size:17px;text-align:center}.run-h>span{justify-self:end}.run-h .btn{justify-self:start}
+.qbar{margin-bottom:12px}
+.qcard{padding:22px;display:flex;flex-direction:column;gap:16px;min-height:300px}
+.qp{font-size:19px;text-align:center;line-height:1.5}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.opt{border:2px solid var(--line);background:var(--card);border-radius:14px;padding:14px;font-size:16px;font-weight:600;cursor:pointer;text-align:center}
+.opt:hover:not(:disabled){border-color:var(--acc)}
+.opt.right{border-color:var(--ok);background:var(--okbg)}
+.opt.wrong{border-color:var(--red);background:var(--redbg)}
+.opt.fade{opacity:.5}
+.big-spk{display:flex;justify-content:center;align-items:center;gap:12px}
+.typef{display:flex;gap:10px}
+.typef input{flex:1;font-size:18px;padding:12px 14px}
+.fb{border-radius:14px;padding:14px 16px;display:flex;flex-direction:column;gap:6px;align-items:flex-start}
+.fb.right{background:var(--okbg)}.fb.wrong{background:var(--redbg)}
+.fb .btn{align-self:stretch;margin-top:6px}
+.scr-ans{min-height:64px;border:2px dashed var(--line);border-radius:14px;padding:10px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center}
+.scr-ans.right{border-color:var(--ok);background:var(--okbg)}.scr-ans.wrong{border-color:var(--red);background:var(--redbg)}
+.scr-pool{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.tok{border:1px solid var(--line);background:var(--card);border-radius:10px;padding:8px 13px;font-size:16px;font-weight:600;cursor:pointer;box-shadow:0 2px 0 var(--line)}
+.tok.used{visibility:hidden}
+.flash{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;min-height:260px;width:100%;cursor:pointer;padding:24px;text-align:center}
+.flash.back{background:color-mix(in srgb,var(--acc) 10%,var(--card))}
+.f-big{font-size:34px;letter-spacing:-.01em}
+.two-btn{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px;width:100%}
+.center>.spk{margin-top:12px}
+.flash-ok{box-shadow:0 0 0 3px var(--ok)}.flash-bad{box-shadow:0 0 0 3px var(--red)}
+.match{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.match>div{display:flex;flex-direction:column;gap:10px}
+.mcell{border:2px solid var(--line);background:var(--card);border-radius:14px;padding:14px 10px;font-weight:600;font-size:15.5px;cursor:pointer;min-height:58px}
+.mcell.sel{border-color:var(--acc);background:color-mix(in srgb,var(--acc) 12%,transparent)}
+.mcell.done{opacity:.3;border-color:var(--ok);background:var(--okbg)}
+.mcell.bad{border-color:var(--red);background:var(--redbg);animation:shake .3s}
+@keyframes shake{25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
+.lives{font-size:20px}
+.hword{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;font-size:28px;font-weight:800;text-transform:lowercase}
+.hl{width:30px;border-bottom:3px solid var(--text);text-align:center;min-height:42px}
+.hword .sp{width:16px}
+.kb{display:grid;grid-template-columns:repeat(9,1fr);gap:6px}
+.key{border:1px solid var(--line);background:var(--card);border-radius:8px;padding:10px 0;font-weight:700;font-size:16px;cursor:pointer;text-transform:uppercase}
+.key.hit{background:var(--okbg);border-color:var(--ok)}.key.miss{background:var(--redbg);opacity:.6}
+.say-big{font-size:22px;display:flex;gap:10px;align-items:center;justify-content:center}
+.mic.on{background:var(--red);border-color:var(--red);color:#fff}
+.result{padding:28px;display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center}
+.result h2{margin:4px 0 0}.result p{margin:0}
+.res-big{font-size:46px}
+.res-act{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:10px}
+/* progress */
+.ranks{display:flex;gap:6px;flex-wrap:wrap}
+.ranks span{padding:4px 10px;border-radius:99px;background:var(--soft);font-size:13px;color:var(--muted);font-weight:600}
+.ranks span.on{background:color-mix(in srgb,var(--acc) 15%,transparent);color:var(--acc)}
+.acts{display:grid;grid-template-columns:repeat(14,1fr);gap:6px;padding:14px;height:140px}
+.act{display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:4px;height:100%}
+.act i{display:block;width:100%;max-width:26px;background:var(--acc);border-radius:6px 6px 2px 2px;min-height:2px}
+.act small{color:var(--muted);font-size:11px}
+.lvp{padding:14px 16px}
+.ulist{display:flex;flex-direction:column;margin-top:6px}
+.urow{display:flex;gap:8px;padding:6px 2px;border-top:1px solid var(--line);text-decoration:none;font-size:14px}
+.urow .un2{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.weak{padding:12px;display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.wchip{display:inline-flex;gap:6px;align-items:center;background:var(--soft);border-radius:99px;padding:3px 12px 3px 4px;font-size:14px}
+.users{width:100%;border-collapse:collapse}
+.users th,.users td{padding:9px 12px;border-top:1px solid var(--line);text-align:left;font-size:14px;white-space:nowrap}
+.users th{font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+.users tr.click{cursor:pointer}.users tr.click:hover td{background:var(--soft)}
+.num{text-align:right!important}
+/* dialog */
+dialog{border:0;border-radius:18px;padding:0;width:min(520px,calc(100vw - 24px));max-height:calc(100dvh - 24px);background:var(--card);color:var(--text);box-shadow:0 30px 80px rgba(0,0,0,.35)}
+dialog::backdrop{background:rgba(10,10,20,.45)}
+.dlg{padding:20px;display:flex;flex-direction:column;gap:14px}
+.dlg h2{margin:0}
+.fld{display:flex;flex-direction:column;gap:8px}
+.fld>span{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.fld .btn{align-self:flex-start}
+.seg{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.seg label{position:relative}
+.seg input{position:absolute;opacity:0}
+.seg span{display:block;text-align:center;border:1px solid var(--line);border-radius:10px;padding:7px;cursor:pointer;font-weight:600}
+.seg input:checked+span{border-color:var(--acc);background:color-mix(in srgb,var(--acc) 14%,transparent);color:var(--acc)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.dlg-f{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.dlg-f .sp{flex:1}
+.check{display:flex;align-items:center;gap:8px;font-weight:600}
+.check input{width:18px;height:18px}
+.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%);background:var(--text);color:var(--bg);padding:9px 16px;border-radius:99px;font-size:14px;font-weight:600;z-index:60;box-shadow:0 10px 30px rgba(0,0,0,.25);max-width:calc(100vw - 32px)}
+.toast[hidden]{display:none}
+/* gate (same as Planner, blue) */
+.gate{position:fixed;inset:0;display:grid;place-items:center;padding:16px;background:radial-gradient(1100px 700px at 10% 0%,#2f5bd8 0%,transparent 60%),radial-gradient(900px 600px at 100% 100%,#16a3a0 0%,transparent 55%),linear-gradient(160deg,#0f1a33,#0b1020)}
+.gate-card{width:min(380px,100%);background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);border-radius:24px;padding:34px 26px 24px;text-align:center;color:#fff;box-shadow:0 30px 80px rgba(0,0,0,.35)}
+.gate .logo{width:68px;height:68px;border-radius:20px;font-size:34px;margin:0 auto 12px}
+.gate h1{margin:0;font-size:27px}
+.gate-sub{margin:4px 0 22px;color:rgba(255,255,255,.75)}
+.gate-field{display:flex;align-items:center;gap:10px;background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.22);border-radius:14px;padding:4px 14px;text-align:left;margin-bottom:10px}
+.gate-field:focus-within{border-color:#9cc2ff;box-shadow:0 0 0 3px rgba(156,194,255,.3)}
+.gate-field input{flex:1;background:none;border:0;outline:0!important;color:#fff;font-size:16px;padding:10px 0}
+.gate-field input::placeholder{color:rgba(255,255,255,.6)}
+.mask-wrap{position:relative;flex:1;display:block;min-width:0}
+.mask-wrap input,#user-mask{font:500 17px/1.4 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.04em;padding:10px 0}
+.mask-wrap input{width:100%;-webkit-text-fill-color:transparent;color:transparent;caret-color:#fff}
+.mask-wrap input::placeholder{-webkit-text-fill-color:rgba(255,255,255,.6);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;letter-spacing:0}
+#user-mask{position:absolute;inset:0;pointer-events:none;color:#fff;white-space:pre;overflow:hidden}
+.gate-btn{width:100%;margin-top:4px;padding:12px;font-size:16px;font-weight:700;border-radius:14px;background:linear-gradient(135deg,#4f7bff,#2747c9);border:0;color:#fff;cursor:pointer}
+.gate-btn:disabled{opacity:.7}
+.gate-err{color:#ffc2c2;min-height:18px;margin-top:10px;font-size:14px}
+.gate-note{color:rgba(255,255,255,.65);font-size:12.5px;margin:6px 0 0;line-height:1.5}
+.gate .check{justify-content:center;color:rgba(255,255,255,.85);font-weight:500;font-size:14px;margin:4px 0 10px}
+.gate .logo{font-size:26px}
+@media (max-width:820px){
+  .top-in{gap:10px;padding:8px 12px}
+  .tabs,.bname,.sync,.un{display:none}
+  .top-r{margin-left:auto}
+  .bnav{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;position:fixed;left:0;right:0;bottom:0;z-index:30;background:color-mix(in srgb,var(--card) 94%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid var(--line);padding:4px 6px calc(4px + env(safe-area-inset-bottom))}
+  .bnav .tab{flex-direction:column;gap:0;padding:6px 0;font-size:12px}
+  .bnav .ti{font-size:20px}
+  .main{padding:12px 12px 100px}
+  .main.running{padding-bottom:30px}
+  .hero{flex-direction:column;gap:14px;padding:18px 14px;text-align:center}
+  .hero .btn.big{align-self:stretch}
+  .kpis{grid-template-columns:1fr 1fr}
+  .grid3{grid-template-columns:1fr}
+  .cats{grid-template-columns:repeat(5,minmax(0,1fr));gap:6px}
+  .catb{padding:10px 2px;font-size:12.5px}.catb small{display:none}
+  .games.mini{grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+  .games.mini .gtile{font-size:12.5px;padding:10px 4px}
+  .games{grid-template-columns:1fr 1fr}
+  .gtile{padding:12px}
+  .grid,.words{grid-template-columns:1fr}
+  .two-col{grid-template-columns:1fr}.two-col .row:nth-child(2){border-top:1px solid var(--line)}
+  .bub{max-width:94%}
+  .u-head{flex-wrap:wrap;gap:10px}.u-t{order:3;flex-basis:100%}.u-s{margin-left:auto}
+  .u-act{grid-template-columns:1fr 1fr;bottom:calc(70px + env(safe-area-inset-bottom))}
+  .u-act>.primary{grid-column:1/-1;order:-1}
+  .u-act>span{display:none}
+  .opts{grid-template-columns:1fr}
+  .qcard{padding:16px;min-height:0}
+  .qp{font-size:17px}
+  .match{gap:8px}.mcell{font-size:14px;padding:10px 6px}
+  .kb{grid-template-columns:repeat(7,1fr)}
+  .acts{gap:3px;padding:10px}
+  .seg3 button{padding:8px 4px;font-size:14px}
+  .two{grid-template-columns:1fr}
+  .toast{bottom:90px}
+}
+</style>
+</head>
+<body>
+<div id="app"><div style="padding:40px;font-family:sans-serif;color:#888">Memuat English Course…</div></div>
+<dialog id="dlg"></dialog>
+<noscript>English Course memerlukan JavaScript.</noscript>
+<script>const COURSE = [];
+// ===== LEVEL 1: DASAR =====
+// vocab word: 'english|indonesia|contoh kalimat|terjemahan contoh'
+// grammar quiz: 'kalimat dengan ___|jawaban benar|salah1|salah2|terjemahan'
+// topic resp: 'situasi/ucapan lawan bicara|jawaban terbaik|salah1|salah2'
+COURSE.push({
+  id: 'dasar', name: 'Dasar', icon: '🌱', en: 'Basic',
+  desc: 'Fondasi: kosakata inti, kalimat sederhana, memperkenalkan diri, bertanya, dan kebutuhan harian.',
+  units: [
+    { id: 'd-v1', type: 'vocab', title: 'Orang & Keluarga', en: 'People & Family', words: [
+      'father|ayah|My father works in a bank.|Ayah saya bekerja di bank.',
+      'mother|ibu|My mother cooks every morning.|Ibu saya memasak setiap pagi.',
+      'brother|saudara laki-laki|I have one brother.|Saya punya satu saudara laki-laki.',
+      'sister|saudara perempuan|Her sister is a teacher.|Saudara perempuannya seorang guru.',
+      'son|anak laki-laki|Their son is five years old.|Anak laki-laki mereka berumur lima tahun.',
+      'daughter|anak perempuan|My daughter likes to draw.|Anak perempuan saya suka menggambar.',
+      'husband|suami|Her husband is very kind.|Suaminya sangat baik.',
+      'wife|istri|His wife is from Bandung.|Istrinya berasal dari Bandung.',
+      'child|anak|The child is sleeping.|Anak itu sedang tidur.',
+      'children|anak-anak|The children play in the park.|Anak-anak bermain di taman.',
+      'parents|orang tua|My parents live in Surabaya.|Orang tua saya tinggal di Surabaya.',
+      'grandmother|nenek|My grandmother is 80 years old.|Nenek saya berumur 80 tahun.',
+      'grandfather|kakek|My grandfather tells good stories.|Kakek saya menceritakan kisah yang bagus.',
+      'uncle|paman|My uncle has a big car.|Paman saya punya mobil besar.',
+      'aunt|bibi / tante|My aunt makes delicious cakes.|Tante saya membuat kue yang lezat.',
+      'cousin|sepupu|My cousin studies in Jakarta.|Sepupu saya kuliah di Jakarta.',
+      'friend|teman|She is my best friend.|Dia sahabat saya.',
+      'neighbor|tetangga|Our neighbor is very friendly.|Tetangga kami sangat ramah.',
+      'man|pria|That man is my boss.|Pria itu bos saya.',
+      'woman|wanita|The woman is buying fruit.|Wanita itu sedang membeli buah.',
+      'boy|anak laki-laki / cowok|The boy is running.|Anak laki-laki itu sedang berlari.',
+      'girl|anak perempuan / cewek|The girl has long hair.|Gadis itu berambut panjang.',
+      'baby|bayi|The baby is crying.|Bayi itu sedang menangis.',
+      'family|keluarga|I love my family.|Saya menyayangi keluarga saya.'
+    ] },
+    { id: 'd-g1', type: 'grammar', title: 'To Be: am / is / are', en: 'The verb "to be"',
+      explain: '<p><b>To be</b> artinya “adalah / berada / sedang”. Dipakai untuk menyebut <b>identitas, sifat, umur, tempat, dan perasaan</b>. Bahasa Indonesia sering tidak memakai kata “adalah”, tetapi bahasa Inggris <b>wajib</b> memakai am/is/are.</p><ul><li><b>I</b> → am</li><li><b>He / She / It</b> / satu orang/benda → is</li><li><b>You / We / They</b> / jamak → are</li></ul><p>Negatif: tambahkan <b>not</b> (I am not, she is not = isn\'t, they are not = aren\'t). Tanya: balik posisinya (<b>Are you</b> tired?).</p><p class="tip">❌ “I happy.” → ✅ “I <b>am</b> happy.”</p>',
+      pattern: ['Subjek + am/is/are + kata sifat/benda/tempat', 'Subjek + am/is/are + not + …', 'Am/Is/Are + subjek + …?'],
+      examples: ['I am a student.|Saya seorang pelajar.', 'She is very smart.|Dia sangat pintar.', 'We are at home.|Kami ada di rumah.', 'They are not busy today.|Mereka tidak sibuk hari ini.', 'Is he your brother?|Apakah dia saudaramu?', 'It is cold outside.|Di luar dingin.', 'You are late.|Kamu terlambat.'],
+      quiz: ['I ___ hungry.|am|is|are|Saya lapar.', 'She ___ a doctor.|is|am|are|Dia seorang dokter.', 'They ___ my friends.|are|is|am|Mereka teman-teman saya.', 'The coffee ___ hot.|is|are|am|Kopinya panas.', '___ you ready?|Are|Is|Am|Apakah kamu siap?', 'We ___ not tired.|are|is|am|Kami tidak lelah.', 'My parents ___ at the office.|are|is|am|Orang tua saya ada di kantor.', 'It ___ 7 o\'clock now.|is|are|am|Sekarang jam 7.']
+    },
+    { id: 'd-t1', type: 'topic', cat: 'daily', title: 'Salam & Perkenalan', en: 'Greetings & Introductions',
+      phrases: ['Good morning!|Selamat pagi!', 'How are you?|Apa kabar?', 'I\'m fine, thank you. And you?|Saya baik, terima kasih. Kamu?', 'What\'s your name?|Siapa namamu?', 'My name is Budi.|Nama saya Budi.', 'Nice to meet you.|Senang bertemu denganmu.', 'Where are you from?|Kamu berasal dari mana?', 'I\'m from Indonesia.|Saya dari Indonesia.', 'What do you do?|Apa pekerjaanmu?', 'See you later!|Sampai jumpa nanti!', 'Have a nice day!|Semoga harimu menyenangkan!', 'Excuse me.|Permisi.'],
+      dialog: ['A|Hi! Good morning.|Hai! Selamat pagi.', 'B|Good morning! How are you?|Selamat pagi! Apa kabar?', 'A|I\'m fine, thanks. I\'m Rina. What\'s your name?|Baik, terima kasih. Saya Rina. Siapa namamu?', 'B|I\'m David. Nice to meet you, Rina.|Saya David. Senang bertemu denganmu, Rina.', 'A|Nice to meet you too. Where are you from?|Senang bertemu juga. Kamu dari mana?', 'B|I\'m from Australia. And you?|Saya dari Australia. Kamu?', 'A|I\'m from Jakarta. Welcome to Indonesia!|Saya dari Jakarta. Selamat datang di Indonesia!', 'B|Thank you! See you later.|Terima kasih! Sampai jumpa.'],
+      resp: ['How are you?|I\'m good, thanks. And you?|I\'m 25 years old.|Yes, I am a teacher.', 'Nice to meet you.|Nice to meet you too.|You\'re welcome.|Good night.', 'Where are you from?|I\'m from Medan.|I\'m a nurse.|I\'m fine.', 'Thank you very much!|You\'re welcome.|Nice to meet you.|See you.'] },
+    { id: 'd-v2', type: 'vocab', title: 'Kata Kerja Sehari-hari', en: 'Everyday Verbs', words: [
+      'eat|makan|We eat rice every day.|Kami makan nasi setiap hari.',
+      'drink|minum|I drink water in the morning.|Saya minum air di pagi hari.',
+      'sleep|tidur|The baby sleeps a lot.|Bayi itu banyak tidur.',
+      'wake up|bangun tidur|I wake up at 5 a.m.|Saya bangun jam 5 pagi.',
+      'go|pergi|They go to school by bus.|Mereka pergi ke sekolah naik bus.',
+      'come|datang|Please come to my house.|Silakan datang ke rumahku.',
+      'work|bekerja|My brother works in Bali.|Saudara saya bekerja di Bali.',
+      'study|belajar|She studies English at night.|Dia belajar bahasa Inggris pada malam hari.',
+      'read|membaca|I read the news every morning.|Saya membaca berita setiap pagi.',
+      'write|menulis|Please write your name here.|Silakan tulis namamu di sini.',
+      'speak|berbicara|Do you speak English?|Apakah kamu berbicara bahasa Inggris?',
+      'listen|mendengarkan|Listen to the teacher.|Dengarkan guru.',
+      'see|melihat|I can see the mountain.|Saya bisa melihat gunung itu.',
+      'watch|menonton|We watch movies on Sunday.|Kami menonton film pada hari Minggu.',
+      'buy|membeli|I want to buy a new phone.|Saya ingin membeli ponsel baru.',
+      'pay|membayar|Can I pay by card?|Bisakah saya membayar dengan kartu?',
+      'cook|memasak|My father cooks fried rice.|Ayah saya memasak nasi goreng.',
+      'clean|membersihkan|I clean my room on Saturday.|Saya membersihkan kamar hari Sabtu.',
+      'open|membuka|Please open the door.|Tolong buka pintunya.',
+      'close|menutup|Close the window, please.|Tolong tutup jendelanya.',
+      'help|membantu|Can you help me?|Bisakah kamu membantu saya?',
+      'want|ingin / mau|I want some coffee.|Saya mau kopi.',
+      'need|butuh|We need more time.|Kami butuh lebih banyak waktu.',
+      'like|suka|She likes chocolate.|Dia suka cokelat.',
+      'know|tahu / kenal|I know the answer.|Saya tahu jawabannya.'
+    ] },
+    { id: 'd-g2', type: 'grammar', title: 'Simple Present (kebiasaan)', en: 'Simple Present Tense',
+      explain: '<p>Dipakai untuk <b>kebiasaan, rutinitas, fakta, dan jadwal</b>. Kata kerja memakai bentuk dasar (eat, go, work).</p><p><b>Aturan penting:</b> untuk <b>he / she / it</b> (satu orang/benda) tambahkan <b>-s / -es</b>: he works, she watches, it goes, he studies.</p><ul><li>Negatif: <b>do not (don\'t)</b> / <b>does not (doesn\'t)</b> + kata kerja dasar.</li><li>Tanya: <b>Do / Does</b> + subjek + kata kerja dasar?</li></ul><p>Kata penanda: <i>every day, usually, always, often, sometimes, never, on Monday</i>.</p><p class="tip">❌ “She don\'t like it.” → ✅ “She <b>doesn\'t</b> like it.” &nbsp; ❌ “Does he works?” → ✅ “Does he <b>work</b>?”</p>',
+      pattern: ['I/You/We/They + kata kerja dasar', 'He/She/It + kata kerja + s/es', 'Subjek + don\'t/doesn\'t + kata kerja dasar', 'Do/Does + subjek + kata kerja dasar?'],
+      examples: ['I drink coffee every morning.|Saya minum kopi setiap pagi.', 'She works in a hospital.|Dia bekerja di rumah sakit.', 'They don\'t eat meat.|Mereka tidak makan daging.', 'He doesn\'t like cold weather.|Dia tidak suka cuaca dingin.', 'Do you speak English?|Apakah kamu berbicara bahasa Inggris?', 'Does she live near here?|Apakah dia tinggal di dekat sini?', 'The train leaves at eight.|Keretanya berangkat jam delapan.', 'We usually go to the market on Sunday.|Kami biasanya pergi ke pasar hari Minggu.'],
+      quiz: ['She ___ to work by car.|goes|go|going|Dia pergi bekerja naik mobil.', 'I ___ tea every morning.|drink|drinks|drinking|Saya minum teh setiap pagi.', 'He ___ like spicy food.|doesn\'t|don\'t|isn\'t|Dia tidak suka makanan pedas.', '___ you work on Saturday?|Do|Does|Are|Apakah kamu bekerja hari Sabtu?', '___ your sister live in Bali?|Does|Do|Is|Apakah saudarimu tinggal di Bali?', 'My father ___ the news every day.|reads|read|reading|Ayah saya membaca berita setiap hari.', 'We ___ have a car.|don\'t|doesn\'t|aren\'t|Kami tidak punya mobil.', 'The shop ___ at 9 a.m.|opens|open|opening|Tokonya buka jam 9 pagi.']
+    },
+    { id: 'd-t2', type: 'topic', cat: 'shopping', title: 'Belanja: Harga & Membayar', en: 'Shopping: Prices & Paying',
+      phrases: ['How much is this?|Berapa harganya ini?', 'How much are these?|Berapa harga yang ini (jamak)?', 'It\'s too expensive.|Ini terlalu mahal.', 'Do you have a cheaper one?|Ada yang lebih murah?', 'Can I try it on?|Boleh saya coba (pakai)?', 'Do you have this in a bigger size?|Ada ukuran yang lebih besar?', 'I\'m just looking, thanks.|Saya cuma lihat-lihat, terima kasih.', 'I\'ll take it.|Saya ambil yang ini.', 'Can I pay by card?|Bisa bayar pakai kartu?', 'Can I have a receipt, please?|Boleh minta struknya?', 'Where is the fitting room?|Di mana ruang ganti?', 'Is there a discount?|Ada diskon?'],
+      dialog: ['A|Hello! Can I help you?|Halo! Ada yang bisa dibantu?', 'B|Yes, how much is this T-shirt?|Ya, berapa harga kaus ini?', 'A|It\'s 150,000 rupiah.|Harganya 150.000 rupiah.', 'B|Do you have it in a medium size?|Ada ukuran M?', 'A|Yes, here you are. The fitting room is over there.|Ada, ini dia. Ruang gantinya di sana.', 'B|It fits well. I\'ll take it. Can I pay by card?|Pas. Saya ambil. Bisa bayar pakai kartu?', 'A|Sure. Here is your receipt.|Tentu. Ini struk Anda.', 'B|Thank you!|Terima kasih!'],
+      resp: ['Can I help you?|I\'m just looking, thanks.|I\'m from Bali.|It\'s 5 o\'clock.', 'It\'s 300,000 rupiah.|That\'s a bit expensive. Is there a discount?|Nice to meet you.|I\'m fine, thanks.', 'Cash or card?|Card, please.|Yes, please.|Medium size.', 'Does it fit?|Yes, it fits perfectly.|Yes, it\'s Monday.|No, I don\'t speak.'] },
+    { id: 'd-v3', type: 'vocab', title: 'Rumah, Waktu & Hari', en: 'Home, Time & Days', words: [
+      'house|rumah|They live in a small house.|Mereka tinggal di rumah kecil.',
+      'room|kamar / ruangan|My room is on the second floor.|Kamar saya di lantai dua.',
+      'kitchen|dapur|Mom is in the kitchen.|Ibu ada di dapur.',
+      'bathroom|kamar mandi|Where is the bathroom?|Di mana kamar mandinya?',
+      'bed|tempat tidur|The bed is very comfortable.|Tempat tidurnya sangat nyaman.',
+      'table|meja|The keys are on the table.|Kuncinya ada di atas meja.',
+      'chair|kursi|Please sit on this chair.|Silakan duduk di kursi ini.',
+      'door|pintu|Someone is at the door.|Ada orang di pintu.',
+      'window|jendela|Open the window, please.|Tolong buka jendelanya.',
+      'key|kunci|I can\'t find my key.|Saya tidak bisa menemukan kunci saya.',
+      'today|hari ini|Today is my birthday.|Hari ini ulang tahun saya.',
+      'tomorrow|besok|See you tomorrow!|Sampai jumpa besok!',
+      'yesterday|kemarin|I was sick yesterday.|Saya sakit kemarin.',
+      'morning|pagi|I jog every morning.|Saya joging setiap pagi.',
+      'afternoon|siang / sore|We have a meeting this afternoon.|Kita ada rapat siang ini.',
+      'evening|petang / malam|The evening is cool.|Malamnya sejuk.',
+      'night|malam|Good night!|Selamat malam (tidur)!',
+      'week|minggu (7 hari)|I go swimming twice a week.|Saya berenang dua kali seminggu.',
+      'month|bulan|Next month I will travel.|Bulan depan saya akan bepergian.',
+      'year|tahun|This year is great.|Tahun ini luar biasa.',
+      'Monday|Senin|The office opens on Monday.|Kantor buka hari Senin.',
+      'weekend|akhir pekan|What do you do on the weekend?|Apa yang kamu lakukan di akhir pekan?',
+      'hour|jam (durasi)|The trip takes two hours.|Perjalanannya memakan waktu dua jam.',
+      'minute|menit|Wait a minute, please.|Tunggu sebentar.',
+      'early|awal / pagi-pagi|I arrive early.|Saya datang lebih awal.',
+      'late|terlambat / larut|Sorry, I am late.|Maaf, saya terlambat.'
+    ] },
+    { id: 'd-g3', type: 'grammar', title: 'A / An / The & Bentuk Jamak', en: 'Articles & Plurals',
+      explain: '<p>Bahasa Inggris membedakan benda <b>tunggal</b> dan <b>jamak</b>, dan memakai kata sandang.</p><ul><li><b>a</b> + kata berbunyi konsonan: a book, a car, a <b>u</b>niversity (bunyi “yu”).</li><li><b>an</b> + kata berbunyi vokal: an apple, an egg, an <b>h</b>our (h tidak dibaca).</li><li><b>the</b> = benda tertentu / sudah disebut / hanya satu: the sun, the book on the table.</li></ul><p><b>Jamak:</b> + s (books), + es setelah s, sh, ch, x (boxes, watches), y → ies (city → cities). Tidak beraturan: man → men, woman → women, child → children, person → people, foot → feet, tooth → teeth.</p><p class="tip">Bahasa Indonesia mengulang kata (buku-buku); bahasa Inggris cukup <b>-s</b>: “two books”, bukan “two book”.</p>',
+      pattern: ['a/an + benda tunggal', 'the + benda tertentu', 'angka/many/some + benda jamak (-s/-es)'],
+      examples: ['I have a car and an umbrella.|Saya punya sebuah mobil dan sebuah payung.', 'The car is red.|Mobil itu berwarna merah.', 'She eats an apple every day.|Dia makan apel setiap hari.', 'There are three children in the room.|Ada tiga anak di ruangan itu.', 'I need two boxes.|Saya butuh dua kotak.', 'Many people live in big cities.|Banyak orang tinggal di kota besar.', 'Please close the door.|Tolong tutup pintunya.'],
+      quiz: ['I eat ___ egg for breakfast.|an|a|the|Saya makan telur untuk sarapan.', 'She is ___ teacher.|a|an|the|Dia seorang guru.', 'Please open ___ window near you.|the|a|an|Tolong buka jendela di dekatmu.', 'I need ___ hour to finish.|an|a|the|Saya butuh satu jam untuk selesai.', 'There are five ___ in the class.|children|childs|child|Ada lima anak di kelas.', 'I bought two ___.|watches|watchs|watch|Saya membeli dua jam tangan.', 'Many ___ visit Bali.|people|peoples|person|Banyak orang mengunjungi Bali.', 'She has two ___.|cities|citys|city|(Dia punya) dua kota.']
+    },
+    { id: 'd-t3', type: 'topic', cat: 'travel', title: 'Bandara & Arah Jalan', en: 'Airport & Directions',
+      phrases: ['Where is the check-in counter?|Di mana konter check-in?', 'Here is my passport.|Ini paspor saya.', 'I have one suitcase.|Saya punya satu koper.', 'Window or aisle seat?|Kursi dekat jendela atau lorong?', 'What time is boarding?|Jam berapa boarding?', 'Which gate is it?|Gerbang (gate) yang mana?', 'Excuse me, where is the taxi stand?|Permisi, di mana pangkalan taksi?', 'Go straight.|Jalan lurus.', 'Turn left / turn right.|Belok kiri / belok kanan.', 'It\'s next to the bank.|Itu di sebelah bank.', 'Is it far from here?|Apakah jauh dari sini?', 'How do I get to the hotel?|Bagaimana cara ke hotel?'],
+      dialog: ['A|Good morning. Your passport, please.|Selamat pagi. Paspor Anda, silakan.', 'B|Here you are.|Ini.', 'A|How many bags do you have?|Berapa tas yang Anda bawa?', 'B|Just one suitcase.|Hanya satu koper.', 'A|Window or aisle seat?|Kursi jendela atau lorong?', 'B|Window, please. What time is boarding?|Jendela, tolong. Jam berapa boarding?', 'A|Boarding is at 9:30 at Gate 12.|Boarding jam 9.30 di Gate 12.', 'B|Thank you. Where is Gate 12?|Terima kasih. Di mana Gate 12?', 'A|Go straight and turn left.|Jalan lurus lalu belok kiri.'],
+      resp: ['Your passport, please.|Here you are.|You\'re welcome.|I\'m fine.', 'Excuse me, where is the bank?|Go straight. It\'s on your right.|It\'s 10 o\'clock.|Yes, I like it.', 'Window or aisle seat?|An aisle seat, please.|Two bags.|At gate 5.', 'Is it far from here?|No, it\'s about five minutes on foot.|Yes, I\'m from here.|It\'s Monday.'] },
+    { id: 'd-v4', type: 'vocab', title: 'Kata Sifat & Warna', en: 'Adjectives & Colors', words: [
+      'big|besar|They have a big garden.|Mereka punya taman yang besar.',
+      'small|kecil|I live in a small town.|Saya tinggal di kota kecil.',
+      'new|baru|I like your new shoes.|Saya suka sepatu barumu.',
+      'old|tua / lama|This is an old building.|Ini gedung tua.',
+      'good|baik / bagus|That\'s a good idea.|Itu ide yang bagus.',
+      'bad|buruk|The weather is bad today.|Cuaca hari ini buruk.',
+      'happy|senang|I am happy to see you.|Saya senang melihatmu.',
+      'sad|sedih|Why are you sad?|Kenapa kamu sedih?',
+      'hot|panas|The soup is very hot.|Supnya sangat panas.',
+      'cold|dingin|I want a cold drink.|Saya mau minuman dingin.',
+      'easy|mudah|This lesson is easy.|Pelajaran ini mudah.',
+      'difficult|sulit|The test is difficult.|Ujiannya sulit.',
+      'cheap|murah|This bag is cheap.|Tas ini murah.',
+      'expensive|mahal|Hotels in the city are expensive.|Hotel di kota mahal.',
+      'beautiful|indah / cantik|Bali is beautiful.|Bali indah.',
+      'tired|lelah|I am tired after work.|Saya lelah setelah bekerja.',
+      'busy|sibuk|She is busy today.|Dia sibuk hari ini.',
+      'clean|bersih|The room is clean.|Kamarnya bersih.',
+      'dirty|kotor|My shoes are dirty.|Sepatu saya kotor.',
+      'fast|cepat|The train is fast.|Keretanya cepat.',
+      'slow|lambat|The internet is slow.|Internetnya lambat.',
+      'red|merah|She has a red bag.|Dia punya tas merah.',
+      'blue|biru|The sky is blue.|Langitnya biru.',
+      'white|putih|I need a white shirt.|Saya butuh kemeja putih.',
+      'black|hitam|He drinks black coffee.|Dia minum kopi hitam.'
+    ] },
+    { id: 'd-g4', type: 'grammar', title: 'Kata Ganti & Kepemilikan', en: 'Pronouns & Possessives',
+      explain: '<p>Kata ganti berubah sesuai fungsinya di kalimat.</p><table class="gt"><tr><th>Subjek</th><th>Objek</th><th>Milik (+benda)</th><th>Milik (sendiri)</th></tr><tr><td>I</td><td>me</td><td>my</td><td>mine</td></tr><tr><td>you</td><td>you</td><td>your</td><td>yours</td></tr><tr><td>he</td><td>him</td><td>his</td><td>his</td></tr><tr><td>she</td><td>her</td><td>her</td><td>hers</td></tr><tr><td>it</td><td>it</td><td>its</td><td>—</td></tr><tr><td>we</td><td>us</td><td>our</td><td>ours</td></tr><tr><td>they</td><td>them</td><td>their</td><td>theirs</td></tr></table><p>Kepemilikan benda/orang: <b>\'s</b> → Budi\'s car (mobil Budi), my mother\'s house.</p><p class="tip">Bahasa Indonesia “dia” bisa laki-laki atau perempuan; bahasa Inggris harus memilih <b>he</b> (laki-laki) atau <b>she</b> (perempuan).</p>',
+      pattern: ['Subjek (I, he…) + kata kerja', 'kata kerja + objek (me, him…)', 'my/his/her… + benda', 'Nama + \'s + benda'],
+      examples: ['She loves him.|Dia (perempuan) mencintainya (laki-laki).', 'Can you help me?|Bisakah kamu membantu saya?', 'This is my phone.|Ini ponsel saya.', 'That phone is mine.|Ponsel itu milik saya.', 'Their house is near the beach.|Rumah mereka dekat pantai.', 'Rina\'s brother is a pilot.|Saudara laki-laki Rina seorang pilot.', 'We call them every week.|Kami menelepon mereka setiap minggu.'],
+      quiz: ['This is ___ book.|my|me|I|Ini buku saya.', 'Please call ___ tomorrow.|me|my|I|Tolong telepon saya besok.', 'Rina loves ___ cat.|her|she|hers|Rina menyayangi kucingnya.', 'Andi and I are friends. ___ work together.|We|Us|Our|Andi dan saya berteman. Kami bekerja bersama.', 'Is this pen ___?|yours|your|you|Apakah pena ini milikmu?', 'I see ___ every morning. (mereka)|them|they|their|Saya melihat mereka setiap pagi.', 'That is ___ car. (milik Budi)|Budi\'s|Budis|Budi|Itu mobil Budi.', 'The dog wags ___ tail.|its|it\'s|it|Anjing itu mengibaskan ekornya.']
+    },
+    { id: 'd-t4', type: 'topic', cat: 'work', title: 'Di Kantor: Dasar', en: 'At the Office: Basics',
+      phrases: ['Good morning, everyone.|Selamat pagi, semuanya.', 'I work in the marketing department.|Saya bekerja di bagian pemasaran.', 'What time is the meeting?|Rapatnya jam berapa?', 'Can you send me the file?|Bisa kirimkan filenya ke saya?', 'I\'m sorry, I\'m busy right now.|Maaf, saya sedang sibuk sekarang.', 'I will call you back.|Saya akan menelepon Anda kembali.', 'Please check your email.|Tolong cek email Anda.', 'Where is the printer?|Di mana printernya?', 'Can I ask a question?|Boleh saya bertanya?', 'I don\'t understand. Can you repeat that?|Saya tidak mengerti. Bisa diulangi?', 'Thank you for your help.|Terima kasih atas bantuannya.', 'I\'m going home now. See you tomorrow.|Saya pulang sekarang. Sampai besok.'],
+      dialog: ['A|Good morning, Sari. Are you busy?|Selamat pagi, Sari. Kamu sibuk?', 'B|Good morning. A little. What do you need?|Selamat pagi. Sedikit. Kamu butuh apa?', 'A|Can you send me the sales report?|Bisa kirimkan laporan penjualan ke saya?', 'B|Sure. I will email it to you in ten minutes.|Tentu. Akan saya email dalam sepuluh menit.', 'A|Thanks. What time is the meeting today?|Terima kasih. Rapat hari ini jam berapa?', 'B|It\'s at two o\'clock in Room B.|Jam dua di Ruang B.', 'A|Great. See you there.|Bagus. Sampai jumpa di sana.'],
+      resp: ['Can you send me the file?|Sure, I\'ll send it now.|I\'m from Jakarta.|It\'s blue.', 'What time is the meeting?|It\'s at 10 a.m.|It\'s in my bag.|Yes, please.', 'Sorry, can you repeat that?|Of course. The meeting is moved to Friday.|No, I can\'t.|Good night.', 'Thank you for your help.|No problem. Anytime.|I\'m tired.|Turn left.'] },
+    { id: 'd-g5', type: 'grammar', title: 'There is / There are & Preposisi Tempat', en: 'There is/are & Prepositions of Place',
+      explain: '<p><b>There is</b> (tunggal) / <b>There are</b> (jamak) artinya “<b>ada</b>”.</p><ul><li>There is a bank near my house. (Ada sebuah bank dekat rumahku.)</li><li>There are two cats on the sofa.</li><li>Tanya: <b>Is there</b> …? / <b>Are there</b> …? Negatif: There isn\'t / There aren\'t.</li></ul><p><b>Preposisi tempat:</b> in (di dalam), on (di atas, menempel), under (di bawah), next to (di sebelah), between (di antara), behind (di belakang), in front of (di depan), near (dekat), opposite (di seberang).</p><p class="tip">Jangan pakai “have” untuk “ada”: ❌ “In my room have a TV.” → ✅ “<b>There is</b> a TV in my room.”</p>',
+      pattern: ['There is + a/an + benda tunggal + tempat', 'There are + benda jamak + tempat', 'Is/Are there + … ?'],
+      examples: ['There is a supermarket near here.|Ada supermarket di dekat sini.', 'There are many people at the station.|Ada banyak orang di stasiun.', 'Is there a pharmacy around here?|Apakah ada apotek di sekitar sini?', 'The phone is on the table.|Ponselnya di atas meja.', 'The cat is under the bed.|Kucingnya di bawah tempat tidur.', 'The bank is between the café and the hotel.|Bank itu di antara kafe dan hotel.', 'There aren\'t any chairs in the room.|Tidak ada kursi di ruangan itu.'],
+      quiz: ['There ___ a book on the table.|is|are|have|Ada sebuah buku di atas meja.', 'There ___ three cars outside.|are|is|has|Ada tiga mobil di luar.', '___ there an ATM near here?|Is|Are|Do|Apakah ada ATM di dekat sini?', 'The keys are ___ my bag.|in|on|at|Kuncinya di dalam tas saya.', 'The picture is ___ the wall.|on|in|under|Gambarnya di dinding.', 'The dog is sleeping ___ the table.|under|on|between|Anjingnya tidur di bawah meja.', 'The pharmacy is ___ to the bank.|next|near|between|Apotek itu di sebelah bank.', 'There ___ any milk in the fridge.|isn\'t|aren\'t|don\'t|Tidak ada susu di kulkas.']
+    },
+    { id: 'd-t5', type: 'topic', cat: 'project', title: 'Proyek: Tugas & Tenggat', en: 'Project: Tasks & Deadlines',
+      phrases: ['What is my task?|Apa tugas saya?', 'When is the deadline?|Kapan tenggat waktunya?', 'The deadline is Friday.|Tenggatnya hari Jumat.', 'I am working on it.|Saya sedang mengerjakannya.', 'It\'s done.|Sudah selesai.', 'It\'s not finished yet.|Belum selesai.', 'I need more time.|Saya butuh waktu lebih.', 'Who is in charge?|Siapa penanggung jawabnya?', 'Let\'s start.|Ayo mulai.', 'Please check my work.|Tolong periksa pekerjaan saya.', 'Is everything OK?|Apakah semuanya baik?', 'Good job!|Kerja bagus!'],
+      dialog: ['A|Hi Tono. What is my task this week?|Hai Tono. Apa tugas saya minggu ini?', 'B|Please design the new poster.|Tolong desain poster baru.', 'A|OK. When is the deadline?|Oke. Kapan tenggatnya?', 'B|The deadline is Friday afternoon.|Tenggatnya Jumat siang.', 'A|No problem. I will start today.|Tidak masalah. Saya mulai hari ini.', 'B|Great. Send it to me when it\'s done.|Bagus. Kirim ke saya kalau sudah selesai.', 'A|Sure. I will.|Tentu. Akan saya lakukan.'],
+      resp: ['When is the deadline?|It\'s next Monday.|It\'s in the office.|I\'m a designer.', 'Is it finished?|Not yet. I need one more day.|Yes, I\'m fine.|It\'s red.', 'Please check my work.|Sure, send it to me.|You\'re welcome.|Good morning.', 'Good job!|Thank you!|I\'m sorry.|See you.'] },
+    { id: 'd-g6', type: 'grammar', title: 'Kata Tanya (WH Questions)', en: 'Question Words',
+      explain: '<p>Kata tanya diletakkan di <b>awal</b> kalimat.</p><ul><li><b>What</b> = apa · <b>Who</b> = siapa · <b>Where</b> = di mana · <b>When</b> = kapan</li><li><b>Why</b> = mengapa · <b>How</b> = bagaimana · <b>Which</b> = yang mana · <b>Whose</b> = milik siapa</li><li><b>How much</b> = berapa (harga/tak terhitung) · <b>How many</b> = berapa banyak (terhitung) · <b>How old</b> = berapa umur · <b>How long</b> = berapa lama</li></ul><p>Pola: <b>Kata tanya + am/is/are + subjek</b>? (Where is the hotel?) atau <b>Kata tanya + do/does + subjek + kata kerja</b>? (Where do you live?)</p><p class="tip">❌ “Where you live?” → ✅ “Where <b>do</b> you live?”</p>',
+      pattern: ['WH + is/are + subjek …?', 'WH + do/does + subjek + kata kerja dasar …?'],
+      examples: ['What is your name?|Siapa namamu?', 'Where do you live?|Kamu tinggal di mana?', 'When does the shop open?|Kapan tokonya buka?', 'Why are you late?|Kenapa kamu terlambat?', 'How do you go to work?|Bagaimana kamu pergi bekerja?', 'How many brothers do you have?|Berapa saudara laki-lakimu?', 'How much is this bag?|Berapa harga tas ini?', 'Who is that man?|Siapa pria itu?'],
+      quiz: ['___ is your name?|What|Who|Where|Siapa namamu?', '___ do you live?|Where|What|Who|Di mana kamu tinggal?', '___ is that woman? She\'s my aunt.|Who|What|Which|Siapa wanita itu? Dia tante saya.', '___ are you sad?|Why|When|Where|Kenapa kamu sedih?', 'How ___ is this shirt?|much|many|old|Berapa harga kemeja ini?', 'How ___ children do they have?|many|much|long|Berapa anak yang mereka punya?', 'Where ___ she work?|does|do|is|Di mana dia bekerja?', '___ does the movie start? At 8 p.m.|When|Where|Who|Kapan filmnya mulai? Jam 8 malam.']
+    }
+  ]
+});
+// ===== LEVEL 2: UMUM =====
+COURSE.push({
+  id: 'umum', name: 'Umum', icon: '🌿', en: 'Intermediate',
+  desc: 'Bercerita tentang masa lalu & rencana, membandingkan, memberi saran, dan berkomunikasi di kerja, proyek, perjalanan, dan belanja.',
+  units: [
+    { id: 'u-v1', type: 'vocab', title: 'Kerja & Kantor', en: 'Work & Office', words: [
+      'colleague|rekan kerja|My colleague helps me a lot.|Rekan kerja saya banyak membantu saya.',
+      'manager|manajer|The manager approved the plan.|Manajer menyetujui rencana itu.',
+      'meeting|rapat|The meeting starts at nine.|Rapat dimulai jam sembilan.',
+      'schedule|jadwal|Let me check my schedule.|Biar saya cek jadwal saya.',
+      'report|laporan|I need to finish the report.|Saya harus menyelesaikan laporan itu.',
+      'salary|gaji|They pay the salary every month.|Mereka membayar gaji setiap bulan.',
+      'customer|pelanggan|The customer is always important.|Pelanggan selalu penting.',
+      'company|perusahaan|She works for a big company.|Dia bekerja di perusahaan besar.',
+      'department|bagian / divisi|Which department are you in?|Kamu di bagian apa?',
+      'interview|wawancara|I have a job interview tomorrow.|Saya ada wawancara kerja besok.',
+      'experience|pengalaman|He has five years of experience.|Dia punya pengalaman lima tahun.',
+      'skill|keterampilan|Communication is an important skill.|Komunikasi adalah keterampilan penting.',
+      'responsible|bertanggung jawab|I am responsible for sales.|Saya bertanggung jawab atas penjualan.',
+      'apply|melamar / menerapkan|I want to apply for this job.|Saya ingin melamar pekerjaan ini.',
+      'hire|merekrut|The company will hire ten people.|Perusahaan akan merekrut sepuluh orang.',
+      'promote|mempromosikan / menaikkan jabatan|She was promoted to manager.|Dia dipromosikan menjadi manajer.',
+      'attend|menghadiri|Please attend the training.|Silakan hadiri pelatihannya.',
+      'discuss|mendiskusikan|Let\'s discuss it later.|Mari kita diskusikan nanti.',
+      'agree|setuju|I agree with you.|Saya setuju denganmu.',
+      'improve|meningkatkan|We need to improve our service.|Kita perlu meningkatkan layanan kita.',
+      'reply|membalas|Please reply to my email.|Tolong balas email saya.',
+      'remind|mengingatkan|Remind me about the meeting.|Ingatkan saya tentang rapatnya.',
+      'urgent|mendesak|This task is urgent.|Tugas ini mendesak.',
+      'available|tersedia / ada waktu|Are you available on Tuesday?|Apakah kamu ada waktu hari Selasa?',
+      'contract|kontrak|We signed the contract today.|Kami menandatangani kontrak hari ini.'
+    ] },
+    { id: 'u-g1', type: 'grammar', title: 'Simple Past (masa lalu)', en: 'Simple Past Tense',
+      explain: '<p>Untuk kejadian yang <b>sudah selesai di masa lalu</b> (yesterday, last week, two days ago, in 2020).</p><ul><li>Kata kerja beraturan + <b>-ed</b>: work → worked, visit → visited, study → studied, stop → stopped.</li><li>Tidak beraturan (wajib dihafal): go → <b>went</b>, eat → <b>ate</b>, see → <b>saw</b>, buy → <b>bought</b>, have → <b>had</b>, make → <b>made</b>, take → <b>took</b>, get → <b>got</b>, come → <b>came</b>, say → <b>said</b>.</li><li>To be: I/he/she/it <b>was</b>, you/we/they <b>were</b>.</li><li>Negatif & tanya memakai <b>did</b> + kata kerja <b>dasar</b>: I didn\'t go. Did you see it?</li></ul><p class="tip">❌ “I didn\'t went.” → ✅ “I didn\'t <b>go</b>.” Bahasa Indonesia cukup menambah “kemarin”; bahasa Inggris <b>mengubah kata kerjanya</b>.</p>',
+      pattern: ['Subjek + kata kerja-2 (worked / went)', 'Subjek + didn\'t + kata kerja dasar', 'Did + subjek + kata kerja dasar?', 'Subjek + was/were + …'],
+      examples: ['I visited my grandmother last week.|Saya mengunjungi nenek minggu lalu.', 'We went to Yogyakarta in 2023.|Kami pergi ke Yogyakarta tahun 2023.', 'She bought a new laptop yesterday.|Dia membeli laptop baru kemarin.', 'They didn\'t come to the party.|Mereka tidak datang ke pesta.', 'Did you finish the report?|Apakah kamu sudah menyelesaikan laporannya?', 'The hotel was very clean.|Hotelnya sangat bersih.', 'We were tired after the trip.|Kami lelah setelah perjalanan.'],
+      quiz: ['I ___ to the cinema last night.|went|go|goes|Saya pergi ke bioskop tadi malam.', 'She ___ a new phone yesterday.|bought|buyed|buy|Dia membeli ponsel baru kemarin.', 'We ___ at home last Sunday.|were|was|are|Kami di rumah hari Minggu lalu.', 'He didn\'t ___ breakfast this morning.|eat|ate|eats|Dia tidak sarapan tadi pagi.', '___ you see the email?|Did|Do|Were|Apakah kamu melihat emailnya?', 'They ___ the project two days ago.|finished|finish|finishing|Mereka menyelesaikan proyek itu dua hari lalu.', 'The weather ___ very hot yesterday.|was|were|is|Cuaca kemarin sangat panas.', 'I ___ my keys at the office.|left|leaved|leave|Kunci saya tertinggal di kantor.']
+    },
+    { id: 'u-t1', type: 'topic', cat: 'daily', title: 'Obrolan Santai & Rencana', en: 'Small Talk & Making Plans',
+      phrases: ['What did you do last weekend?|Apa yang kamu lakukan akhir pekan lalu?', 'How was your day?|Bagaimana harimu?', 'Are you free this Saturday?|Kamu luang Sabtu ini?', 'Do you want to grab a coffee?|Mau ngopi bareng?', 'That sounds great!|Kedengarannya bagus!', 'Let\'s meet at 7.|Ayo ketemu jam 7.', 'I\'m sorry, I can\'t make it.|Maaf, saya tidak bisa datang.', 'Maybe next time.|Mungkin lain kali.', 'What do you usually do in your free time?|Biasanya kamu melakukan apa di waktu luang?', 'I\'m into photography.|Saya sedang suka fotografi.', 'Long time no see!|Lama tidak bertemu!', 'Take care!|Jaga diri ya!'],
+      dialog: ['A|Hey Maya! Long time no see. How have you been?|Hei Maya! Lama tak jumpa. Apa kabarmu?', 'B|I\'ve been great, thanks! What did you do last weekend?|Baik sekali, terima kasih! Apa yang kamu lakukan akhir pekan lalu?', 'A|I went hiking with my cousins. It was amazing.|Saya hiking dengan sepupu. Luar biasa.', 'B|Sounds fun! Are you free this Saturday?|Seru! Kamu luang Sabtu ini?', 'A|I think so. Why?|Sepertinya iya. Kenapa?', 'B|There\'s a new café downtown. Do you want to go?|Ada kafe baru di pusat kota. Mau ke sana?', 'A|Sure! Let\'s meet at 4 in the afternoon.|Tentu! Ayo ketemu jam 4 sore.', 'B|Perfect. See you then!|Pas. Sampai jumpa!'],
+      resp: ['Do you want to grab a coffee?|Sure, I\'d love to!|I grabbed it.|Yes, it\'s coffee.', 'How was your weekend?|It was relaxing. I stayed home and read.|I am weekend.|It will be good.', 'Are you free tonight?|Sorry, I\'m busy tonight. How about tomorrow?|Yes, it\'s free of charge.|I\'m not a free.', 'Long time no see!|Yeah! How have you been?|Yes, I can\'t see.|No, it\'s short.'] },
+    { id: 'u-v2', type: 'vocab', title: 'Perjalanan & Hotel', en: 'Travel & Hotel', words: [
+      'trip|perjalanan|We had a great trip to Lombok.|Kami punya perjalanan hebat ke Lombok.',
+      'flight|penerbangan|My flight is delayed.|Penerbangan saya tertunda.',
+      'luggage|bagasi|Where can I pick up my luggage?|Di mana saya bisa mengambil bagasi?',
+      'passport|paspor|Don\'t forget your passport.|Jangan lupa paspormu.',
+      'ticket|tiket|I booked the tickets online.|Saya memesan tiket secara online.',
+      'book|memesan (reservasi)|I want to book a room.|Saya ingin memesan kamar.',
+      'reservation|reservasi|I have a reservation under the name Andi.|Saya punya reservasi atas nama Andi.',
+      'departure|keberangkatan|The departure time is 10 a.m.|Waktu keberangkatan jam 10 pagi.',
+      'arrival|kedatangan|Our arrival is at midnight.|Kedatangan kami tengah malam.',
+      'delay|penundaan / tertunda|There is a two-hour delay.|Ada penundaan dua jam.',
+      'destination|tujuan|Bali is a popular destination.|Bali adalah tujuan populer.',
+      'abroad|luar negeri|I want to study abroad.|Saya ingin kuliah di luar negeri.',
+      'sightseeing|jalan-jalan melihat tempat wisata|We went sightseeing in Rome.|Kami jalan-jalan keliling Roma.',
+      'souvenir|oleh-oleh|I bought souvenirs for my family.|Saya membeli oleh-oleh untuk keluarga.',
+      'tourist|turis|The beach is full of tourists.|Pantai penuh dengan turis.',
+      'guide|pemandu|Our guide speaks three languages.|Pemandu kami berbicara tiga bahasa.',
+      'map|peta|Can you show me on the map?|Bisa tunjukkan di peta?',
+      'station|stasiun|The station is near the hotel.|Stasiunnya dekat hotel.',
+      'platform|peron|The train leaves from platform 3.|Kereta berangkat dari peron 3.',
+      'single room|kamar untuk satu orang|I\'d like a single room.|Saya ingin kamar single.',
+      'check out|keluar hotel (check-out)|We check out at noon.|Kami check-out siang hari.',
+      'currency|mata uang|What is the local currency?|Apa mata uang setempat?',
+      'exchange|menukar|Where can I exchange money?|Di mana saya bisa menukar uang?',
+      'insurance|asuransi|Do you have travel insurance?|Apakah kamu punya asuransi perjalanan?',
+      'lost|hilang / tersesat|I think we are lost.|Sepertinya kita tersesat.'
+    ] },
+    { id: 'u-g2', type: 'grammar', title: 'Present & Past Continuous', en: 'Continuous Tenses',
+      explain: '<p><b>Present continuous</b> = sedang terjadi <b>sekarang</b> atau rencana pasti dekat: <b>am/is/are + kata kerja-ing</b>.</p><ul><li>I am working now. She is cooking. They are coming tomorrow (rencana).</li></ul><p><b>Past continuous</b> = sedang berlangsung di suatu waktu di masa lalu, sering terpotong kejadian lain: <b>was/were + -ing</b>.</p><ul><li>I was sleeping when you called. (Saya sedang tidur ketika kamu menelepon.)</li><li>While we were eating, it started to rain.</li></ul><p>Kata kerja “keadaan” biasanya tidak memakai -ing: know, like, want, need, understand, believe.</p><p class="tip">❌ “I am knowing him.” → ✅ “I <b>know</b> him.”</p>',
+      pattern: ['Subjek + am/is/are + V-ing', 'Subjek + was/were + V-ing', 'Was/were + V-ing … when + simple past'],
+      examples: ['I am studying English right now.|Saya sedang belajar bahasa Inggris sekarang.', 'She is talking to a customer.|Dia sedang berbicara dengan pelanggan.', 'We are meeting the client tomorrow.|Kami akan bertemu klien besok.', 'What are you doing?|Kamu sedang apa?', 'I was driving when the phone rang.|Saya sedang menyetir ketika ponsel berbunyi.', 'They were watching TV at 9 p.m.|Mereka sedang menonton TV jam 9 malam.', 'While she was cooking, he was cleaning.|Selagi dia memasak, dia (pria) membersihkan.'],
+      quiz: ['Look! It ___ raining.|is|was|are|Lihat! Sedang hujan.', 'I ___ working at the moment.|am|is|was|Saya sedang bekerja saat ini.', 'They ___ playing football when it started to rain.|were|was|are|Mereka sedang main bola ketika mulai hujan.', 'What ___ you doing now?|are|is|were|Kamu sedang apa sekarang?', 'I was sleeping when you ___.|called|were calling|call|Saya sedang tidur ketika kamu menelepon.', 'She ___ dinner at 7 last night.|was cooking|is cooking|cooks|Dia sedang memasak makan malam jam 7 tadi malam.', 'I ___ the answer.|know|am knowing|knowing|Saya tahu jawabannya.', 'We ___ the manager tomorrow at 10.|are meeting|were meeting|meeting|Kami bertemu manajer besok jam 10.']
+    },
+    { id: 'u-t2', type: 'topic', cat: 'work', title: 'Rapat & Email Kerja', en: 'Meetings & Work Emails',
+      phrases: ['Let\'s get started.|Mari kita mulai.', 'The purpose of this meeting is…|Tujuan rapat ini adalah…', 'Could you give us an update?|Bisa berikan kabar terbaru?', 'I\'d like to add something.|Saya ingin menambahkan sesuatu.', 'I see your point, but…|Saya paham maksudmu, tetapi…', 'Could you clarify that?|Bisa diperjelas?', 'Let\'s move on to the next item.|Mari lanjut ke poin berikutnya.', 'I\'m writing to follow up on…|Saya menulis untuk menindaklanjuti…', 'Please find the attached file.|Terlampir file yang dimaksud.', 'Please let me know if you have any questions.|Kabari saya jika ada pertanyaan.', 'I look forward to hearing from you.|Saya menantikan kabar dari Anda.', 'Best regards,|Salam hormat,'],
+      dialog: ['A|Good morning, everyone. Let\'s get started.|Selamat pagi semua. Mari kita mulai.', 'A|The purpose of this meeting is to review last month\'s sales.|Tujuan rapat ini meninjau penjualan bulan lalu.', 'B|Sales increased by ten percent, mainly online.|Penjualan naik sepuluh persen, terutama online.', 'C|I\'d like to add something. Our costs also went up.|Saya ingin menambahkan. Biaya kita juga naik.', 'A|Good point. Could you send us the details?|Poin bagus. Bisa kirimkan rinciannya?', 'C|Sure, I\'ll email them after the meeting.|Tentu, akan saya email setelah rapat.', 'A|Great. Let\'s move on to the next item.|Bagus. Mari lanjut ke poin berikutnya.'],
+      resp: ['Could you give us an update on the project?|Sure. We\'ve finished phase one and started phase two.|Yes, I give.|Update is good.', 'Do you have any questions?|Just one. When is the deadline?|No, I\'m fine thanks, and you?|Yes, I am questions.', 'I think we should cut the budget.|I see your point, but that might affect quality.|You\'re welcome.|I am cutting.', 'Could you clarify that?|Of course. I mean we need two more designers.|Yes, it\'s clear water.|No, I couldn\'t.'] },
+    { id: 'u-v3', type: 'vocab', title: 'Belanja & Uang', en: 'Shopping & Money', words: [
+      'price|harga|The price is reasonable.|Harganya wajar.',
+      'discount|diskon|They give a 20% discount.|Mereka memberi diskon 20%.',
+      'sale|obral|Everything is on sale today.|Semuanya diobral hari ini.',
+      'receipt|struk / kuitansi|Keep the receipt.|Simpan struknya.',
+      'refund|pengembalian uang|Can I get a refund?|Bisakah saya mendapat pengembalian uang?',
+      'exchange|menukar (barang)|Can I exchange this for a smaller size?|Bisakah ditukar ukuran lebih kecil?',
+      'cash|uang tunai|I only have cash.|Saya hanya punya uang tunai.',
+      'change|uang kembalian|Here is your change.|Ini kembalian Anda.',
+      'cashier|kasir|Please pay at the cashier.|Silakan bayar di kasir.',
+      'size|ukuran|What size do you wear?|Kamu pakai ukuran berapa?',
+      'fit|pas (ukuran)|These shoes fit perfectly.|Sepatu ini sangat pas.',
+      'try on|mencoba (pakaian)|Can I try on this jacket?|Boleh saya coba jaket ini?',
+      'bargain|tawar-menawar / barang murah|This bag was a bargain!|Tas ini murah sekali!',
+      'afford|mampu membeli|I can\'t afford a new car.|Saya tidak mampu membeli mobil baru.',
+      'spend|menghabiskan (uang/waktu)|I spent too much money.|Saya menghabiskan terlalu banyak uang.',
+      'save|menabung / menghemat|I save money every month.|Saya menabung setiap bulan.',
+      'cost|biaya / berharga|How much does it cost?|Berapa biayanya?',
+      'brand|merek|What brand is this?|Ini merek apa?',
+      'quality|kualitas|The quality is excellent.|Kualitasnya sangat baik.',
+      'deliver|mengantar|They deliver for free.|Mereka mengantar gratis.',
+      'order|memesan / pesanan|I ordered it online.|Saya memesannya online.',
+      'out of stock|stok habis|Sorry, it\'s out of stock.|Maaf, stoknya habis.',
+      'aisle|lorong (toko)|Rice is in aisle 5.|Beras ada di lorong 5.',
+      'basket|keranjang|Take a basket, please.|Silakan ambil keranjang.',
+      'wallet|dompet|I forgot my wallet.|Dompet saya ketinggalan.'
+    ] },
+    { id: 'u-g3', type: 'grammar', title: 'Masa Depan: Will & Going to', en: 'Future: will & going to',
+      explain: '<p><b>Will</b> + kata kerja dasar → keputusan <b>spontan</b>, janji, tawaran, prediksi umum.</p><ul><li>The phone is ringing. I\'ll answer it. (spontan)</li><li>I will help you. (janji/tawaran)</li></ul><p><b>Be going to</b> + kata kerja dasar → <b>rencana</b> yang sudah dipikirkan, atau prediksi dengan bukti.</p><ul><li>I\'m going to visit Japan next year. (rencana)</li><li>Look at those clouds. It\'s going to rain. (ada bukti)</li></ul><p>Negatif: will not = <b>won\'t</b>; I\'m not going to…</p><p class="tip">❌ “I will to go.” → ✅ “I will <b>go</b>.”</p>',
+      pattern: ['Subjek + will / won\'t + kata kerja dasar', 'Subjek + am/is/are + going to + kata kerja dasar'],
+      examples: ['I\'ll call you tonight.|Saya akan meneleponmu nanti malam.', 'Don\'t worry, I won\'t tell anyone.|Jangan khawatir, saya tidak akan memberi tahu siapa pun.', 'We\'re going to move to a new office.|Kami akan pindah ke kantor baru.', 'She\'s going to start a business.|Dia berencana memulai bisnis.', 'It\'s going to rain soon.|Sebentar lagi akan hujan.', 'Will you come to the meeting?|Apakah kamu akan datang ke rapat?', 'I think the price will go up.|Saya rasa harganya akan naik.'],
+      quiz: ['I\'m tired. I think I ___ go to bed.|will|am going|going|Saya lelah. Sepertinya saya akan tidur.', 'We ___ going to buy a house next year.|are|will|is|Kami berencana membeli rumah tahun depan.', 'Look at the sky! It\'s ___ rain.|going to|will to|going|Lihat langit! Akan hujan.', 'Don\'t worry. I ___ forget.|won\'t|don\'t|am not|Jangan khawatir. Saya tidak akan lupa.', '___ you help me with this box?|Will|Are|Going|Maukah kamu membantuku dengan kotak ini?', 'She is going to ___ a new job.|start|starts|started|Dia akan memulai pekerjaan baru.', 'The bags look heavy. I ___ carry one for you.|\'ll|\'m going|am|Tasnya kelihatan berat. Saya bawakan satu.', 'They will ___ tomorrow.|arrive|arriving|arrives|Mereka akan tiba besok.']
+    },
+    { id: 'u-t3', type: 'topic', cat: 'travel', title: 'Hotel & Restoran', en: 'Hotel & Restaurant',
+      phrases: ['I have a reservation under the name…|Saya punya reservasi atas nama…', 'What time is check-out?|Jam berapa check-out?', 'Is breakfast included?|Apakah termasuk sarapan?', 'The air conditioner doesn\'t work.|AC-nya tidak berfungsi.', 'Could I have the Wi-Fi password?|Boleh minta kata sandi Wi-Fi?', 'A table for two, please.|Meja untuk dua orang.', 'Can I see the menu, please?|Boleh saya lihat menunya?', 'What do you recommend?|Apa yang Anda rekomendasikan?', 'I\'m allergic to peanuts.|Saya alergi kacang.', 'Not too spicy, please.|Jangan terlalu pedas.', 'Could we have the bill, please?|Boleh minta tagihannya?', 'Keep the change.|Simpan kembaliannya.'],
+      dialog: ['A|Good evening. Welcome to Sunrise Hotel.|Selamat malam. Selamat datang di Hotel Sunrise.', 'B|Hi, I have a reservation under the name Hendra.|Hai, saya punya reservasi atas nama Hendra.', 'A|Yes, a double room for three nights. May I see your ID?|Ya, kamar double untuk tiga malam. Boleh lihat identitas Anda?', 'B|Here you go. Is breakfast included?|Ini. Apakah termasuk sarapan?', 'A|Yes, breakfast is from 6 to 10 on the second floor.|Ya, sarapan jam 6 sampai 10 di lantai dua.', 'B|Great. And what time is check-out?|Bagus. Jam berapa check-out?', 'A|Check-out is at noon. Here is your key card. Enjoy your stay!|Check-out jam 12 siang. Ini kartu kunci Anda. Selamat menikmati!'],
+      resp: ['Are you ready to order?|Yes, I\'ll have the grilled fish, please.|Yes, I am ready to orders.|No, I\'m order.', 'How was your meal?|It was delicious, thank you.|It is meal.|I will be fine.', 'Is there anything else I can help you with?|No, that\'s all. Thank you.|Yes, you are.|I\'m anything.', 'Do you have a reservation?|Yes, under the name Lestari.|Yes, I reserve it now.|No, I\'m a name.'] },
+    { id: 'u-v4', type: 'vocab', title: 'Perasaan & Kata Sifat Lanjut', en: 'Feelings & Descriptions', words: [
+      'excited|bersemangat / antusias|I\'m excited about the trip.|Saya antusias dengan perjalanan itu.',
+      'nervous|gugup|She was nervous before the interview.|Dia gugup sebelum wawancara.',
+      'worried|khawatir|Don\'t be worried.|Jangan khawatir.',
+      'angry|marah|He was angry about the delay.|Dia marah soal keterlambatan itu.',
+      'surprised|terkejut|I was surprised by the news.|Saya terkejut dengan berita itu.',
+      'disappointed|kecewa|We were disappointed with the service.|Kami kecewa dengan layanannya.',
+      'proud|bangga|I\'m proud of you.|Saya bangga padamu.',
+      'bored|bosan|I\'m bored at home.|Saya bosan di rumah.',
+      'boring|membosankan|The movie was boring.|Filmnya membosankan.',
+      'interesting|menarik|That\'s an interesting idea.|Itu ide yang menarik.',
+      'confident|percaya diri|Be confident when you speak.|Percayalah diri saat berbicara.',
+      'friendly|ramah|The staff are very friendly.|Stafnya sangat ramah.',
+      'polite|sopan|Always be polite to customers.|Selalu sopan kepada pelanggan.',
+      'honest|jujur|He is an honest person.|Dia orang yang jujur.',
+      'lazy|malas|Don\'t be lazy!|Jangan malas!',
+      'hard-working|pekerja keras|She is very hard-working.|Dia sangat pekerja keras.',
+      'patient|sabar|Please be patient.|Mohon bersabar.',
+      'crowded|ramai / padat|The market is crowded.|Pasarnya ramai.',
+      'quiet|tenang / sepi|The village is quiet.|Desanya tenang.',
+      'comfortable|nyaman|This sofa is comfortable.|Sofa ini nyaman.',
+      'dangerous|berbahaya|It\'s dangerous to swim here.|Berbahaya berenang di sini.',
+      'safe|aman|Is it safe to walk at night?|Apakah aman berjalan malam hari?',
+      'delicious|lezat|The food was delicious.|Makanannya lezat.',
+      'healthy|sehat|Eat healthy food.|Makanlah makanan sehat.',
+      'famous|terkenal|This place is famous for its coffee.|Tempat ini terkenal dengan kopinya.'
+    ] },
+    { id: 'u-g4', type: 'grammar', title: 'Present Perfect (pengalaman & hasil)', en: 'Present Perfect',
+      explain: '<p><b>have/has + kata kerja-3</b> (past participle). Dipakai untuk:</p><ul><li><b>Pengalaman</b> (tanpa waktu spesifik): I have been to Japan. Have you ever eaten durian?</li><li><b>Hasil yang masih terasa sekarang</b>: I have lost my key. (sekarang masih hilang)</li><li><b>Sejak … sampai sekarang</b>: I have lived here <b>for</b> 5 years / <b>since</b> 2019.</li><li>Dengan <b>already, yet, just</b>: I have already finished. Have you finished yet? She has just left.</li></ul><p>V3 tak beraturan: go → gone/been, see → seen, eat → eaten, do → done, write → written, take → taken.</p><p class="tip">Jika ada waktu spesifik lampau (yesterday, in 2020) pakai <b>simple past</b>: ❌ “I have seen him yesterday.” → ✅ “I <b>saw</b> him yesterday.”</p>',
+      pattern: ['Subjek + have/has + V3', 'Have/Has + subjek + (ever) + V3?', '… for + durasi / since + titik waktu'],
+      examples: ['I have visited Bali three times.|Saya sudah tiga kali ke Bali.', 'She has worked here since 2020.|Dia bekerja di sini sejak 2020.', 'We have known each other for ten years.|Kami saling kenal selama sepuluh tahun.', 'Have you ever tried sushi?|Pernahkah kamu mencoba sushi?', 'I haven\'t finished the report yet.|Saya belum menyelesaikan laporannya.', 'He has just arrived.|Dia baru saja tiba.', 'They have already paid.|Mereka sudah membayar.'],
+      quiz: ['I have ___ this movie before.|seen|saw|see|Saya pernah menonton film ini.', 'She ___ lived in Bandung for five years.|has|have|is|Dia sudah tinggal di Bandung lima tahun.', 'Have you ___ been to Singapore?|ever|yet|since|Pernahkah kamu ke Singapura?', 'We have worked here ___ 2018.|since|for|from|Kami bekerja di sini sejak 2018.', 'I have known her ___ ten years.|for|since|during|Saya kenal dia selama sepuluh tahun.', 'I ___ him yesterday.|saw|have seen|seen|Saya melihatnya kemarin.', 'Have you finished ___?|yet|already|since|Sudah selesai?', 'He has just ___ the office.|left|leave|leaved|Dia baru saja meninggalkan kantor.']
+    },
+    { id: 'u-t4', type: 'topic', cat: 'project', title: 'Proyek: Progres & Masalah', en: 'Project: Progress & Problems',
+      phrases: ['We\'re on track.|Kita sesuai jadwal.', 'We\'re behind schedule.|Kita terlambat dari jadwal.', 'We\'ve completed 70% of the work.|Kita sudah menyelesaikan 70% pekerjaan.', 'There\'s a problem with the supplier.|Ada masalah dengan pemasok.', 'What\'s the main issue?|Apa masalah utamanya?', 'We need to fix this as soon as possible.|Kita harus memperbaiki ini secepatnya.', 'Who will handle this?|Siapa yang akan menangani ini?', 'Can we extend the deadline?|Bisakah tenggatnya diperpanjang?', 'Let\'s set up a quick call.|Ayo atur panggilan singkat.', 'I\'ll keep you posted.|Saya akan terus mengabari.', 'The budget is tight.|Anggarannya ketat.', 'That\'s a good solution.|Itu solusi yang bagus.'],
+      dialog: ['A|Hi Rudi, how is the website project going?|Hai Rudi, bagaimana proyek situs webnya?', 'B|We\'ve completed about 70%, but we\'re a little behind schedule.|Sudah sekitar 70%, tapi kita agak terlambat.', 'A|What\'s the main issue?|Apa masalah utamanya?', 'B|The client changed the design twice, so we lost a week.|Klien mengubah desain dua kali, jadi kita kehilangan seminggu.', 'A|I see. Can we still finish by the 30th?|Begitu. Masih bisa selesai tanggal 30?', 'B|If we add one more developer, yes.|Kalau kita tambah satu developer lagi, bisa.', 'A|OK, I\'ll talk to HR today. Keep me posted.|Oke, saya bicara ke HRD hari ini. Terus kabari ya.'],
+      resp: ['How is the project going?|It\'s going well. We\'re on track.|It goes to the office.|I\'m project.', 'We\'re behind schedule.|What happened? How can I help?|Congratulations!|Nice to meet you.', 'Can you handle this task?|Yes, I\'ll take care of it.|Yes, I handle it yesterday.|No, it\'s a handle.', 'Please keep me posted.|Will do. I\'ll update you tomorrow.|Yes, I post it.|You\'re welcome.'] },
+    { id: 'u-g5', type: 'grammar', title: 'Perbandingan (Comparative & Superlative)', en: 'Comparatives & Superlatives',
+      explain: '<p>Untuk <b>membandingkan</b> dua hal (lebih …) dan <b>paling</b> (ter-…).</p><ul><li>Kata pendek: + <b>-er than</b> / <b>the …-est</b>: cheap → cheaper than → the cheapest; big → bigger → the biggest; easy → easier → the easiest.</li><li>Kata panjang (2+ suku kata): <b>more … than</b> / <b>the most …</b>: expensive → more expensive → the most expensive.</li><li>Tidak beraturan: good → <b>better</b> → <b>the best</b>; bad → <b>worse</b> → <b>the worst</b>; far → farther → the farthest.</li><li>Sama: <b>as … as</b>: She is as tall as her mother.</li></ul><p class="tip">❌ “more cheaper” → ✅ “cheaper”. ❌ “the most best” → ✅ “the best”.</p>',
+      pattern: ['A + is + adj-er / more adj + than + B', 'A + is + the adj-est / the most adj + (in/of …)', 'A + is + as adj as + B'],
+      examples: ['This phone is cheaper than that one.|Ponsel ini lebih murah daripada yang itu.', 'Jakarta is bigger than Bandung.|Jakarta lebih besar daripada Bandung.', 'Gold is more expensive than silver.|Emas lebih mahal daripada perak.', 'This is the best restaurant in town.|Ini restoran terbaik di kota.', 'Today is the hottest day of the year.|Hari ini hari terpanas dalam setahun.', 'My English is better than last year.|Bahasa Inggris saya lebih baik dari tahun lalu.', 'He is as tall as his father.|Dia setinggi ayahnya.'],
+      quiz: ['A car is ___ than a bike.|faster|more fast|fastest|Mobil lebih cepat daripada sepeda.', 'This hotel is ___ expensive than that one.|more|most|much|Hotel ini lebih mahal daripada yang itu.', 'She is the ___ student in the class.|smartest|smarter|most smart|Dia murid terpintar di kelas.', 'This is the ___ movie I\'ve ever seen.|best|better|goodest|Ini film terbaik yang pernah saya tonton.', 'Today is ___ than yesterday.|hotter|hoter|more hot|Hari ini lebih panas daripada kemarin.', 'The traffic is ___ today than yesterday.|worse|badder|worst|Lalu lintas hari ini lebih buruk daripada kemarin.', 'He is as ___ as his brother.|tall|taller|tallest|Dia setinggi saudaranya.', 'Bali is one of the ___ beautiful islands.|most|more|best|Bali salah satu pulau terindah.']
+    },
+    { id: 'u-t5', type: 'topic', cat: 'shopping', title: 'Belanja Online & Komplain', en: 'Online Shopping & Complaints',
+      phrases: ['I ordered it last week, but it hasn\'t arrived.|Saya memesannya minggu lalu, tapi belum sampai.', 'Can you track my order?|Bisa lacak pesanan saya?', 'The item is damaged.|Barangnya rusak.', 'This is not what I ordered.|Ini bukan yang saya pesan.', 'I\'d like to return this.|Saya ingin mengembalikan ini.', 'Can I get a refund?|Bisa minta uang kembali?', 'Could you exchange it for a different color?|Bisa ditukar dengan warna lain?', 'How long does delivery take?|Berapa lama pengirimannya?', 'Is shipping free?|Apakah ongkirnya gratis?', 'Here is my order number.|Ini nomor pesanan saya.', 'I\'m not satisfied with the quality.|Saya tidak puas dengan kualitasnya.', 'Thank you for solving the problem.|Terima kasih sudah menyelesaikan masalahnya.'],
+      dialog: ['A|Customer service, Lina speaking. How can I help you?|Layanan pelanggan, dengan Lina. Ada yang bisa dibantu?', 'B|Hi, I ordered a blender last week, but it arrived damaged.|Hai, saya pesan blender minggu lalu, tapi datang dalam keadaan rusak.', 'A|I\'m so sorry about that. Could I have your order number?|Mohon maaf. Boleh minta nomor pesanannya?', 'B|Sure, it\'s 48213.|Tentu, 48213.', 'A|Thank you. Would you like a replacement or a refund?|Terima kasih. Anda ingin penggantian atau pengembalian uang?', 'B|A replacement, please. How long will it take?|Penggantian, tolong. Berapa lama?', 'A|About three working days. We\'ll pick up the damaged one for free.|Sekitar tiga hari kerja. Kami akan mengambil yang rusak gratis.', 'B|Great, thank you for your help.|Bagus, terima kasih atas bantuannya.'],
+      resp: ['How can I help you?|My order hasn\'t arrived yet.|I help you too.|Yes, you can.', 'Would you like a refund or an exchange?|An exchange, please. A size M.|Yes, I would.|I like refund exchange.', 'Could I have your order number?|Yes, it\'s 55021.|Yes, you could.|It\'s my order.', 'We apologize for the inconvenience.|That\'s OK. Thanks for fixing it.|You\'re welcome.|Me too.'] },
+    { id: 'u-g6', type: 'grammar', title: 'Modal: can, should, must, have to', en: 'Modal Verbs',
+      explain: '<p>Modal + <b>kata kerja dasar</b> (tanpa to, tanpa -s).</p><ul><li><b>can / can\'t</b> = bisa (kemampuan, izin): I can swim. Can I sit here?</li><li><b>could</b> = bisa (lampau) / permintaan sopan: Could you help me?</li><li><b>should / shouldn\'t</b> = sebaiknya (saran): You should rest.</li><li><b>must / mustn\'t</b> = harus (aturan kuat) / dilarang: You mustn\'t smoke here.</li><li><b>have to / has to</b> = harus (keharusan dari luar): I have to work on Saturday. <b>don\'t have to</b> = tidak perlu.</li><li><b>may / might</b> = mungkin: It might rain.</li></ul><p class="tip">❌ “She cans speak.” → ✅ “She <b>can</b> speak.” &nbsp; ❌ “You should to go.” → ✅ “You should <b>go</b>.” Ingat: <b>mustn\'t</b> (dilarang) ≠ <b>don\'t have to</b> (tidak wajib).</p>',
+      pattern: ['Subjek + modal + kata kerja dasar', 'Modal + subjek + kata kerja dasar?', 'Subjek + have/has to + kata kerja dasar'],
+      examples: ['I can speak a little English.|Saya bisa sedikit berbahasa Inggris.', 'Could you open the window, please?|Bisakah Anda membuka jendela?', 'You should drink more water.|Kamu sebaiknya minum lebih banyak air.', 'Passengers must wear seat belts.|Penumpang harus memakai sabuk pengaman.', 'You mustn\'t park here.|Kamu dilarang parkir di sini.', 'I have to finish this today.|Saya harus menyelesaikan ini hari ini.', 'You don\'t have to pay. It\'s free.|Kamu tidak perlu bayar. Ini gratis.', 'It might rain this afternoon.|Mungkin akan hujan sore ini.'],
+      quiz: ['She ___ speak three languages.|can|cans|can to|Dia bisa berbicara tiga bahasa.', 'You look tired. You ___ rest.|should|must to|can to|Kamu kelihatan lelah. Sebaiknya istirahat.', '___ you help me, please?|Could|Should|Must|Bisakah kamu membantuku?', 'You ___ smoke in the hospital.|mustn\'t|don\'t have to|shouldn\'t to|Dilarang merokok di rumah sakit.', 'It\'s free. You ___ pay.|don\'t have to|mustn\'t|can\'t to|Gratis. Kamu tidak perlu bayar.', 'He ___ wake up early tomorrow.|has to|have to|must to|Dia harus bangun pagi besok.', 'I ___ swim when I was five.|could|can|should|Saya bisa berenang ketika umur lima.', 'Take an umbrella. It ___ rain.|might|must|has|Bawa payung. Mungkin hujan.']
+    }
+  ]
+});
+// ===== LEVEL 3: FASIH =====
+COURSE.push({
+  id: 'fasih', name: 'Fasih', icon: '🌳', en: 'Fluent',
+  desc: 'Berbicara seperti penutur asli: kalimat kompleks, pengandaian, kalimat pasif, idiom, phrasal verb, negosiasi, presentasi, dan ungkapan alami.',
+  units: [
+    { id: 'f-v1', type: 'vocab', title: 'Phrasal Verbs Penting', en: 'Essential Phrasal Verbs', words: [
+      'figure out|memahami / menemukan solusi|I can\'t figure out this problem.|Saya tidak bisa memecahkan masalah ini.',
+      'find out|mencari tahu|Let me find out the price.|Biar saya cari tahu harganya.',
+      'look forward to|menantikan|I look forward to meeting you.|Saya menantikan bertemu Anda.',
+      'come up with|mendapatkan (ide)|She came up with a great idea.|Dia mendapat ide hebat.',
+      'run out of|kehabisan|We ran out of coffee.|Kita kehabisan kopi.',
+      'give up|menyerah|Never give up.|Jangan pernah menyerah.',
+      'put off|menunda|Don\'t put off your work.|Jangan menunda pekerjaanmu.',
+      'call off|membatalkan|They called off the meeting.|Mereka membatalkan rapatnya.',
+      'set up|menyiapkan / mendirikan|We set up a new company.|Kami mendirikan perusahaan baru.',
+      'carry on|melanjutkan|Carry on with your work.|Lanjutkan pekerjaanmu.',
+      'catch up|mengejar ketertinggalan / berbincang lagi|Let\'s catch up over lunch.|Ayo ngobrol-ngobrol sambil makan siang.',
+      'deal with|menangani|I\'ll deal with the client.|Saya yang akan menangani klien itu.',
+      'turn down|menolak|He turned down the job offer.|Dia menolak tawaran kerja itu.',
+      'show up|muncul / datang|He didn\'t show up to the meeting.|Dia tidak datang ke rapat.',
+      'get along with|akur dengan|I get along with my colleagues.|Saya akur dengan rekan kerja saya.',
+      'look into|menyelidiki / memeriksa|We will look into the problem.|Kami akan memeriksa masalahnya.',
+      'point out|menunjukkan / menyoroti|She pointed out a mistake.|Dia menunjukkan sebuah kesalahan.',
+      'bring up|mengangkat (topik)|Don\'t bring up politics at dinner.|Jangan bahas politik saat makan malam.',
+      'work out|berhasil / berolahraga|Don\'t worry, it will work out.|Jangan khawatir, semuanya akan beres.',
+      'take over|mengambil alih|She will take over the project.|Dia akan mengambil alih proyek itu.',
+      'fill in|mengisi (formulir) / menggantikan|Please fill in this form.|Tolong isi formulir ini.',
+      'hold on|tunggu sebentar|Hold on, I\'ll check.|Tunggu sebentar, saya cek.',
+      'break down|rusak / mogok|My car broke down on the highway.|Mobil saya mogok di tol.',
+      'go over|meninjau / memeriksa ulang|Let\'s go over the plan again.|Mari tinjau rencananya lagi.',
+      'end up|akhirnya (berakhir)|We ended up staying at home.|Akhirnya kami di rumah saja.'
+    ] },
+    { id: 'f-g1', type: 'grammar', title: 'Kalimat Pengandaian (Conditionals)', en: 'Conditionals 0–3',
+      explain: '<p>Kalimat “jika …” punya beberapa tipe:</p><ul><li><b>Zero</b> (fakta umum): If + present, present. <i>If you heat ice, it melts.</i></li><li><b>First</b> (mungkin terjadi): If + present, <b>will</b> + V. <i>If it rains, I will stay home.</i></li><li><b>Second</b> (khayalan sekarang/tidak nyata): If + <b>past</b>, <b>would</b> + V. <i>If I had more money, I would travel the world.</i> (Pakai <b>were</b> untuk semua subjek: If I were you…)</li><li><b>Third</b> (penyesalan masa lalu): If + <b>had + V3</b>, <b>would have + V3</b>. <i>If I had studied, I would have passed.</i></li></ul><p>Juga: <b>unless</b> = kecuali jika; <b>I wish</b> + past = berharap (keadaan sekarang tidak sesuai).</p><p class="tip">❌ “If I will see him, I will tell him.” → ✅ “If I <b>see</b> him, I will tell him.” (Tidak ada <b>will</b> setelah <i>if</i>.)</p>',
+      pattern: ['If + present, will + V (nyata)', 'If + past, would + V (khayalan)', 'If + had V3, would have V3 (masa lalu)'],
+      examples: ['If you mix red and blue, you get purple.|Jika mencampur merah dan biru, kamu dapat ungu.', 'If it rains tomorrow, we will cancel the trip.|Jika besok hujan, kami akan membatalkan perjalanan.', 'If I were you, I would accept the offer.|Kalau aku jadi kamu, aku akan terima tawarannya.', 'If I had a car, I would drive to work.|Seandainya saya punya mobil, saya akan menyetir ke kantor.', 'If we had left earlier, we wouldn\'t have missed the flight.|Seandainya kita berangkat lebih awal, kita tidak akan ketinggalan pesawat.', 'Unless you hurry, you\'ll be late.|Kalau tidak cepat, kamu akan terlambat.', 'I wish I spoke English fluently.|Saya berharap bisa berbahasa Inggris dengan fasih.'],
+      quiz: ['If it ___ tomorrow, we will stay home.|rains|will rain|rained|Jika besok hujan, kita di rumah saja.', 'If I ___ rich, I would buy a big house.|were|am|will be|Seandainya saya kaya, saya akan beli rumah besar.', 'If you heat water to 100°C, it ___.|boils|would boil|boiled|Jika air dipanaskan sampai 100°C, air mendidih.', 'If I had studied harder, I ___ passed the exam.|would have|will have|would|Seandainya saya belajar lebih giat, saya akan lulus.', 'If I were you, I ___ talk to the manager.|would|will|am|Kalau aku jadi kamu, aku akan bicara ke manajer.', '___ you leave now, you will miss the bus.|Unless|If|When|Kecuali kamu berangkat sekarang, kamu akan ketinggalan bus.', 'I wish I ___ more free time.|had|have|will have|Saya berharap punya lebih banyak waktu luang.', 'If she ___ the email, she would have replied.|had seen|saw|has seen|Seandainya dia melihat emailnya, dia pasti membalas.']
+    },
+    { id: 'f-t1', type: 'topic', cat: 'daily', title: 'Ungkapan Alami Penutur Asli', en: 'Natural Native Expressions',
+      phrases: ['I\'m all ears.|Saya mendengarkan (silakan cerita).', 'No worries.|Tidak masalah / santai saja.', 'It\'s up to you.|Terserah kamu.', 'I\'m on my way.|Saya sedang di jalan (menuju).', 'That makes sense.|Masuk akal.', 'I couldn\'t agree more.|Saya sangat setuju.', 'Fair enough.|Wajar / oke, bisa diterima.', 'It\'s not a big deal.|Bukan masalah besar.', 'Let me sleep on it.|Biar saya pikirkan dulu (semalam).', 'I\'ll take your word for it.|Saya percaya kata-katamu.', 'Better late than never.|Lebih baik terlambat daripada tidak sama sekali.', 'You can say that again!|Betul banget!', 'Speak of the devil!|Panjang umur! (orang yang dibicarakan datang)', 'I\'m feeling under the weather.|Saya kurang enak badan.'],
+      dialog: ['A|Hey, you look a bit tired. Everything OK?|Hei, kamu kelihatan agak lelah. Semua baik?', 'B|I\'m feeling a bit under the weather, to be honest.|Jujur, saya agak kurang enak badan.', 'A|Oh no. You should take the afternoon off.|Wah. Sebaiknya kamu libur sore ini.', 'B|I\'d love to, but the report is due tomorrow.|Pengen sih, tapi laporannya harus selesai besok.', 'A|No worries, I can cover for you. Just send me your notes.|Santai, saya bisa gantikan. Kirim saja catatanmu.', 'B|Really? That would be a huge help. I owe you one!|Serius? Itu sangat membantu. Aku berutang budi!', 'A|Don\'t mention it. Get some rest.|Sama-sama. Istirahatlah.'],
+      resp: ['Where are you? The meeting is starting.|Sorry, I\'m on my way. Five minutes.|I\'m on the way of it.|I\'m all ears.', 'Should we eat Thai or Italian?|Either is fine. It\'s up to you.|It\'s up to me.|I eat up.', 'I\'m sorry I forgot to call you back.|No worries. It\'s not a big deal.|You\'re welcome.|Yes, you forgot.', 'This traffic is terrible!|You can say that again!|Say it again, please.|I\'m terrible.'] },
+    { id: 'f-v2', type: 'vocab', title: 'Bisnis & Proyek Lanjutan', en: 'Business & Project Terms', words: [
+      'stakeholder|pemangku kepentingan|We must update all stakeholders.|Kita harus mengabari semua pemangku kepentingan.',
+      'milestone|tonggak capaian|We reached an important milestone.|Kita mencapai tonggak penting.',
+      'scope|ruang lingkup|That task is out of scope.|Tugas itu di luar ruang lingkup.',
+      'deliverable|hasil kerja yang diserahkan|The first deliverable is due Monday.|Hasil kerja pertama harus diserahkan Senin.',
+      'estimate|perkiraan / memperkirakan|Can you estimate the cost?|Bisa memperkirakan biayanya?',
+      'proposal|proposal / usulan|We sent the proposal to the client.|Kami mengirim proposal ke klien.',
+      'negotiate|bernegosiasi|We need to negotiate the price.|Kita perlu menegosiasikan harganya.',
+      'feasible|layak / memungkinkan|Is this plan feasible?|Apakah rencana ini memungkinkan?',
+      'priority|prioritas|Safety is our top priority.|Keselamatan adalah prioritas utama kami.',
+      'allocate|mengalokasikan|We allocated more budget to marketing.|Kami mengalokasikan anggaran lebih ke pemasaran.',
+      'risk|risiko|What are the main risks?|Apa risiko utamanya?',
+      'mitigate|mengurangi (risiko)|How can we mitigate this risk?|Bagaimana kita mengurangi risiko ini?',
+      'implement|menerapkan|We will implement the new system next month.|Kami akan menerapkan sistem baru bulan depan.',
+      'outcome|hasil|We are happy with the outcome.|Kami senang dengan hasilnya.',
+      'revenue|pendapatan|Revenue grew by 15%.|Pendapatan tumbuh 15%.',
+      'profit|keuntungan|The profit was higher than expected.|Keuntungannya lebih tinggi dari perkiraan.',
+      'invoice|faktur / tagihan|Please send the invoice by email.|Tolong kirim fakturnya lewat email.',
+      'workload|beban kerja|My workload is heavy this week.|Beban kerja saya berat minggu ini.',
+      'bottleneck|hambatan / penghambat|The approval process is a bottleneck.|Proses persetujuan menjadi penghambat.',
+      'efficient|efisien|The new tool is more efficient.|Alat baru ini lebih efisien.',
+      'consistent|konsisten|Be consistent with your quality.|Konsistenlah dengan kualitasmu.',
+      'reliable|andal / dapat diandalkan|We need a reliable supplier.|Kita butuh pemasok yang andal.',
+      'approve|menyetujui|The director approved the budget.|Direktur menyetujui anggarannya.',
+      'postpone|menunda|The launch was postponed.|Peluncurannya ditunda.',
+      'collaborate|berkolaborasi|We collaborate with local partners.|Kami berkolaborasi dengan mitra lokal.'
+    ] },
+    { id: 'f-g2', type: 'grammar', title: 'Kalimat Pasif (Passive Voice)', en: 'Passive Voice',
+      explain: '<p>Kalimat pasif fokus pada <b>apa yang dikenai</b> tindakan, bukan pelakunya. Mirip “di-” dalam bahasa Indonesia.</p><p>Rumus: <b>be (sesuai tense) + V3</b> (+ by …).</p><ul><li>Present: The office <b>is cleaned</b> every day. (Kantor dibersihkan setiap hari.)</li><li>Past: The bridge <b>was built</b> in 1990.</li><li>Present perfect: The email <b>has been sent</b>.</li><li>Future: The results <b>will be announced</b> tomorrow.</li><li>Continuous: The road <b>is being repaired</b>.</li><li>Modal: It <b>must be done</b> today.</li></ul><p class="tip">Bahasa Inggris profesional sering memakai pasif: “Your order <b>has been shipped</b>.” “Mistakes <b>were made</b>.”</p>',
+      pattern: ['Objek + is/are + V3', 'Objek + was/were + V3', 'Objek + has/have been + V3', 'Objek + will be / must be + V3'],
+      examples: ['English is spoken all over the world.|Bahasa Inggris dipakai di seluruh dunia.', 'This house was built in 1985.|Rumah ini dibangun tahun 1985.', 'Your package has been delivered.|Paket Anda sudah diantar.', 'The meeting will be held on Monday.|Rapat akan diadakan hari Senin.', 'The road is being repaired.|Jalannya sedang diperbaiki.', 'The report must be submitted by Friday.|Laporannya harus diserahkan paling lambat Jumat.', 'I was given a second chance.|Saya diberi kesempatan kedua.'],
+      quiz: ['The letter ___ sent yesterday.|was|is|were|Surat itu dikirim kemarin.', 'English ___ spoken in many countries.|is|was being|are|Bahasa Inggris dipakai di banyak negara.', 'The project ___ been completed.|has|have|was|Proyek itu sudah selesai dikerjakan.', 'The winners will be ___ tomorrow.|announced|announce|announcing|Pemenang akan diumumkan besok.', 'The road is ___ repaired right now.|being|been|be|Jalannya sedang diperbaiki sekarang.', 'This bridge was built ___ a Dutch company.|by|from|with|Jembatan ini dibangun oleh perusahaan Belanda.', 'The form must ___ signed.|be|been|being|Formulirnya harus ditandatangani.', 'Many houses ___ destroyed by the flood.|were|was|are being|Banyak rumah hancur oleh banjir.']
+    },
+    { id: 'f-t2', type: 'topic', cat: 'work', title: 'Presentasi & Negosiasi', en: 'Presentations & Negotiation',
+      phrases: ['Today I\'d like to walk you through…|Hari ini saya ingin memaparkan…', 'Let me start with a quick overview.|Saya mulai dengan gambaran singkat.', 'As you can see on this slide…|Seperti yang terlihat di slide ini…', 'This brings me to my next point.|Ini membawa saya ke poin berikutnya.', 'To sum up…|Sebagai kesimpulan…', 'I\'m happy to take any questions.|Saya siap menjawab pertanyaan.', 'That\'s a great question.|Pertanyaan yang bagus.', 'What would it take to close the deal today?|Apa yang dibutuhkan agar kesepakatan selesai hari ini?', 'Is there any flexibility on the price?|Apakah harganya masih bisa fleksibel?', 'We could meet you halfway.|Kami bisa bertemu di tengah (kompromi).', 'That\'s the best we can offer.|Itu penawaran terbaik kami.', 'Let\'s put it in writing.|Mari kita tuangkan secara tertulis.'],
+      dialog: ['A|Thanks for your proposal. The quality looks great, but the price is a bit high for us.|Terima kasih atas proposalnya. Kualitasnya bagus, tapi harganya agak tinggi bagi kami.', 'B|I understand. What budget did you have in mind?|Saya mengerti. Anggaran berapa yang Anda pikirkan?', 'A|We were hoping for something around 10% lower.|Kami berharap sekitar 10% lebih rendah.', 'B|That\'s difficult, but if you sign a one-year contract, we could offer 7%.|Itu sulit, tapi jika Anda tanda tangan kontrak setahun, kami bisa beri 7%.', 'A|Could you also include free delivery?|Bisakah termasuk pengiriman gratis?', 'B|Fair enough. 7% off plus free delivery. Do we have a deal?|Baiklah. Diskon 7% plus gratis kirim. Sepakat?', 'A|Deal. Let\'s put it in writing.|Sepakat. Mari kita tuangkan secara tertulis.'],
+      resp: ['Is there any flexibility on the price?|We could offer 5% off for a bigger order.|Yes, it\'s flexible plastic.|The price is price.', 'Do you have any questions about the presentation?|Yes — how will this affect our costs?|Yes, I present.|No, I am questions.', 'We can\'t go lower than that.|I see. Could you add a longer warranty instead?|Thank you, goodbye.|Go lower, please.', 'So, do we have a deal?|Yes, let\'s put it in writing.|Deal with it.|Yes, a deal is a deal is.'] },
+    { id: 'f-v3', type: 'vocab', title: 'Idiom Sehari-hari', en: 'Everyday Idioms', words: [
+      'piece of cake|sangat mudah|The test was a piece of cake.|Ujiannya gampang sekali.',
+      'break the ice|mencairkan suasana|He told a joke to break the ice.|Dia bercanda untuk mencairkan suasana.',
+      'hit the road|berangkat|It\'s late. Let\'s hit the road.|Sudah larut. Ayo berangkat.',
+      'call it a day|selesai untuk hari ini|We\'re tired. Let\'s call it a day.|Kita lelah. Cukup untuk hari ini.',
+      'on the same page|sepaham|Are we all on the same page?|Apakah kita semua sepaham?',
+      'cost an arm and a leg|sangat mahal|That watch cost an arm and a leg.|Jam itu mahal sekali.',
+      'once in a blue moon|sangat jarang|I eat fast food once in a blue moon.|Saya sangat jarang makan makanan cepat saji.',
+      'hit the books|belajar giat|I need to hit the books tonight.|Saya harus belajar giat malam ini.',
+      'under the weather|kurang enak badan|I\'m a bit under the weather.|Saya agak kurang enak badan.',
+      'get the hang of|mulai mahir|You\'ll get the hang of it soon.|Kamu akan segera terbiasa.',
+      'keep an eye on|mengawasi|Can you keep an eye on my bag?|Bisa awasi tas saya?',
+      'in the long run|dalam jangka panjang|It will save money in the long run.|Itu menghemat uang dalam jangka panjang.',
+      'the ball is in your court|keputusan ada di tanganmu|I\'ve made my offer. The ball is in your court.|Saya sudah menawar. Keputusan di tanganmu.',
+      'cut corners|mengambil jalan pintas (asal-asalan)|Don\'t cut corners on safety.|Jangan asal-asalan soal keselamatan.',
+      'back to square one|kembali ke awal|The plan failed. We\'re back to square one.|Rencananya gagal. Kita kembali ke awal.',
+      'a blessing in disguise|hikmah di balik musibah|Losing that job was a blessing in disguise.|Kehilangan pekerjaan itu ternyata berkah.',
+      'beat around the bush|bertele-tele|Stop beating around the bush.|Berhentilah bertele-tele.',
+      'get out of hand|tak terkendali|The party got out of hand.|Pestanya jadi tak terkendali.',
+      'see eye to eye|sependapat|We don\'t always see eye to eye.|Kami tidak selalu sependapat.',
+      'up in the air|belum pasti|Our plans are still up in the air.|Rencana kami masih belum pasti.',
+      'sit tight|tunggu dengan sabar|Sit tight, the doctor is coming.|Tunggu sebentar, dokternya datang.',
+      'by the way|ngomong-ngomong|By the way, did you call him?|Ngomong-ngomong, kamu sudah meneleponnya?',
+      'no brainer|keputusan yang sangat jelas|Taking the free upgrade is a no brainer.|Ambil upgrade gratis jelas pilihan tepat.',
+      'think outside the box|berpikir kreatif|We need to think outside the box.|Kita perlu berpikir di luar kebiasaan.',
+      'touch base|saling mengabari singkat|Let\'s touch base next week.|Mari saling kabari minggu depan.'
+    ] },
+    { id: 'f-g3', type: 'grammar', title: 'Kalimat Tidak Langsung (Reported Speech)', en: 'Reported Speech',
+      explain: '<p>Untuk menyampaikan ulang perkataan orang lain. Biasanya tense <b>mundur satu langkah</b>:</p><ul><li>present → past: “I <b>am</b> tired.” → She said (that) she <b>was</b> tired.</li><li>past / present perfect → past perfect: “I <b>lost</b> my key.” → He said he <b>had lost</b> his key.</li><li>will → <b>would</b>, can → <b>could</b>, must → <b>had to</b>.</li><li>Kata keterangan berubah: today → that day, tomorrow → the next day, here → there.</li></ul><p><b>Pertanyaan</b>: susunan jadi seperti kalimat biasa: “Where do you live?” → She asked me <b>where I lived</b>. Ya/tidak → <b>if/whether</b>: He asked <b>if I was</b> ready.</p><p><b>Perintah</b>: told/asked + <b>to</b> + V: “Close the door.” → He told me <b>to close</b> the door.</p><p class="tip"><b>say</b> tanpa orang: She said that…; <b>tell</b> + orang: She told <b>me</b> that…</p>',
+      pattern: ['Subjek + said (that) + tense mundur', 'Subjek + told + orang + (that) …', 'Subjek + asked + (orang) + if/WH + subjek + kata kerja', 'Subjek + told/asked + orang + to + V'],
+      examples: ['"I\'m busy." → She said she was busy.|"Saya sibuk." → Dia bilang dia sibuk.', '"I will call you." → He said he would call me.|"Saya akan meneleponmu." → Dia bilang akan menelepon saya.', '"We can help." → They said they could help.|"Kami bisa bantu." → Mereka bilang bisa membantu.', '"Where do you work?" → She asked me where I worked.|"Kamu kerja di mana?" → Dia bertanya di mana saya bekerja.', '"Are you ready?" → He asked if I was ready.|"Kamu siap?" → Dia bertanya apakah saya siap.', '"Please wait here." → She asked me to wait there.|"Tolong tunggu di sini." → Dia meminta saya menunggu di sana.', 'He told me that the meeting had been cancelled.|Dia memberi tahu saya bahwa rapat sudah dibatalkan.'],
+      quiz: ['"I am hungry." → She said she ___ hungry.|was|is|were|Dia bilang dia lapar.', '"I will come." → He said he ___ come.|would|will|can|Dia bilang dia akan datang.', 'She ___ me that she was leaving.|told|said|asked|Dia memberi tahu saya bahwa dia akan pergi.', 'He ___ that he was tired.|said|told|asked to|Dia bilang dia lelah.', '"Where do you live?" → She asked me where I ___.|lived|do live|did I live|Dia bertanya di mana saya tinggal.', '"Are you OK?" → He asked ___ I was OK.|if|that|what|Dia bertanya apakah saya baik-baik saja.', '"Close the door." → She told me ___ the door.|to close|close|closing|Dia menyuruh saya menutup pintu.', '"I lost my wallet." → He said he ___ his wallet.|had lost|has lost|loses|Dia bilang dia kehilangan dompetnya.']
+    },
+    { id: 'f-t3', type: 'topic', cat: 'project', title: 'Rapat Proyek & Laporan Status', en: 'Project Meetings & Status Reports',
+      phrases: ['Let\'s align on the priorities for this sprint.|Mari samakan prioritas untuk sprint ini.', 'What are the blockers?|Apa hambatannya?', 'We\'re waiting on approval from the client.|Kita menunggu persetujuan dari klien.', 'This is a quick win.|Ini hasil cepat yang mudah dicapai.', 'Can we push the launch back a week?|Bisakah peluncuran dimundurkan seminggu?', 'The scope has changed significantly.|Ruang lingkupnya berubah signifikan.', 'We need to manage expectations.|Kita perlu mengelola ekspektasi.', 'Who owns this action item?|Siapa penanggung jawab tugas ini?', 'Let\'s take this offline.|Mari bahas ini terpisah (di luar rapat).', 'I\'ll circulate the minutes after the meeting.|Saya akan mengedarkan notulen setelah rapat.', 'Overall, the project is in good shape.|Secara keseluruhan, proyek dalam kondisi baik.', 'We\'ve hit a few roadblocks, but we have a plan.|Ada beberapa hambatan, tapi kami punya rencana.'],
+      dialog: ['A|Let\'s go round the table. Dina, what\'s the status on the mobile app?|Mari bergiliran. Dina, bagaimana status aplikasi seluler?', 'B|Overall it\'s in good shape. The login and payment features have been completed.|Secara keseluruhan baik. Fitur login dan pembayaran sudah selesai.', 'A|Great. Any blockers?|Bagus. Ada hambatan?', 'B|Just one. We\'re waiting on the API keys from the bank.|Satu saja. Kami menunggu kunci API dari bank.', 'C|I can chase that. I\'ll email their team today.|Saya bisa menindaklanjuti. Saya email tim mereka hari ini.', 'A|Thanks. If we don\'t get them by Thursday, the launch will be pushed back.|Terima kasih. Jika tidak dapat sampai Kamis, peluncuran mundur.', 'B|Understood. I\'ll keep everyone posted.|Dimengerti. Saya akan terus mengabari semua.', 'A|Perfect. I\'ll circulate the minutes after the meeting.|Sip. Saya edarkan notulennya setelah rapat.'],
+      resp: ['Any blockers on your side?|Yes, we\'re still waiting on the design files.|Yes, I blocked him.|No, I\'m on my side.', 'Can we push the deadline back?|Possibly, but we\'d need the client\'s approval.|Yes, push it hard.|The deadline is back.', 'Who owns this action item?|I\'ll take it. I\'ll have it done by Friday.|It\'s my own item.|The item is owned.', 'This discussion is getting long.|Let\'s take it offline and continue after the meeting.|Let\'s go online.|Yes, it\'s long distance.'] },
+    { id: 'f-g4', type: 'grammar', title: 'Klausa Relatif (who, which, that, where)', en: 'Relative Clauses',
+      explain: '<p>Menggabungkan dua kalimat dengan kata <b>“yang”</b> atau <b>“tempat”</b>.</p><ul><li><b>who</b> = yang (orang): The man <b>who</b> called you is my boss.</li><li><b>which</b> = yang (benda/hewan): The car <b>which</b> I bought is red.</li><li><b>that</b> = yang (orang/benda, santai): The book <b>that</b> you lent me is great.</li><li><b>whose</b> = yang … -nya: The girl <b>whose</b> father is a pilot.</li><li><b>where</b> = tempat: This is the café <b>where</b> we first met.</li><li><b>when</b> = waktu: I remember the day <b>when</b> we met.</li></ul><p>Klausa tambahan (non-defining) diapit koma dan <b>tidak boleh</b> memakai “that”: My sister, <b>who</b> lives in Bali, is a chef.</p><p class="tip">Jika “yang” menjadi objek, kata relatif boleh dihilangkan: The film (that) we watched was good.</p>',
+      pattern: ['Benda/orang + who/which/that + kata kerja …', 'Tempat + where + subjek + kata kerja', 'Orang + whose + benda …'],
+      examples: ['The woman who works next door is a doctor.|Wanita yang bekerja di sebelah adalah dokter.', 'This is the laptop which I bought online.|Ini laptop yang saya beli online.', 'The project that we finished last month won an award.|Proyek yang kami selesaikan bulan lalu memenangkan penghargaan.', 'I have a friend whose brother is an actor.|Saya punya teman yang kakaknya aktor.', 'That\'s the hotel where we stayed.|Itu hotel tempat kami menginap.', 'My boss, who is very kind, gave me a day off.|Bos saya, yang sangat baik, memberi saya libur sehari.', 'Friday is the day when I feel happiest.|Jumat adalah hari ketika saya paling bahagia.'],
+      quiz: ['The man ___ helped me was very kind.|who|which|where|Pria yang menolong saya sangat baik.', 'The phone ___ I bought is broken.|which|who|where|Ponsel yang saya beli rusak.', 'This is the restaurant ___ we had dinner.|where|which|who|Ini restoran tempat kami makan malam.', 'I know a girl ___ mother is a singer.|whose|who|which|Saya kenal gadis yang ibunya penyanyi.', 'My father, ___ is 60, still works.|who|that|which|Ayah saya, yang berumur 60, masih bekerja.', 'Do you remember the day ___ we met?|when|where|which|Ingat hari ketika kita bertemu?', 'The documents ___ you sent are complete.|that|who|where|Dokumen yang kamu kirim sudah lengkap.', 'She is the colleague ___ I told you about.|who|which|where|Dia rekan kerja yang saya ceritakan.']
+    },
+    { id: 'f-t4', type: 'topic', cat: 'travel', title: 'Perjalanan: Masalah & Situasi Darurat', en: 'Travel Problems & Emergencies',
+      phrases: ['My flight has been cancelled. What are my options?|Penerbangan saya dibatalkan. Apa pilihan saya?', 'I missed my connecting flight.|Saya ketinggalan penerbangan lanjutan.', 'My luggage didn\'t arrive.|Bagasi saya tidak datang.', 'I\'d like to file a complaint.|Saya ingin mengajukan keluhan.', 'I\'ve lost my passport. Where is the embassy?|Paspor saya hilang. Di mana kedutaan?', 'Could you call a doctor, please?|Bisa tolong panggilkan dokter?', 'I need to report a theft.|Saya perlu melaporkan pencurian.', 'Is there anything you can do?|Apakah ada yang bisa Anda lakukan?', 'Would I be entitled to compensation?|Apakah saya berhak atas kompensasi?', 'Could you put me on the next available flight?|Bisa masukkan saya ke penerbangan berikutnya?', 'I\'d appreciate it if you could help me.|Saya akan sangat berterima kasih jika Anda bisa membantu.', 'Thanks, you\'ve been very helpful.|Terima kasih, Anda sangat membantu.'],
+      dialog: ['A|Excuse me, my bag didn\'t come out on the belt.|Permisi, tas saya tidak keluar di ban berjalan.', 'B|I\'m sorry to hear that. May I see your baggage tag?|Mohon maaf. Boleh lihat label bagasi Anda?', 'A|Here it is. I had a connection in Singapore.|Ini. Saya transit di Singapura.', 'B|It looks like your bag was left in Singapore. It should arrive on tonight\'s flight.|Sepertinya tas Anda tertinggal di Singapura. Seharusnya tiba dengan penerbangan malam ini.', 'A|I see. Could it be delivered to my hotel?|Begitu. Bisa diantar ke hotel saya?', 'B|Of course. Please fill in this form with your address. We\'ll deliver it free of charge.|Tentu. Isi formulir ini dengan alamat Anda. Kami antar gratis.', 'A|Great. And would I be entitled to any compensation for essentials?|Bagus. Apakah saya berhak kompensasi untuk kebutuhan pokok?', 'B|Yes, keep your receipts and we\'ll reimburse up to 50 dollars.|Ya, simpan struknya dan kami ganti sampai 50 dolar.'],
+      resp: ['Your flight has been cancelled.|Could you put me on the next available flight?|Yes, I cancel too.|That\'s a piece of cake.', 'How can I help you, sir?|I think my wallet was stolen. I need to report it.|I help you.|My wallet is stealing.', 'Please fill in this form.|Sure. Do you have a pen I could borrow?|I fill it out of me.|No, I\'m full.', 'Is there anything else?|No, you\'ve been very helpful. Thanks.|Yes, anything.|No, nothing is else.'] },
+    { id: 'f-v4', type: 'vocab', title: 'Kata Penghubung & Kosakata Akademik', en: 'Linking Words & Advanced Vocabulary', words: [
+      'however|namun|It was expensive. However, it was worth it.|Itu mahal. Namun, sepadan.',
+      'therefore|oleh karena itu|Sales dropped; therefore, we changed the strategy.|Penjualan turun; karena itu, kami ubah strategi.',
+      'although|meskipun|Although it rained, we went out.|Meskipun hujan, kami tetap keluar.',
+      'despite|meskipun / walaupun (+ kata benda)|Despite the traffic, I arrived on time.|Meskipun macet, saya tiba tepat waktu.',
+      'moreover|selain itu|The plan is cheap. Moreover, it\'s fast.|Rencananya murah. Selain itu, cepat.',
+      'whereas|sedangkan|I like tea, whereas my wife prefers coffee.|Saya suka teh, sedangkan istri saya lebih suka kopi.',
+      'meanwhile|sementara itu|Meanwhile, the team prepared the slides.|Sementara itu, tim menyiapkan slide.',
+      'as a result|akibatnya|He was late. As a result, he missed the bus.|Dia terlambat. Akibatnya, dia ketinggalan bus.',
+      'in addition|sebagai tambahan|In addition, we offer free delivery.|Sebagai tambahan, kami beri gratis ongkir.',
+      'on the other hand|di sisi lain|On the other hand, it takes more time.|Di sisi lain, butuh lebih banyak waktu.',
+      'eventually|akhirnya (setelah lama)|Eventually, she found a job.|Akhirnya, dia mendapat pekerjaan.',
+      'apparently|rupanya / kelihatannya|Apparently, the shop is closed.|Rupanya, tokonya tutup.',
+      'actually|sebenarnya|Actually, I\'m not from here.|Sebenarnya, saya bukan dari sini.',
+      'basically|pada dasarnya|Basically, we need more people.|Pada dasarnya, kita butuh lebih banyak orang.',
+      'significant|signifikan / penting|There was a significant increase.|Ada kenaikan yang signifikan.',
+      'essential|sangat penting|Practice is essential.|Latihan itu sangat penting.',
+      'obvious|jelas|The answer is obvious.|Jawabannya jelas.',
+      'appropriate|pantas / sesuai|Is this dress appropriate for the event?|Apakah gaun ini pantas untuk acara itu?',
+      'opportunity|kesempatan|This is a great opportunity.|Ini kesempatan bagus.',
+      'challenge|tantangan|Learning English is a fun challenge.|Belajar bahasa Inggris tantangan yang seru.',
+      'achieve|mencapai|You can achieve your goals.|Kamu bisa mencapai tujuanmu.',
+      'consider|mempertimbangkan|Please consider my request.|Mohon pertimbangkan permintaan saya.',
+      'suggest|menyarankan|I suggest taking a taxi.|Saya sarankan naik taksi.',
+      'require|memerlukan|This job requires patience.|Pekerjaan ini memerlukan kesabaran.',
+      'fluent|fasih|She is fluent in English.|Dia fasih berbahasa Inggris.'
+    ] },
+    { id: 'f-g5', type: 'grammar', title: 'Gerund & To-Infinitive', en: 'Gerunds vs Infinitives',
+      explain: '<p>Setelah kata kerja tertentu, kata kerja berikutnya berbentuk <b>-ing</b> (gerund) atau <b>to + V</b> (infinitive).</p><ul><li><b>+ -ing</b>: enjoy, finish, avoid, mind, suggest, keep, consider, practice, miss, can\'t stand. <i>I enjoy <b>reading</b>.</i></li><li><b>+ to V</b>: want, need, decide, plan, hope, agree, promise, refuse, learn, would like. <i>I want <b>to learn</b>.</i></li><li>Setelah <b>preposisi</b> selalu -ing: interested <b>in learning</b>, good <b>at speaking</b>, look forward <b>to meeting</b>.</li><li>Arti berbeda: <b>stop smoking</b> (berhenti merokok) vs <b>stop to smoke</b> (berhenti untuk merokok); <b>remember to lock</b> (ingat untuk mengunci) vs <b>remember locking</b> (ingat pernah mengunci).</li></ul><p class="tip">❌ “I look forward to meet you.” → ✅ “I look forward to <b>meeting</b> you.”</p>',
+      pattern: ['enjoy/finish/avoid/suggest + V-ing', 'want/need/decide/plan + to V', 'preposisi + V-ing'],
+      examples: ['I enjoy learning new words.|Saya senang mempelajari kata-kata baru.', 'She finished writing the report.|Dia selesai menulis laporan.', 'We decided to move to Bali.|Kami memutuskan pindah ke Bali.', 'He wants to improve his English.|Dia ingin meningkatkan bahasa Inggrisnya.', 'I\'m interested in joining your team.|Saya tertarik bergabung dengan tim Anda.', 'Would you mind opening the window?|Keberatan membuka jendelanya?', 'Don\'t forget to call your mother.|Jangan lupa menelepon ibumu.'],
+      quiz: ['I enjoy ___ to music.|listening|to listen|listen|Saya senang mendengarkan musik.', 'She decided ___ a new car.|to buy|buying|buy|Dia memutuskan membeli mobil baru.', 'I\'m interested in ___ abroad.|studying|to study|study|Saya tertarik kuliah di luar negeri.', 'Would you mind ___ the door?|closing|to close|close|Keberatan menutup pintunya?', 'We need ___ more staff.|to hire|hiring|hire|Kita perlu merekrut lebih banyak staf.', 'I look forward to ___ from you.|hearing|hear|heard|Saya menantikan kabar dari Anda.', 'He stopped ___ two years ago. (berhenti merokok)|smoking|to smoke|smoke|Dia berhenti merokok dua tahun lalu.', 'Please remember ___ the lights.|to turn off|turning off|turn off|Ingat matikan lampunya.']
+    },
+    { id: 'f-t5', type: 'topic', cat: 'shopping', title: 'Belanja Cerdas & Tawar-menawar', en: 'Smart Shopping & Bargaining',
+      phrases: ['I\'m looking for something a bit more affordable.|Saya mencari sesuatu yang sedikit lebih terjangkau.', 'Is this the final price?|Apakah ini harga pas?', 'Could you do any better on the price?|Bisa kurang lagi harganya?', 'If I buy two, can I get a discount?|Kalau beli dua, dapat diskon?', 'That\'s a bit out of my price range.|Itu agak di luar anggaran saya.', 'What\'s the warranty on this?|Garansinya berapa lama?', 'Does it come with a charger?|Apakah termasuk pengisi daya?', 'I\'ll think about it and come back later.|Saya pikir-pikir dulu, nanti kembali.', 'It\'s a real bargain.|Ini benar-benar murah.', 'I\'ve seen it cheaper online.|Saya pernah lihat lebih murah di online.', 'Could you gift-wrap it?|Bisa dibungkus kado?', 'You\'ve got yourself a deal.|Oke, sepakat.'],
+      dialog: ['A|This leather bag is beautiful. How much is it?|Tas kulit ini cantik. Berapa harganya?', 'B|It\'s 900,000. It\'s handmade.|900.000. Buatan tangan.', 'A|Hmm, that\'s a bit out of my price range. Could you do any better?|Hmm, agak di luar anggaran saya. Bisa kurang?', 'B|For you, 800,000.|Untuk Anda, 800.000.', 'A|I\'ve seen similar ones for 650,000. If I buy two, could you do 700 each?|Saya pernah lihat yang mirip 650.000. Kalau beli dua, bisa 700 per tas?', 'B|That\'s hard… OK, 720 each, and I\'ll gift-wrap them for free.|Berat… Oke, 720 per tas, dan saya bungkus kado gratis.', 'A|You\'ve got yourself a deal!|Sepakat!'],
+      resp: ['This is our best seller. It\'s 2 million.|It\'s lovely, but a bit out of my price range.|Yes, I\'m a best seller.|It costs an arm and a leg of me.', 'Is this the final price?|Yes, but I can include a free case.|Yes, it\'s final exam.|Price is final, no?', 'What\'s the warranty on this laptop?|It comes with a two-year warranty.|Warranty is on the table.|It\'s 2 kilograms.', 'Would you like it gift-wrapped?|Yes, please. It\'s a birthday present.|Yes, I wrap.|No, I like gift.'] },
+    { id: 'f-g6', type: 'grammar', title: 'Tenses Lanjut & Berbicara Alami', en: 'Advanced Tenses & Natural Speech',
+      explain: '<p><b>Past perfect</b> (had + V3): kejadian yang terjadi <b>lebih dulu</b> sebelum kejadian lampau lain. <i>When I arrived, the train <b>had</b> already <b>left</b>.</i></p><p><b>Present perfect continuous</b> (have/has been + V-ing): sudah berlangsung sejak lama dan masih berlanjut. <i>I <b>have been learning</b> English for two years.</i></p><p><b>Used to</b> + V: kebiasaan lampau yang sudah tidak dilakukan. <i>I <b>used to</b> smoke.</i> &nbsp; <b>Be used to</b> + V-ing: terbiasa. <i>I\'m used to <b>waking up</b> early.</i></p><p><b>Bicara alami (connected speech):</b> penutur asli menyambung kata — <i>going to → gonna, want to → wanna, have to → hafta, did you → didja, let me → lemme</i>. Pahami saat mendengar; untuk tulisan formal tetap pakai bentuk lengkap.</p><p><b>Question tags</b> untuk konfirmasi: <i>It\'s hot, <b>isn\'t it</b>? You\'re coming, <b>aren\'t you</b>? He didn\'t call, <b>did he</b>?</i></p>',
+      pattern: ['had + V3 (lebih dulu di masa lalu)', 'have/has been + V-ing (+ for/since)', 'used to + V / be used to + V-ing', 'kalimat positif + tag negatif?'],
+      examples: ['By the time we got there, the movie had started.|Saat kami tiba, filmnya sudah mulai.', 'She had never flown before that trip.|Dia belum pernah naik pesawat sebelum perjalanan itu.', 'I\'ve been waiting for you for an hour!|Saya sudah menunggumu satu jam!', 'They have been working on this since March.|Mereka mengerjakan ini sejak Maret.', 'I used to live in Medan.|Dulu saya tinggal di Medan.', 'I\'m used to working under pressure.|Saya terbiasa bekerja di bawah tekanan.', 'You\'re from Jakarta, aren\'t you?|Kamu dari Jakarta, kan?', 'I\'m gonna grab some lunch. Wanna come?|Saya mau beli makan siang. Mau ikut?'],
+      quiz: ['When I arrived, the bus ___ already left.|had|has|was|Ketika saya tiba, busnya sudah berangkat.', 'I have been ___ English for two years.|learning|learned|learn|Saya sudah belajar bahasa Inggris dua tahun.', 'I ___ to play football every weekend, but now I don\'t.|used|use|am used|Dulu saya main bola tiap akhir pekan, sekarang tidak.', 'She is used to ___ early.|waking up|wake up|woke up|Dia terbiasa bangun pagi.', 'It\'s a nice day, ___ it?|isn\'t|is|doesn\'t|Hari yang cerah, ya kan?', 'You didn\'t lock the door, ___ you?|did|didn\'t|do|Kamu tidak mengunci pintu, kan?', 'They ___ been waiting since 8 a.m.|have|has|had been|Mereka sudah menunggu sejak jam 8 pagi.', '"I\'m gonna call him" means "I\'m ___ call him".|going to|want to|got to|"I\'m gonna call him" artinya "Saya akan meneleponnya".']
+    }
+  ]
+});
+// English Course — kursus bahasa Inggris dengan terjemahan Indonesia. Akun (nama pengguna + PIN) sama dengan Planner & Notes; progres di Supabase (proyek saku-yuk), sinkron real time.
+const BUILD = '20261004-182904';
+const SB_URL = 'https://bbptcxpzzvgpxqylkrmw.supabase.co', SB_KEY = 'sb_publishable_Ny-WHCEZ3WmcLFsPBx9QeQ_9xgo7MxR'; // public key; tables closed, only en_*/pl_* functions
+const ADMIN = 'admin';
+
+// ---------- helpers ----------
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const LS = {
+  get: k => { try { return localStorage.getItem('english.' + k); } catch { return null; } },
+  set: (k, v) => { try { localStorage.setItem('english.' + k, v); } catch {} },
+  del: k => { try { localStorage.removeItem('english.' + k); } catch {} }
+};
+const SS = { get: k => { try { return sessionStorage.getItem('english.' + k); } catch { return null; } }, set: (k, v) => { try { sessionStorage.setItem('english.' + k, v); } catch {} }, del: k => { try { sessionStorage.removeItem('english.' + k); } catch {} } };
+const normUser = s => String(s ?? '').trim().toLowerCase();
+const validUser = s => /^[a-z0-9._-]{3,32}$/.test(s);
+const pad = n => String(n).padStart(2, '0');
+const ymd = d => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+const MON = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'];
+const hms = d => `${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`;
+const fullDT = t => { const d = new Date(t); return `${d.getDate()} ${MON[d.getMonth()]} ${d.getFullYear()} ${pad(d.getHours())}:${pad(d.getMinutes())}`; };
+const shuffle = a => { a = [...a]; for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+const pick = (a, n) => shuffle(a).slice(0, n);
+const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+const norm = s => String(s ?? '').toLowerCase().replace(/[’']/g, "'").replace(/[^a-z0-9' ]+/g, ' ').replace(/\s+/g, ' ').trim();
+
+// ---------- course index (content files push into COURSE) ----------
+const P = s => s.split('|');
+const UNITS = [], UMAP = new Map(), WORDS = [], SENTS = [];
+const TYPES = { vocab: ['📖', 'Kosakata'], grammar: ['🧱', 'Struktur'], topic: ['💬', 'Percakapan'] };
+const CATS = { daily: ['☕', 'Sehari-hari'], work: ['💼', 'Kerja'], project: ['📋', 'Proyek'], travel: ['✈️', 'Traveling'], shopping: ['🛍', 'Shopping'] };
+for (const L of COURSE) for (const u of L.units) {
+  u.level = L.id; UNITS.push(u); UMAP.set(u.id, u);
+  if (u.words) u.W = u.words.map(s => { const [en, id, ex, exid] = P(s); const w = { en, id, ex, exid, unit: u.id, level: L.id, k: en.toLowerCase() }; WORDS.push(w); SENTS.push({ en: ex, id: exid, level: L.id }); return w; });
+  if (u.examples) { u.EX = u.examples.map(s => { const [en, id] = P(s); return { en, id }; }); for (const e of u.EX) SENTS.push({ ...e, level: L.id }); }
+  if (u.quiz) u.Q = u.quiz.map(s => { const [q, a, b, c, tr] = P(s); return { q, a, opts: [a, b, c], tr }; });
+  if (u.phrases) { u.PH = u.phrases.map(s => { const [en, id] = P(s); return { en, id }; }); for (const e of u.PH) SENTS.push({ ...e, level: L.id }); }
+  if (u.dialog) { u.DL = u.dialog.map(s => { const [sp, en, id] = P(s); return { sp, en, id }; }); for (const e of u.DL) SENTS.push({ en: e.en, id: e.id, level: L.id }); }
+  if (u.resp) u.RS = u.resp.map(s => { const [q, a, b, c] = P(s); return { q, a, opts: [a, b, c] }; });
+}
+const LEVEL = id => COURSE.find(l => l.id === id);
+// sentences good for "arrange the words": plain, 3–11 words
+const scrOk = e => !/[→"…]/.test(e.en) && e.en.split(' ').length >= 3 && e.en.split(' ').length <= 11;
+
+// ---------- state ----------
+const S = {
+  user: null, admin: false, pass: '', users: [], pin: '', hasPin: false, gate: null,
+  items: new Map(), seq: 0, queue: new Set(), owner: '',
+  route: '', lvl: LS.get('lvl') || 'dasar', type: 'all', cat: '', src: LS.get('src') || 'all', run: null,
+  sync: { busy: false, again: false, at: null, err: '' }
+};
+const RO = () => S.admin;
+const key = it => it.owner + '/' + it.id;
+const cacheKey = () => S.admin ? 'admin' : 'u.' + S.user;
+const who = () => S.admin ? S.owner : S.user; // whose progress is shown
+
+function saveCache() {
+  LS.set(cacheKey() + '.items', JSON.stringify([...S.items.values()]));
+  LS.set(cacheKey() + '.seq', String(S.seq));
+  if (!S.admin) LS.set(cacheKey() + '.queue', JSON.stringify([...S.queue]));
+}
+function loadCache() {
+  S.items = new Map(); S.queue = new Set(); S.seq = 0;
+  try { for (const it of JSON.parse(LS.get(cacheKey() + '.items') || '[]')) S.items.set(key(it), it); } catch {}
+  S.seq = Number(LS.get(cacheKey() + '.seq') || 0);
+  if (!S.admin) try { S.queue = new Set(JSON.parse(LS.get(cacheKey() + '.queue') || '[]')); } catch {}
+  if (S.admin) try { S.users = JSON.parse(LS.get('admin.users') || '[]'); } catch {}
+}
+
+// ---------- progress model ----------
+// prog item 'u_<unit>' {best, last, tries, done, at}; meta 'vocab-mem' {m:{word: box 0..5}}; meta 'stats-xp' {xp, days:{ymd: xp}}
+const live = (o, id) => { const it = S.items.get(o + '/' + id); return it && !it.deleted ? it : null; };
+const prog = (uid, o = who()) => live(o, 'u_' + uid)?.data || null;
+const best = (uid, o) => prog(uid, o)?.best || 0;
+const mem = (o = who()) => live(o, 'vocab-mem')?.data?.m || {};
+const stats = (o = who()) => live(o, 'stats-xp')?.data || { xp: 0, days: {} };
+const PASS = 70, MASTER = 3;
+function mastered(o, lid) { const m = mem(o); return WORDS.filter(w => (!lid || w.level === lid) && (m[w.k] || 0) >= MASTER).length; }
+function levelPct(lid, o = who()) {
+  const us = UNITS.filter(u => u.level === lid), ws = WORDS.filter(w => w.level === lid);
+  return Math.round(us.reduce((a, u) => a + best(u.id, o), 0) / us.length * 0.8 + mastered(o, lid) / ws.length * 100 * 0.2);
+}
+function overall(o = who()) { return Math.round(UNITS.reduce((a, u) => a + best(u.id, o), 0) / UNITS.length * 0.8 + mastered(o) / WORDS.length * 100 * 0.2); }
+const doneCount = (lid, o = who()) => UNITS.filter(u => (!lid || u.level === lid) && prog(u.id, o)?.done).length;
+const RANKS = [[0, 'Pemula', '🥚'], [10, 'Dasar', '🌱'], [34, 'Menengah', '🌿'], [67, 'Mahir', '🌳'], [90, 'Fasih', '🏆']];
+const rank = p => [...RANKS].reverse().find(r => p >= r[0]);
+const unlocked = lid => { const i = COURSE.findIndex(l => l.id === lid); return i <= 0 || S.admin || LS.get('unlock') === '1' || levelPct(COURSE[i - 1].id) >= 60; };
+function streak(o = who()) {
+  const days = stats(o).days || {}; let n = 0; const d = new Date();
+  if (!days[ymd(d)]) d.setDate(d.getDate() - 1);
+  while (days[ymd(d)]) { n++; d.setDate(d.getDate() - 1); }
+  return n;
+}
+function nextUnit() { // first unit not passed yet, in order, in an unlocked level
+  for (const L of COURSE) { if (!unlocked(L.id)) break; const u = L.units.find(u => !prog(u.id)?.done); if (u) return u; }
+  return null;
+}
+
+function put(it, quiet) { // local write → queue → push
+  if (RO()) return;
+  const prev = S.items.get(key(it));
+  it.updated = Math.max(Date.now(), (prev?.updated || 0) + 1);
+  S.items.set(key(it), it); S.queue.add(key(it)); saveCache(); if (!quiet) render(); pushSoon();
+}
+function setProg(uid, score) {
+  if (RO()) return false;
+  const d = prog(uid, S.user) || {}, first = !d.done && score >= PASS;
+  put({ id: 'u_' + uid, owner: S.user, kind: 'prog', deleted: false, data: { best: Math.max(d.best || 0, score), last: score, tries: (d.tries || 0) + 1, done: !!d.done || score >= PASS, at: Date.now() } }, true);
+  return first;
+}
+function bumpWord(k, delta) {
+  if (RO() || !k) return;
+  const m = { ...mem(S.user) }; m[k] = clamp((m[k] || 0) + delta, 0, 5);
+  put({ id: 'vocab-mem', owner: S.user, kind: 'meta', deleted: false, data: { m } }, true);
+}
+function addXp(n) {
+  if (RO() || !n) return;
+  const s = stats(S.user), days = { ...(s.days || {}) }, t = ymd(new Date());
+  days[t] = (days[t] || 0) + n;
+  for (const k of Object.keys(days)) if (k < ymd(new Date(Date.now() - 120 * 864e5))) delete days[k];
+  put({ id: 'stats-xp', owner: S.user, kind: 'meta', deleted: false, data: { xp: (s.xp || 0) + n, days } }, true);
+}
+
+// ---------- server ----------
+async function rpc(fn, args) { // retries: some networks drop connections
+  for (let i = 0; ; i++) {
+    try {
+      const r = await fetch(`${SB_URL}/rest/v1/rpc/${fn}`, { method: 'POST', cache: 'no-store', headers: { apikey: SB_KEY, Authorization: 'Bearer ' + SB_KEY, 'Content-Type': 'application/json' }, body: JSON.stringify(args) });
+      if (!r.ok) { const e = new Error('server ' + r.status); e.server = true; throw e; }
+      const t = await r.text(); return t ? JSON.parse(t) : null;
+    } catch (e) { if (i >= 4 || e.server) throw navigator.onLine ? e : new Error('offline'); await new Promise(r => setTimeout(r, 300 * (i + 1))); }
+  }
+}
+let pushTimer = null;
+function pushSoon() { clearTimeout(pushTimer); pushTimer = setTimeout(syncNow, 400); showSync(); }
+async function syncNow() {
+  if (!S.user && !S.admin) return;
+  if (S.sync.busy) { S.sync.again = true; return; }
+  S.sync.busy = true; showSync(); let changed = false; const me = cacheKey();
+  try {
+    if (!S.admin && S.queue.size) {
+      const keys = [...S.queue], sent = keys.map(k => S.items.get(k)).filter(Boolean);
+      const snap = new Map(sent.map(i => [key(i), i.updated]));
+      for (let i = 0; i < sent.length; i += 200) {
+        const b = sent.slice(i, i + 200).map(({ id, kind, data, updated, deleted }) => ({ id, kind, data, updated, deleted }));
+        const r = await rpc('en_put', { p_owner: S.user, p_pin: S.pin || null, p_items: b });
+        if (!r?.ok) { needPin(r?.pin); return; }
+      }
+      for (const k of keys) if (S.items.get(k)?.updated === snap.get(k)) S.queue.delete(k);
+      saveCache(); ping();
+    }
+    let rows;
+    if (S.admin) {
+      const r = await rpc('en_admin', { p_pass: S.pass, p_after: S.seq });
+      if (!r?.ok) { logout(); return; }
+      S.users = r.users || []; LS.set('admin.users', JSON.stringify(S.users)); rows = r.rows || [];
+    } else { const r = await rpc('en_list', { p_owner: S.user, p_after: S.seq, p_pin: S.pin || null }); if (!r?.ok) { needPin(r?.pin); return; } rows = r.rows || []; }
+    if (me !== cacheKey()) return;
+    for (const r of rows) {
+      const it = { id: r.id, owner: r.owner || S.user, kind: r.kind, data: r.data || {}, updated: Number(r.updated), deleted: !!r.deleted };
+      const cur = S.items.get(key(it));
+      if (!cur || (it.updated >= cur.updated && !S.queue.has(key(it)))) {
+        if (!cur || JSON.stringify(cur) !== JSON.stringify(it)) changed = true;
+        S.items.set(key(it), it);
+      }
+      S.seq = Math.max(S.seq, Number(r.seq));
+    }
+    if (changed || rows.length) saveCache();
+    S.sync.at = new Date(); S.sync.err = '';
+  } catch (e) { S.sync.err = e?.message === 'offline' ? 'offline — tersimpan di perangkat ini' : (e?.message || String(e)); }
+  finally { S.sync.busy = false; }
+  if (S.sync.again) { S.sync.again = false; return syncNow(); }
+  if (changed && !S.run) render(); else showSync();
+}
+// realtime: supabase broadcast pings (no data inside), plus a 10 s check
+let sb = null, chans = [];
+async function liveStart() {
+  try {
+    if (!window.supabase) await new Promise((res, rej) => { const s = document.createElement('script'); s.src = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2'; s.onload = res; s.onerror = rej; document.head.appendChild(s); });
+    sb ||= window.supabase.createClient(SB_URL, SB_KEY);
+    liveStop();
+    const all = sb.channel('english-all');
+    if (S.admin) all.on('broadcast', { event: 'chg' }, () => syncNow());
+    chans.push(all.subscribe());
+    if (!S.admin) chans.push(sb.channel('english-u-' + S.user).on('broadcast', { event: 'chg' }, () => syncNow()).subscribe());
+  } catch {}
+}
+function liveStop() { if (sb) chans.forEach(c => sb.removeChannel(c)); chans = []; }
+function ping() { for (const c of chans) try { c.send({ type: 'broadcast', event: 'chg', payload: { t: Date.now() } }); } catch {} }
+const syncText = () => S.sync.err ? '⚠ ' + S.sync.err : S.sync.busy || S.queue.size ? '⏳ Menyimpan…' : S.sync.at ? '☁ Tersinkron ' + hms(S.sync.at) : '☁ Menghubungkan…';
+function showSync() { document.querySelectorAll('.sync').forEach(e => { e.textContent = syncText(); }); }
+
+// ---------- login (same accounts & PIN as Planner / Notes) ----------
+const sha = async t => [...new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(t)))].map(x => x.toString(16).padStart(2, '0')).join('');
+const pinHash = (name, pin) => sha('planner-pin:' + name + ':' + pin);
+const PIN_MSG = { need: 'Masukkan PIN.', wrong: 'PIN salah.', locked: 'Terlalu banyak PIN salah. Coba lagi 15 menit lagi.', format: 'PIN harus 4–12 angka.', invalid: 'Nama pengguna tidak valid.' };
+function needPin(code) { // server says this session's PIN is missing/wrong: back to the PIN screen
+  const name = S.user; if (!name) return;
+  liveStop(); LS.set('u.' + name + '.haspin', '1'); SS.del('pin.' + name);
+  S.user = null; S.pin = ''; S.items = new Map(); S.queue = new Set(); S.seq = 0; S.run = null;
+  S.gate = { name, msg: code === 'locked' ? PIN_MSG.locked : 'Akun ini memakai PIN. Masukkan PIN untuk melanjutkan.' };
+  if (dlg().open) dlg().close(); render();
+}
+async function login(raw, pass, remember, pin) {
+  const name = normUser(raw);
+  if (!validUser(name)) throw new Error('Nama pengguna 3–32 karakter: huruf, angka, titik, garis bawah, atau tanda minus.');
+  if (name === ADMIN) {
+    if (!pass) throw new Error('Masukkan password Admin.');
+    const r = await rpc('en_admin', { p_pass: pass, p_after: 0 }).catch(e => { throw new Error('Tidak bisa menghubungi server (' + e.message + ').'); });
+    if (!r?.ok) throw new Error(r?.locked ? 'Terlalu banyak percobaan salah. Coba lagi 15 menit lagi.' : 'Password Admin salah.');
+    S.admin = true; S.user = null; S.pass = pass; S.owner = '';
+    S.items = new Map(); S.seq = 0; S.users = r.users || [];
+    for (const x of r.rows || []) { const it = { id: x.id, owner: x.owner, kind: x.kind, data: x.data || {}, updated: Number(x.updated), deleted: !!x.deleted }; S.items.set(key(it), it); S.seq = Math.max(S.seq, Number(x.seq)); }
+    saveCache(); LS.set('admin.users', JSON.stringify(S.users)); S.sync.at = new Date();
+    SS.set('admin', pass); if (remember) LS.set('session', JSON.stringify({ admin: true })); else LS.del('session');
+    go('users');
+  } else {
+    let r = null;
+    try { r = await rpc('pl_login', { p_owner: name, p_pin: pin || null }); } catch (e) { // offline: unlock with the PIN checked on this device before
+      const h = LS.get('u.' + name + '.pinhash');
+      if (h) { if (!pin) { const er = new Error(PIN_MSG.need); er.needPin = true; throw er; } if (await pinHash(name, pin) !== h) throw new Error(PIN_MSG.wrong); }
+      else if (LS.get('u.' + name + '.haspin')) throw new Error('Tidak bisa menghubungi server (' + e.message + ').');
+    }
+    if (r && !r.ok) { const er = new Error(PIN_MSG[r.pin] || 'Gagal masuk.'); er.needPin = r.pin === 'need'; throw er; }
+    S.admin = false; S.user = name; S.pass = ''; S.pin = pin || ''; S.gate = null;
+    if (r) { S.hasPin = !!r.pin; if (r.pin) { LS.set('u.' + name + '.haspin', '1'); LS.set('u.' + name + '.pinhash', await pinHash(name, pin)); } else { LS.del('u.' + name + '.haspin'); LS.del('u.' + name + '.pinhash'); } }
+    else S.hasPin = !!pin;
+    if (pin) SS.set('pin.' + name, pin);
+    loadCache();
+    if (remember) LS.set('session', JSON.stringify({ user: name })); else { LS.del('session'); SS.set('user', name); }
+    setTimeout(syncNow, 0);
+    if (route()[0] === 'users') go('');
+  }
+  liveStart();
+}
+function logout() {
+  liveStop(); LS.del('session'); SS.del('admin'); SS.del('user'); if (S.user) SS.del('pin.' + S.user); S.pin = ''; S.gate = null; S.run = null;
+  S.user = null; S.admin = false; S.pass = ''; S.items = new Map(); S.queue = new Set(); S.seq = 0; S.sync = { busy: false, again: false, at: null, err: '' };
+  if (dlg().open) dlg().close(); go('');
+}
+
+// ---------- speech ----------
+let VOICE = null;
+function enVoice() {
+  if (VOICE) return VOICE;
+  const vs = (window.speechSynthesis?.getVoices() || []).filter(v => /^en[-_]/i.test(v.lang));
+  VOICE = vs.find(v => /Samantha|Google US English|Aria|Jenny|Ava/i.test(v.name)) || vs.find(v => /en[-_]US/i.test(v.lang)) || vs[0] || null;
+  return VOICE;
+}
+function say(t, slow) {
+  try {
+    const sy = window.speechSynthesis; if (!sy || !t) return; sy.cancel();
+    const u = new SpeechSynthesisUtterance(String(t).replace(/___/g, 'blank')); u.lang = 'en-US';
+    u.rate = slow || LS.get('slow') === '1' ? 0.7 : 0.95; const v = enVoice(); if (v) u.voice = v; sy.speak(u);
+  } catch {}
+}
+try { speechSynthesis.onvoiceschanged = () => { VOICE = null; }; } catch {}
+const autoSay = () => LS.get('autosay') !== '0';
+const spk = (t, cls = '') => `<button type="button" class="spk ${cls}" data-a="say" data-t="${esc(t)}" aria-label="Dengarkan" title="Dengarkan">🔊</button>`;
+const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+// ---------- routing (hash: #learn, #u/<id>, #games, #prog, #users) ----------
+const route = () => (location.hash.slice(1) || '').split('/');
+function go(h) { S.run = null; if (location.hash.slice(1) !== h) location.hash = h; else render(); window.scrollTo(0, 0); }
+window.addEventListener('hashchange', () => { S.run = null; window.speechSynthesis?.cancel(); render(); window.scrollTo(0, 0); });
+
+// ---------- views ----------
+function render() {
+  const app = $('#app');
+  if (!S.user && !S.admin) { app.innerHTML = gateView(); syncMask(); setTimeout(() => ($('#pin-in') || $('#user-in'))?.focus(), 30); return; }
+  const [r0, r1] = route(), tab = S.run ? 'run' : r0 === 'u' ? 'learn' : r0 || 'home';
+  const o = who(), pct = o ? overall(o) : 0;
+  const tabs = S.admin ? [['users', '👥', 'Pengguna'], ['learn', '📚', 'Materi'], ['prog', '📈', 'Progres']] : [['', '🏠', 'Beranda'], ['learn', '📚', 'Materi'], ['games', '🎮', 'Games'], ['prog', '📈', 'Progres']];
+  const tb = cls => `<nav class="${cls}">${tabs.map(([h, ic, l]) => `<button type="button" class="tab ${(tab === (h || 'home')) ? 'on' : ''}" data-a="go" data-v="${h}"><span class="ti">${ic}</span><span class="tl">${l}</span></button>`).join('')}</nav>`;
+  let main;
+  if (S.run) main = runView();
+  else if (r0 === 'u' && UMAP.get(r1)) main = unitView(UMAP.get(r1));
+  else if (r0 === 'learn') main = learnView();
+  else if (r0 === 'games' && !S.admin) main = gamesView();
+  else if (r0 === 'prog') main = progView();
+  else if (S.admin) main = usersView();
+  else main = homeView();
+  app.innerHTML = `<header class="top"><div class="top-in">
+      <a class="brand" href="#" data-a="go" data-v="${S.admin ? 'users' : ''}"><span class="logo">En</span><span class="bname">English Course</span></a>
+      ${tb('tabs')}
+      <div class="top-r">${o ? `<span class="pill" title="Progres menuju mahir">${rank(pct)[2]} ${pct}%</span>` : ''}<span class="sync">${syncText()}</span><button class="chip" data-a="menu">${S.admin ? '🛡<span class="un"> Admin</span>' : '👤<span class="un"> ' + esc(S.user) + '</span>'} ▾</button></div>
+    </div></header>
+    <main class="main${S.run ? ' running' : ''}">${S.admin && S.owner && tab !== 'users' ? `<div class="viewing">👁 Melihat progres <b>${esc(S.owner)}</b> (hanya baca) <button class="btn sm" data-a="go" data-v="users">Ganti</button></div>` : ''}${main}</main>
+    ${S.run ? '' : tb('bnav')}`;
+}
+
+function ring(p, size = 132, stroke = 12) {
+  const r = (size - stroke) / 2, c = 2 * Math.PI * r;
+  return `<svg class="ring" width="${size}" height="${size}" viewBox="0 0 ${size} ${size}" role="img" aria-label="${p}%"><circle cx="${size / 2}" cy="${size / 2}" r="${r}" fill="none" stroke="var(--soft)" stroke-width="${stroke}"/><circle cx="${size / 2}" cy="${size / 2}" r="${r}" fill="none" stroke="var(--acc)" stroke-width="${stroke}" stroke-linecap="round" stroke-dasharray="${c}" stroke-dashoffset="${c * (1 - p / 100)}" transform="rotate(-90 ${size / 2} ${size / 2})"/><text x="50%" y="50%" text-anchor="middle" dominant-baseline="central" font-size="${size / 4.2}" font-weight="800" fill="var(--text)">${p}%</text></svg>`;
+}
+const bar = p => `<div class="bar"><i style="width:${clamp(p, 0, 100)}%"></i></div>`;
+
+function homeView() {
+  const p = overall(), rk = rank(p), nx = nextUnit(), st = stats(), sk = streak(), today = st.days?.[ymd(new Date())] || 0;
+  const nxtR = RANKS.find(r => r[0] > p);
+  return `<section class="hero card">
+      <div class="hero-ring">${ring(p)}<div class="rk">${rk[2]} ${rk[1]}</div></div>
+      <div class="hero-t">
+        <h1>Halo, ${esc(S.user)} 👋</h1>
+        <p class="muted">Progres menuju <b>mahir berbahasa Inggris</b>: ${p}%${nxtR ? ` · ${nxtR[0] - p}% lagi menuju <b>${nxtR[1]}</b>` : ' · Selamat, kamu sudah di tingkat tertinggi!'}</p>
+        <div class="kpis"><div><b>${doneCount()}</b><span>/ ${UNITS.length} materi lulus</span></div><div><b>${mastered()}</b><span>/ ${WORDS.length} kata dikuasai</span></div><div><b>🔥 ${sk}</b><span>hari beruntun</span></div><div><b>${st.xp || 0}</b><span>XP · hari ini ${today}</span></div></div>
+        ${nx ? `<button class="btn primary big" data-a="go" data-v="u/${nx.id}">▶ Lanjutkan: ${TYPES[nx.type][0]} ${esc(nx.title)} <small>(${LEVEL(nx.level).name})</small></button>` : '<button class="btn primary big" data-a="go" data-v="games">🎮 Semua materi lulus — asah terus lewat Games</button>'}
+      </div></section>
+    <h2 class="sh">Tingkatan level</h2>
+    <div class="grid3">${COURSE.map(L => { const lp = levelPct(L.id), lk = !unlocked(L.id); return `<button type="button" class="lvl card${lk ? ' locked' : ''}" data-a="lvl" data-v="${L.id}">
+      <div class="lvl-h"><span class="lvl-i">${L.icon}</span><div><b>${L.name}</b><div class="muted small">${L.en}</div></div><span class="lvl-p">${lk ? '🔒' : lp + '%'}</span></div>
+      <p class="small">${esc(L.desc)}</p>${bar(lp)}<div class="muted small">${doneCount(L.id)} / ${L.units.length} materi lulus · ${mastered(who(), L.id)} kata dikuasai</div></button>`; }).join('')}</div>
+    <h2 class="sh">Percakapan sesuai kebutuhan</h2>
+    <div class="cats">${Object.entries(CATS).map(([k, [ic, l]]) => `<button type="button" class="catb card" data-a="cat" data-v="${k}"><span>${ic}</span><b>${l}</b><small class="muted">${UNITS.filter(u => u.cat === k && prog(u.id)?.done).length}/${UNITS.filter(u => u.cat === k).length} lulus</small></button>`).join('')}</div>
+    <h2 class="sh">Main sambil menghafal</h2>
+    <div class="games mini">${GAMES.map(g => gameTile(g)).join('')}</div>
+    <h2 class="sh">Cara belajar sampai lancar</h2>
+    <div class="card how"><ol>
+      <li><b>Ikuti urutan materi</b> di tiap level: kosakata → struktur → percakapan. Tombol <i>Lanjutkan</i> selalu membuka materi berikutnya.</li>
+      <li><b>Lulus latihan ≥ ${PASS}%</b> agar materi dihitung selesai. Ulangi materi untuk menaikkan nilai terbaik.</li>
+      <li><b>Dengarkan & tirukan</b> setiap kalimat (🔊), lalu ucapkan keras-keras — ini kunci pelafalan seperti penutur asli.</li>
+      <li><b>Main game 10–15 menit sehari</b>: Kartu Hafalan membuat kata masuk ke ingatan jangka panjang (kata “dikuasai” setelah ${MASTER}× benar).</li>
+      <li><b>Praktikkan langsung</b>: pakai satu frasa baru setiap hari di chat, kerja, atau saat bepergian. Level Umum terbuka setelah Dasar ≥ 60%, Fasih setelah Umum ≥ 60%.</li>
+    </ol></div>`;
+}
+
+function unitCard(u) {
+  const pr = prog(u.id), b = pr?.best || 0, [ic, tl] = TYPES[u.type];
+  const meta = u.W ? `${u.W.length} kata` : u.Q ? `${u.EX.length} contoh · ${u.Q.length} soal` : `${u.PH.length} frasa · dialog`;
+  return `<button type="button" class="ucard card${pr?.done ? ' done' : ''}" data-a="go" data-v="u/${u.id}">
+    <div class="uc-h"><span class="uc-i t-${u.type}">${ic}</span><span class="uc-t">${tl}${u.cat ? ' · ' + CATS[u.cat][0] + ' ' + CATS[u.cat][1] : ''}</span>${pr?.done ? '<span class="ok">✓</span>' : ''}</div>
+    <b class="uc-n">${esc(u.title)}</b><span class="muted small">${esc(u.en)} · ${meta}</span>
+    ${bar(b)}<span class="muted small">${pr ? `Nilai terbaik ${b}% · ${pr.tries}× latihan` : 'Belum dimulai'}</span></button>`;
+}
+function learnView() {
+  const L = LEVEL(S.lvl) || COURSE[0], lk = !unlocked(L.id);
+  let us = L.units.filter(u => (S.type === 'all' || u.type === S.type) && (!S.cat || u.cat === S.cat));
+  return `<div class="seg3">${COURSE.map(l => `<button type="button" class="${l.id === L.id ? 'on' : ''}" data-a="lvl" data-v="${l.id}">${l.icon} ${l.name} <small>${unlocked(l.id) ? levelPct(l.id) + '%' : '🔒'}</small></button>`).join('')}</div>
+    <p class="muted lvl-d">${esc(L.desc)}</p>
+    <div class="chips">${[['all', '✨', 'Semua'], ...Object.entries(TYPES).map(([k, [i, l]]) => [k, i, l])].map(([k, i, l]) => `<button type="button" class="chipb ${S.type === k && !S.cat ? 'on' : ''}" data-a="type" data-v="${k}">${i} ${l}</button>`).join('')}
+      ${Object.entries(CATS).map(([k, [i, l]]) => `<button type="button" class="chipb ${S.cat === k ? 'on' : ''}" data-a="cat" data-v="${k}">${i} ${l}</button>`).join('')}</div>
+    ${lk ? `<div class="card lockbox">🔒 Level <b>${L.name}</b> terbuka setelah level sebelumnya mencapai 60%. Saat ini ${levelPct(COURSE[COURSE.indexOf(L) - 1].id)}%.<br><button class="btn" data-a="unlock">Buka semua level sekarang</button></div>` : ''}
+    <div class="grid${lk ? ' dim' : ''}">${us.map(unitCard).join('') || '<p class="muted">Tidak ada materi untuk filter ini.</p>'}</div>`;
+}
+
+function unitView(u) {
+  const L = LEVEL(u.level), pr = prog(u.id), [ic, tl] = TYPES[u.type], idx = L.units.indexOf(u), nx = L.units[idx + 1], pv = L.units[idx - 1];
+  let body = '';
+  if (u.type === 'vocab') body = `<div class="words">${u.W.map((w, i) => { const b = mem()[w.k] || 0; return `<div class="word card">
+      <div class="w-h">${spk(w.en)}<b class="w-en">${esc(w.en)}</b><span class="dots" title="Penguasaan ${b}/5">${'●'.repeat(b)}${'○'.repeat(5 - b)}</span></div>
+      <div class="w-id">${esc(w.id)}</div>
+      <div class="w-ex">${spk(w.ex, 'sm')}<span><i>${esc(w.ex)}</i><br><span class="muted">${esc(w.exid)}</span></span></div></div>`; }).join('')}</div>`;
+  if (u.type === 'grammar') body = `<div class="card gram">${u.explain}</div>
+    <h3 class="sh">Pola kalimat</h3><div class="card pat">${u.pattern.map(p => `<code>${esc(p)}</code>`).join('')}</div>
+    <h3 class="sh">Contoh</h3><div class="card list">${u.EX.map(e => `<div class="row">${spk(e.en)}<span><b>${esc(e.en)}</b><br><span class="muted">${esc(e.id)}</span></span></div>`).join('')}</div>`;
+  if (u.type === 'topic') body = `<h3 class="sh">Frasa penting</h3><div class="card list two-col">${u.PH.map(e => `<div class="row">${spk(e.en)}<span><b>${esc(e.en)}</b><br><span class="muted">${esc(e.id)}</span></span></div>`).join('')}</div>
+    <h3 class="sh">Dialog <button class="btn sm" data-a="playdlg" data-v="${u.id}">▶ Putar dialog</button></h3>
+    <div class="card dlgbox">${u.DL.map((d, i) => `<div class="bub ${d.sp === 'A' ? 'l' : 'r'}" id="dl-${i}"><span class="sp">${esc(d.sp)}</span><div>${spk(d.en, 'sm')}<b>${esc(d.en)}</b><br><span class="muted">${esc(d.id)}</span></div></div>`).join('')}</div>
+    <p class="muted small">Tips: putar dialog, lalu baca keras-keras sebagai A dan B bergantian. Ganti nama, tempat, dan angka agar sesuai situasimu sendiri.</p>`;
+  return `<div class="u-head"><button class="btn" data-a="go" data-v="learn">← Materi</button><div class="u-t"><span class="muted small">${L.icon} ${L.name} · ${ic} ${tl}${u.cat ? ' · ' + CATS[u.cat].join(' ') : ''}</span><h1>${esc(u.title)}</h1><span class="muted">${esc(u.en)}</span></div>
+      <div class="u-s">${pr ? `<b>${pr.best}%</b><span class="muted small">${pr.done ? '✓ Lulus' : 'Belum lulus'}</span>` : '<span class="muted small">Belum ada nilai</span>'}</div></div>
+    ${body}
+    <div class="u-act">${pv ? `<button class="btn" data-a="go" data-v="u/${pv.id}">‹ Sebelumnya</button>` : '<span></span>'}
+      ${u.type === 'vocab' ? `<button class="btn" data-a="flashunit" data-v="${u.id}">🃏 Kartu hafalan</button>` : ''}
+      <button class="btn primary" data-a="quiz" data-v="${u.id}">✍️ Mulai latihan</button>
+      ${nx ? `<button class="btn" data-a="go" data-v="u/${nx.id}">Berikutnya ›</button>` : '<span></span>'}</div>`;
+}
+
+// ---------- question builders ----------
+const mc = (prompt, a, opts, extra = {}) => ({ t: 'mc', prompt, a, opts: shuffle([...new Set([a, ...opts])]), ...extra });
+const others = (list, w, f, n = 3) => pick(list.filter(x => f(x) !== f(w)), n).map(f);
+function scrQ(e) { const toks = e.en.split(' '); let sh = shuffle(toks.map((t, i) => ({ t, i }))); if (toks.length > 1 && sh.every((x, i) => x.i === i)) sh = sh.reverse(); return { t: 'scr', prompt: e.id, a: e.en, toks: sh, sel: [] }; }
+function vocabQs(W, pool = W, n = 12) {
+  const ws = pick(W, Math.min(n, W.length)), out = [];
+  ws.forEach((w, i) => {
+    const kind = i % 6;
+    if (kind === 0 || kind === 3) out.push(mc(`Apa arti <b>${esc(w.en)}</b>?`, w.id, others(pool, w, x => x.id), { say: w.en, word: w.k, sayFirst: true }));
+    else if (kind === 1 || kind === 4) out.push(mc(`Bahasa Inggris dari <b>${esc(w.id)}</b>?`, w.en, others(pool, w, x => x.en), { say: w.en, word: w.k }));
+    else if (kind === 2) out.push({ t: 'type', prompt: `Tulis dalam bahasa Inggris: <b>${esc(w.id)}</b>`, hint: w.ex.replace(new RegExp(w.en.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i'), '____'), a: w.en, say: w.en, word: w.k });
+    else out.push(mc('🎧 Dengarkan, lalu pilih artinya', w.id, others(pool, w, x => x.id), { listen: w.en, say: w.en, word: w.k }));
+  });
+  return out;
+}
+function unitQs(u) {
+  if (u.type === 'vocab') return vocabQs(u.W, u.W, 12);
+  if (u.type === 'grammar') return [...shuffle(u.Q).map(q => mc(`Lengkapi: <b>${esc(q.q)}</b>`, q.a, q.opts, { say: q.q.replace('___', q.a), note: q.tr })), ...pick(u.EX.filter(scrOk), 3).map(scrQ)];
+  const qs = [...u.RS.map(r => mc(`💬 “${esc(r.q)}”<br><span class="muted small">Jawaban paling tepat?</span>`, r.a, r.opts, { say: r.a, sayQ: r.q })),
+    ...pick(u.PH, 4).map(p => mc(`Bagaimana mengatakan: <b>${esc(p.id)}</b>?`, p.en, others(u.PH, p, x => x.en), { say: p.en })),
+    ...pick([...u.PH, ...u.DL].filter(scrOk), 2).map(scrQ)];
+  const lp = pick(u.PH, 1)[0]; qs.push(mc('🎧 Dengarkan, lalu pilih artinya', lp.id, others(u.PH, lp, x => x.id), { listen: lp.en, say: lp.en }));
+  return shuffle(qs);
+}
+const srcWords = () => S.src === 'all' ? WORDS.filter(w => unlocked(w.level)) : WORDS.filter(w => w.level === S.src);
+const srcSents = () => SENTS.filter(e => (S.src === 'all' ? unlocked(e.level) : e.level === S.src) && scrOk(e));
+function weakFirst(ws, n) { const m = mem(); return shuffle(ws).sort((a, b) => (m[a.k] || 0) - (m[b.k] || 0)).slice(0, n); }
+
+// ---------- runner (quiz + games) ----------
+const GAMES = [
+  { id: 'flash', ic: '🃏', name: 'Kartu Hafalan', d: 'Balik kartu, tandai Hafal / Belum. Kata yang lemah muncul lebih sering.' },
+  { id: 'match', ic: '🧩', name: 'Cocokkan Pasangan', d: 'Pasangkan kata Inggris dengan artinya secepat mungkin.' },
+  { id: 'speed', ic: '⚡', name: 'Kuis Kilat 60 Detik', d: 'Jawab sebanyak-banyaknya dalam satu menit.' },
+  { id: 'scramble', ic: '🔤', name: 'Susun Kalimat', d: 'Urutkan kata menjadi kalimat Inggris yang benar.' },
+  { id: 'dict', ic: '🎧', name: 'Dengar & Tulis', d: 'Dengarkan kata, lalu ketik ejaannya.' },
+  { id: 'hang', ic: '🔠', name: 'Tebak Kata', d: 'Tebak huruf demi huruf dari petunjuk artinya. 6 nyawa.' },
+  { id: 'speak', ic: '🎤', name: 'Ucapkan!', d: 'Baca kalimat dengan suara; aplikasi menilai pelafalanmu.' }
+];
+const gameTile = g => `<button type="button" class="gtile card" data-a="game" data-v="${g.id}"${g.id === 'speak' && !SR ? ' disabled title="Browser ini belum mendukung pengenalan suara (coba Chrome / Safari)."' : ''}><span class="gi">${g.ic}</span><b>${g.name}</b><span class="muted small">${g.d}</span></button>`;
+function gamesView() {
+  return `<div class="head"><h1>🎮 Games</h1><div class="chips">${[['all', 'Semua yang terbuka'], ...COURSE.map(l => [l.id, l.icon + ' ' + l.name])].map(([k, l]) => `<button type="button" class="chipb ${S.src === k ? 'on' : ''}" data-a="src" data-v="${k}"${k !== 'all' && !unlocked(k) ? ' disabled' : ''}>${l}</button>`).join('')}</div></div>
+    <p class="muted">Setiap jawaban benar menambah XP dan tingkat penguasaan kata (●●●○○). Kata dianggap <b>dikuasai</b> setelah ${MASTER} poin.</p>
+    <div class="games">${GAMES.map(gameTile).join('')}</div>`;
+}
+function startQuiz(title, qs, unit) { S.run = { kind: 'quiz', title, qs, i: 0, right: 0, unit, ans: null, xp: 0 }; render(); window.scrollTo(0, 0); speakQ(); }
+function speakQ() { const q = S.run?.qs?.[S.run.i]; if (!q) return; if (q.listen) setTimeout(() => say(q.listen), 250); else if (q.t === 'dict') setTimeout(() => say(q.a), 250); else if (q.sayQ && autoSay()) setTimeout(() => say(q.sayQ), 250); else if (q.sayFirst && autoSay()) setTimeout(() => say(q.say), 250); }
+function startGame(id) {
+  const ws = srcWords(), ss = srcSents();
+  if (id === 'flash') return startFlash(weakFirst(ws, 15), 'Kartu Hafalan');
+  if (id === 'scramble') return startQuiz('🔤 Susun Kalimat', pick(ss, 8).map(scrQ));
+  if (id === 'dict') return startQuiz('🎧 Dengar & Tulis', weakFirst(ws.filter(w => w.en.length <= 14), 10).map(w => ({ t: 'dict', prompt: '🎧 Dengarkan, lalu ketik kata yang diucapkan', hint: 'Arti: ' + w.id, a: w.en, say: w.en, word: w.k })));
+  if (id === 'speed') { S.run = { kind: 'speed', end: Date.now() + 60e3, right: 0, total: 0, q: null, ws, flash: '' }; nextSpeed(); render(); tick(); return; }
+  if (id === 'match') { S.run = { kind: 'match', round: 0, right: 0, miss: 0, ws }; newMatch(); render(); return; }
+  if (id === 'hang') { S.run = { kind: 'hang', ws: ws.filter(w => /^[a-z ]+$/i.test(w.en) && w.en.length <= 16), won: 0, lost: 0 }; newHang(); render(); return; }
+  if (id === 'speak') { S.run = { kind: 'speak', list: pick(ss.filter(e => e.en.split(' ').length <= 8), 8), i: 0, right: 0, heard: '', res: null }; render(); return; }
+}
+function startFlash(ws, title, unit) { S.run = { kind: 'flash', title, deck: ws, i: 0, flip: false, know: 0, unit }; render(); if (autoSay()) say(ws[0]?.en); }
+
+function runView() {
+  const R = S.run, head = (t, p) => `<div class="run-h"><button class="btn" data-a="quit">✕ Keluar</button><b>${t}</b><span class="muted">${p || ''}</span></div>`;
+  if (R.kind === 'quiz') {
+    if (R.i >= R.qs.length) return head(R.title) + resultView(Math.round(R.right / R.qs.length * 100), `${R.right} dari ${R.qs.length} benar · +${R.xp} XP`, R.unit);
+    const q = R.qs[R.i], answered = R.ans !== null;
+    let body = '';
+    if (q.t === 'mc') body = `${q.listen ? `<div class="big-spk">${spk(q.listen, 'xl')}<button class="btn sm" data-a="sayslow" data-t="${esc(q.listen)}">🐢 Pelan</button></div>` : ''}
+      <div class="opts">${q.opts.map((o, i) => `<button type="button" class="opt ${answered ? (o === q.a ? 'right' : R.ans === i ? 'wrong' : 'fade') : ''}" data-a="ans" data-v="${i}"${answered ? ' disabled' : ''}>${esc(o)}</button>`).join('')}</div>`;
+    if (q.t === 'type' || q.t === 'dict') body = `${q.t === 'dict' ? `<div class="big-spk">${spk(q.a, 'xl')}<button class="btn sm" data-a="sayslow" data-t="${esc(q.a)}">🐢 Pelan</button></div>` : ''}
+      ${q.hint ? `<p class="muted center">${esc(q.hint)}</p>` : ''}<form id="type-form" class="typef"><input id="type-in" autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false" placeholder="Ketik jawaban…" ${answered ? `value="${esc(R.typed)}" disabled` : ''}><button class="btn primary"${answered ? ' disabled' : ''}>Periksa</button></form>`;
+    if (q.t === 'scr') { const used = new Set(q.sel); body = `<div class="scr-ans ${answered ? (R.ans ? 'right' : 'wrong') : ''}">${q.sel.map((ti, j) => `<button type="button" class="tok" data-a="untok" data-v="${j}"${answered ? ' disabled' : ''}>${esc(q.toks[ti].t)}</button>`).join('') || '<span class="muted">Ketuk kata di bawah sesuai urutan…</span>'}</div>
+      <div class="scr-pool">${q.toks.map((t, ti) => `<button type="button" class="tok${used.has(ti) ? ' used' : ''}" data-a="tok" data-v="${ti}"${used.has(ti) || answered ? ' disabled' : ''}>${esc(t.t)}</button>`).join('')}</div>
+      ${answered ? '' : `<div class="center"><button class="btn primary" data-a="scrcheck"${q.sel.length === q.toks.length ? '' : ' disabled'}>Periksa</button></div>`}`; }
+    const ok = q.t === 'mc' ? R.ans !== null && q.opts[R.ans] === q.a : !!R.ans;
+    const fb = answered ? `<div class="fb ${ok ? 'right' : 'wrong'}"><b>${ok ? '✅ Benar!' : '❌ Kurang tepat'}</b>${!ok ? `<div>Jawaban: <b>${esc(q.a)}</b></div>` : ''}${q.say ? `<div>${spk(q.say, 'sm')} <i>${esc(q.say)}</i></div>` : ''}${q.note ? `<div class="muted">${esc(q.note)}</div>` : ''}${q.t === 'scr' ? `<div class="muted">${esc(q.prompt)}</div>` : ''}
+      <button class="btn primary" data-a="next" id="next-btn">${R.i + 1 < R.qs.length ? 'Lanjut →' : 'Lihat hasil'}</button></div>` : '';
+    return head(R.title, `${R.i + 1} / ${R.qs.length}`) + `<div class="qbar">${bar(R.i / R.qs.length * 100)}</div>
+      <div class="qcard card"><div class="qp">${q.t === 'scr' ? `Susun kalimat: <b>${esc(q.prompt)}</b>` : q.prompt}</div>${body}${fb}</div>`;
+  }
+  if (R.kind === 'flash') {
+    if (R.i >= R.deck.length) return head(R.title) + resultView(Math.round(R.know / Math.max(1, R.deck.length) * 100), `${R.know} dari ${R.deck.length} kata sudah hafal`, null, 'flash');
+    const w = R.deck[R.i], b = mem()[w.k] || 0;
+    return head(R.title, `${R.i + 1} / ${R.deck.length}`) + `<div class="qbar">${bar(R.i / R.deck.length * 100)}</div>
+      <button type="button" class="flash card ${R.flip ? 'back' : ''}" data-a="flip">${R.flip ? `<span class="muted small">Artinya</span><b class="f-big">${esc(w.id)}</b><i>${esc(w.ex)}</i><span class="muted">${esc(w.exid)}</span>` : `<span class="muted small">Ketuk untuk membalik</span><b class="f-big">${esc(w.en)}</b><span class="dots">${'●'.repeat(b)}${'○'.repeat(5 - b)}</span>`}</button>
+      <div class="center">${spk(w.en, 'xl')}</div>
+      <div class="two-btn"><button class="btn big" data-a="fagain">😕 Belum hafal</button><button class="btn primary big" data-a="fknow">😎 Sudah hafal</button></div>`;
+  }
+  if (R.kind === 'speed') {
+    const left = Math.max(0, Math.ceil((R.end - Date.now()) / 1000));
+    if (!left) return head('⚡ Kuis Kilat') + resultView(Math.round(R.right / Math.max(1, R.total) * 100), `${R.right} benar dari ${R.total} soal dalam 60 detik · +${R.right} XP`, null, 'speed');
+    const q = R.q;
+    return head('⚡ Kuis Kilat', `<span id="sp-left">${left}</span> detik · ✅ ${R.right}`) + `<div class="qbar">${bar(left / 60 * 100)}</div>
+      <div class="qcard card ${R.flash}"><div class="qp">${q.prompt}</div><div class="opts">${q.opts.map((o, i) => `<button type="button" class="opt" data-a="spans" data-v="${i}">${esc(o)}</button>`).join('')}</div></div>`;
+  }
+  if (R.kind === 'match') {
+    const m = R.m, all = m.left.length;
+    if (m.done.size === all) return head('🧩 Cocokkan Pasangan') + `<div class="card result"><div class="res-big">🎉</div><h2>Ronde ${R.round} selesai!</h2><p>${all} pasangan dalam ${Math.round((Date.now() - m.start) / 1000)} detik · salah ${m.miss}×</p>
+      <div class="res-act"><button class="btn primary" data-a="matchnext">Ronde berikutnya →</button><button class="btn" data-a="quit">Selesai</button></div></div>`;
+    const cell = (w, side) => { const d = m.done.has(w.k), sel = (side === 'L' ? m.selL : m.selR) === w.k, bad = m.bad?.includes(side + w.k); return `<button type="button" class="mcell${d ? ' done' : ''}${sel ? ' sel' : ''}${bad ? ' bad' : ''}" data-a="mpick" data-v="${side}${esc(w.k)}"${d ? ' disabled' : ''}>${esc(side === 'L' ? w.en : w.id)}</button>`; };
+    return head('🧩 Cocokkan Pasangan', `Ronde ${R.round} · ${m.done.size}/${all}`) + `<div class="match"><div>${m.left.map(w => cell(w, 'L')).join('')}</div><div>${m.right.map(w => cell(w, 'R')).join('')}</div></div>`;
+  }
+  if (R.kind === 'hang') {
+    const h = R.h, w = h.w, shown = [...w.en].map(c => c === ' ' ? '<i class="sp"></i>' : `<span class="hl">${h.got.has(c.toLowerCase()) || h.over ? esc(c) : ''}</span>`).join('');
+    const win = [...w.en.toLowerCase()].every(c => c === ' ' || h.got.has(c));
+    return head('🔠 Tebak Kata', `Menang ${R.won} · Kalah ${R.lost}`) + `<div class="qcard card center"><div class="muted">Petunjuk: <b>${esc(w.id)}</b></div><div class="lives">${'❤️'.repeat(6 - h.miss)}${'🤍'.repeat(h.miss)}</div>
+      <div class="hword">${shown}</div>
+      ${win || h.over ? `<div class="fb ${win ? 'right' : 'wrong'}"><b>${win ? '✅ Hebat!' : '❌ Nyawa habis'}</b><div>${spk(w.en, 'sm')} <b>${esc(w.en)}</b> = ${esc(w.id)}</div><div class="muted"><i>${esc(w.ex)}</i></div><button class="btn primary" data-a="hangnext">Kata berikutnya →</button></div>`
+        : `<div class="kb">${'abcdefghijklmnopqrstuvwxyz'.split('').map(c => `<button type="button" class="key${h.tried.has(c) ? (h.got.has(c) ? ' hit' : ' miss') : ''}" data-a="hkey" data-v="${c}"${h.tried.has(c) ? ' disabled' : ''}>${c}</button>`).join('')}</div>`}</div>`;
+  }
+  if (R.kind === 'speak') {
+    if (R.i >= R.list.length) return head('🎤 Ucapkan!') + resultView(Math.round(R.right / R.list.length * 100), `${R.right} dari ${R.list.length} kalimat terucap dengan jelas`, null, 'speak');
+    const e = R.list[R.i];
+    return head('🎤 Ucapkan!', `${R.i + 1} / ${R.list.length}`) + `<div class="qbar">${bar(R.i / R.list.length * 100)}</div><div class="qcard card center">
+      <div class="muted">Dengarkan, lalu ucapkan kalimat ini:</div><div class="say-big">${spk(e.en)} <b>${esc(e.en)}</b></div><div class="muted">${esc(e.id)}</div>
+      <button class="btn primary big mic${R.rec ? ' on' : ''}" data-a="rec">${R.rec ? '⏺ Mendengarkan… bicaralah' : '🎤 Tekan lalu bicara'}</button>
+      ${R.res ? `<div class="fb ${R.res.ok ? 'right' : 'wrong'}"><b>${R.res.ok ? '✅ Jelas! ' : '🔁 Coba lagi — '}${R.res.score}% cocok</b><div class="muted">Terdengar: “${esc(R.heard)}”</div><div class="two-btn"><button class="btn" data-a="rec">🔁 Ulangi</button><button class="btn primary" data-a="speaknext">Lanjut →</button></div></div>` : ''}
+      ${R.err ? `<p class="muted">${esc(R.err)}</p>` : ''}</div>`;
+  }
+  return '';
+}
+function resultView(score, line, unit, again) {
+  const u = unit && UMAP.get(unit), L = u && LEVEL(u.level), nx = u && L.units[L.units.indexOf(u) + 1];
+  const pass = score >= PASS, emo = score >= 90 ? '🏆' : pass ? '🎉' : score >= 40 ? '💪' : '📚';
+  return `<div class="card result"><div class="res-big">${emo}</div>${ring(score, 120, 11)}
+    <h2>${score >= 90 ? 'Luar biasa!' : pass ? 'Lulus!' : 'Hampir! Coba lagi'}</h2><p>${line}</p>
+    ${u ? `<p class="muted">${pass ? `Materi <b>${esc(u.title)}</b> lulus ✓ · nilai terbaik ${best(u.id)}%` : `Butuh ≥ ${PASS}% agar lulus. Pelajari lagi contohnya lalu ulangi.`}</p>` : ''}
+    <p class="muted small">Progres keseluruhan: <b>${overall()}%</b></p>
+    <div class="res-act">${u ? `<button class="btn" data-a="quiz" data-v="${u.id}">🔁 Ulangi</button><button class="btn" data-a="go" data-v="u/${u.id}">📖 Materi</button>${nx && pass ? `<button class="btn primary" data-a="go" data-v="u/${nx.id}">Berikutnya: ${esc(nx.title)} →</button>` : ''}`
+      : `<button class="btn primary" data-a="game" data-v="${again || 'scramble'}">🔁 Main lagi</button><button class="btn" data-a="go" data-v="games">🎮 Games lain</button>`}</div></div>`;
+}
+
+// game helpers
+function nextSpeed() {
+  const R = S.run, w = pick(R.ws, 1)[0], en2id = Math.random() < 0.6;
+  R.q = en2id ? mc(`Arti <b>${esc(w.en)}</b>?`, w.id, others(R.ws, w, x => x.id), { word: w.k }) : mc(`Inggrisnya <b>${esc(w.id)}</b>?`, w.en, others(R.ws, w, x => x.en), { word: w.k });
+}
+let tickT = null;
+function tick() {
+  clearInterval(tickT);
+  tickT = setInterval(() => {
+    const R = S.run; if (!R || R.kind !== 'speed') { clearInterval(tickT); return; }
+    const left = Math.max(0, Math.ceil((R.end - Date.now()) / 1000));
+    if (!left) { clearInterval(tickT); addXp(R.right); render(); return; }
+    const el = $('#sp-left'); if (el) el.textContent = left;
+    const b = $('.qbar .bar i'); if (b) b.style.width = (left / 60 * 100) + '%';
+  }, 250);
+}
+function newMatch() { const R = S.run; R.round++; const ws = []; const seen = new Set(); for (const w of shuffle(R.ws)) { if (seen.has(w.k) || seen.has('i' + w.id)) continue; seen.add(w.k); seen.add('i' + w.id); ws.push(w); if (ws.length === 6) break; } R.m = { left: shuffle(ws), right: shuffle(ws), selL: null, selR: null, done: new Set(), miss: 0, start: Date.now(), bad: null }; }
+function newHang() { const R = S.run; R.h = { w: weakFirst(R.ws, 5)[Math.floor(Math.random() * 5)] || R.ws[0], got: new Set(), tried: new Set(), miss: 0, over: false }; }
+function similarity(target, heard) {
+  const t = norm(target).split(' ').filter(Boolean), h = norm(heard).split(' ').filter(Boolean), bag = [...h]; let hit = 0;
+  for (const w of t) { const j = bag.indexOf(w); if (j >= 0) { hit++; bag.splice(j, 1); } }
+  return Math.round(hit / Math.max(t.length, 1) * 100);
+}
+function answer(ok, q) {
+  const R = S.run; if (ok) { R.right++; R.xp += 2; addXp(2); }
+  if (q.word) bumpWord(q.word, ok ? 1 : -1);
+  if (q.say && autoSay()) setTimeout(() => say(q.say), 150);
+}
+function finishQuiz() {
+  const R = S.run, score = Math.round(R.right / R.qs.length * 100);
+  if (R.unit && !RO()) { if (setProg(R.unit, score)) { addXp(20); R.xp += 20; } }
+}
+
+// ---------- progress + admin ----------
+function progView() {
+  const o = who(); if (!o) return '<p class="muted">Pilih pengguna di tab Pengguna.</p>';
+  const p = overall(o), st = stats(o), days = st.days || {}, last = [...Array(14)].map((_, i) => { const d = new Date(); d.setDate(d.getDate() - 13 + i); return [d, days[ymd(d)] || 0]; }), mx = Math.max(10, ...last.map(x => x[1]));
+  return `<div class="head"><h1>📈 Progres${S.admin ? ' · ' + esc(o) : ''}</h1></div>
+    <section class="hero card"><div class="hero-ring">${ring(p)}<div class="rk">${rank(p)[2]} ${rank(p)[1]}</div></div><div class="hero-t">
+      <p class="muted">Nilai keseluruhan = 80% rata-rata nilai terbaik semua materi + 20% kata yang dikuasai. 100% = semua materi Dasar, Umum, dan Fasih lulus sempurna dan semua kata dikuasai.</p>
+      <div class="ranks">${RANKS.map(r => `<span class="${p >= r[0] ? 'on' : ''}">${r[2]} ${r[1]} <small>${r[0]}%</small></span>`).join('')}</div>
+      <div class="kpis"><div><b>${doneCount(null, o)}</b><span>/ ${UNITS.length} materi lulus</span></div><div><b>${mastered(o)}</b><span>/ ${WORDS.length} kata dikuasai</span></div><div><b>🔥 ${streak(o)}</b><span>hari beruntun</span></div><div><b>${st.xp || 0}</b><span>total XP</span></div></div></div></section>
+    <h2 class="sh">Aktivitas 14 hari</h2><div class="card acts">${last.map(([d, v]) => `<div class="act" title="${d.getDate()} ${MON[d.getMonth()]}: ${v} XP"><i style="height:${v / mx * 100}%"></i><small>${d.getDate()}</small></div>`).join('')}</div>
+    <h2 class="sh">Per level</h2><div class="grid3">${COURSE.map(L => `<div class="card lvp"><div class="lvl-h"><span class="lvl-i">${L.icon}</span><div><b>${L.name}</b><div class="muted small">${doneCount(L.id, o)}/${L.units.length} lulus · ${mastered(o, L.id)}/${WORDS.filter(w => w.level === L.id).length} kata</div></div><span class="lvl-p">${levelPct(L.id, o)}%</span></div>${bar(levelPct(L.id, o))}
+      <div class="ulist">${L.units.map(u => { const pr = prog(u.id, o); return `<a href="#u/${u.id}" class="urow"><span>${TYPES[u.type][0]}</span><span class="un2">${esc(u.title)}</span><span class="${pr?.done ? 'ok' : 'muted'}">${pr ? pr.best + '%' : '—'}${pr?.done ? ' ✓' : ''}</span></a>`; }).join('')}</div></div>`).join('')}</div>
+    ${S.admin ? '' : `<h2 class="sh">Kata yang perlu diulang</h2><div class="card weak">${weakFirst(WORDS.filter(w => unlocked(w.level)), 18).map(w => `<span class="wchip">${spk(w.en, 'sm')}<b>${esc(w.en)}</b> <span class="muted">${esc(w.id)}</span></span>`).join('')}</div>
+      <div class="center"><button class="btn primary" data-a="game" data-v="flash">🃏 Ulangi lewat Kartu Hafalan</button></div>`}`;
+}
+function usersView() {
+  const rows = S.users.map(u => ({ u, p: overall(u.owner), d: doneCount(null, u.owner), w: mastered(u.owner), xp: stats(u.owner).xp || 0, t: Math.max(0, ...[...S.items.values()].filter(i => i.owner === u.owner).map(i => i.updated)) }));
+  return `<div class="head"><h1>👥 Pengguna <span class="muted">${S.users.length}</span></h1></div><p class="muted small">Akun sama dengan Planner & Notes. Klik pengguna untuk melihat progresnya (hanya baca).</p>
+    <div class="card" style="overflow-x:auto"><table class="users"><thead><tr><th>Pengguna</th><th class="num">Progres</th><th class="num">Materi lulus</th><th class="num">Kata</th><th class="num">XP</th><th>Terakhir belajar</th><th>PIN</th></tr></thead><tbody>
+    ${rows.map(r => `<tr class="click" data-a="seeuser" data-v="${esc(r.u.owner)}"><td><b>👤 ${esc(r.u.owner)}</b></td><td class="num">${r.p}%</td><td class="num">${r.d}/${UNITS.length}</td><td class="num">${r.w}</td><td class="num">${r.xp}</td><td class="muted">${r.t ? fullDT(r.t) : '—'}</td><td>${r.u.pin ? '🔒' : '<span class="muted">—</span>'}</td></tr>`).join('') || '<tr><td colspan="7" class="muted">Belum ada yang belajar.</td></tr>'}
+    </tbody></table></div>`;
+}
+
+// ---------- gate ----------
+function gateView() {
+  if (S.gate) { const n = S.gate.name; return `<div class="gate"><form class="gate-card" id="gate-form" autocomplete="off">
+    <div class="logo">🔒</div><h1>English Course</h1><p class="gate-sub">👤 ${esc(n.slice(0, 4) + '*'.repeat(Math.max(0, n.length - 4)))}</p>
+    <label class="gate-field"><span>🔑</span><input id="pin-in" type="password" inputmode="numeric" pattern="[0-9]*" maxlength="12" placeholder="PIN" autocomplete="off"></label>
+    <label class="check"><input type="checkbox" id="remember" checked> Tetap masuk di perangkat ini</label>
+    <button class="gate-btn" type="submit">Masuk</button>
+    <div class="gate-err" id="gate-err" role="alert">${esc(S.gate.msg || '')}</div>
+    <p class="gate-note"><a href="#" data-a="gateback" style="color:#fff">← Ganti nama pengguna</a></p>
+  </form></div>`; }
+  const adm = normUser($('#user-in')?.value) === ADMIN;
+  return `<div class="gate"><form class="gate-card" id="gate-form" autocomplete="off">
+    <div class="logo">En</div><h1>English Course</h1><p class="gate-sub">Belajar bahasa Inggris dari Dasar sampai Fasih</p>
+    <label class="gate-field"><span>👤</span><span class="mask-wrap"><input id="user-in" name="user" type="text" placeholder="Nama pengguna" autocapitalize="none" autocomplete="off" autocorrect="off" spellcheck="false" maxlength="32" required value="${esc($('#user-in')?.value || '')}"><span id="user-mask" aria-hidden="true"></span></span></label>
+    <label class="gate-field" id="pass-row" style="${adm ? '' : 'display:none'}"><span>🔑</span><input id="pass-in" type="password" inputmode="numeric" placeholder="Password Admin" autocomplete="off"></label>
+    <label class="check"><input type="checkbox" id="remember" checked> Tetap masuk di perangkat ini</label>
+    <button class="gate-btn" type="submit">Masuk</button>
+    <div class="gate-err" id="gate-err" role="alert"></div>
+    <p class="gate-note">Setiap nama pengguna memiliki progres sendiri. Nama & PIN sama dengan <a href="https://liemyo.github.io/planner/" style="color:#fff">Planner</a> dan <a href="https://liemyo.github.io/notes/" style="color:#fff">Notes</a>. Nama yang belum pernah dipakai akan membuat akun baru.</p>
+  </form></div>`;
+}
+function syncMask() {
+  const i = $('#user-in'), m = $('#user-mask'); if (!i || !m) return;
+  const v = i.value; m.textContent = v.slice(0, 4) + '*'.repeat(Math.max(0, v.length - 4)); m.scrollLeft = i.scrollLeft;
+  const pr = $('#pass-row'); if (pr) pr.style.display = normUser(v) === ADMIN ? '' : 'none';
+}
+
+// ---------- menu ----------
+const dlg = () => $('#dlg');
+function openMenu() {
+  const theme = LS.get('theme') || 'auto';
+  dlg().innerHTML = `<div class="dlg"><h2>${S.admin ? '🛡 Admin' : '👤 ' + esc(S.user)}</h2>
+    <p class="muted small" style="margin:0">${syncText()} · versi ${BUILD}</p>
+    <div class="fld"><span>Tampilan</span><div class="seg">${[['auto', 'Otomatis'], ['light', 'Terang'], ['dark', 'Gelap']].map(([v, l]) => `<label><input type="radio" name="theme" value="${v}"${theme === v ? ' checked' : ''}><span>${l}</span></label>`).join('')}</div></div>
+    <div class="fld"><span>Suara</span><label class="check"><input type="checkbox" id="opt-autosay"${autoSay() ? ' checked' : ''}> Ucapkan otomatis saat latihan</label><label class="check"><input type="checkbox" id="opt-slow"${LS.get('slow') === '1' ? ' checked' : ''}> Suara lebih pelan</label>
+      <button type="button" class="btn sm" data-a="say" data-t="Hello! Welcome to your English course.">🔊 Tes suara</button></div>
+    ${S.admin ? '<p class="muted small" style="margin:0">Mode Admin hanya melihat progres semua pengguna, diperbarui real time.</p>' : `
+    <div class="fld"><span>Level</span><label class="check"><input type="checkbox" id="opt-unlock"${LS.get('unlock') === '1' ? ' checked' : ''}> Buka semua level tanpa menunggu 60%</label></div>
+    <div class="fld"><span>🔒 PIN masuk</span><p class="small" style="margin:0">${S.hasPin ? '✓ PIN aktif — diminta setiap kali masuk.' : 'Belum ada PIN. Pasang PIN agar progres tidak bisa dibuka hanya dengan nama pengguna.'} PIN ini sama dengan PIN Planner & Notes.</p>
+      ${S.hasPin ? '<input type="password" id="pin-old" inputmode="numeric" maxlength="12" placeholder="PIN saat ini" autocomplete="off">' : ''}
+      <div class="two"><input type="password" id="pin-new" inputmode="numeric" maxlength="12" placeholder="PIN baru (4–12 angka)" autocomplete="new-password"><input type="password" id="pin-new2" inputmode="numeric" maxlength="12" placeholder="Ulangi PIN baru" autocomplete="new-password"></div>
+      <div class="dlg-f" style="justify-content:flex-start"><button type="button" class="btn primary" data-a="pinsave">${S.hasPin ? 'Ubah PIN' : 'Pasang PIN'}</button>${S.hasPin ? '<button type="button" class="btn danger" data-a="pinoff">Hapus PIN</button>' : ''}<span class="small" id="pin-msg" style="align-self:center;color:var(--red)"></span></div></div>
+    <div class="fld"><span>Mulai ulang</span><button type="button" class="btn danger" data-a="reset" id="reset-btn">🗑 Hapus semua progres</button></div>`}
+    <div class="dlg-f"><button type="button" class="btn danger" data-a="logout">Keluar</button><span class="sp"></span><button type="button" class="btn primary" data-a="close">Tutup</button></div></div>`;
+  if (!dlg().open) dlg().showModal();
+}
+async function pinChange(old, nw, out) {
+  out.textContent = 'Menyimpan…';
+  try {
+    const r = await rpc('pl_pin_set', { p_owner: S.user, p_old: old || S.pin || null, p_new: nw || null });
+    if (!r?.ok) { out.textContent = r?.pin === 'wrong' || r?.pin === 'need' ? 'PIN saat ini salah.' : PIN_MSG[r?.pin] || 'Gagal.'; return; }
+    S.pin = nw; S.hasPin = !!nw;
+    if (nw) { SS.set('pin.' + S.user, nw); LS.set('u.' + S.user + '.haspin', '1'); LS.set('u.' + S.user + '.pinhash', await pinHash(S.user, nw)); }
+    else { SS.del('pin.' + S.user); LS.del('u.' + S.user + '.haspin'); LS.del('u.' + S.user + '.pinhash'); }
+    openMenu(); toast(nw ? 'PIN tersimpan ✓ — berlaku juga di Planner & Notes' : 'PIN dihapus.');
+  } catch (e) { out.textContent = 'Tidak bisa menghubungi server (' + e.message + ').'; }
+}
+let toastT = null;
+function toast(msg) {
+  let t = $('.toast'); if (!t) { t = document.createElement('div'); t.className = 'toast'; document.body.appendChild(t); }
+  t.textContent = msg; t.hidden = false; clearTimeout(toastT); toastT = setTimeout(() => { t.hidden = true; }, 2500);
+}
+function applyTheme() { const t = LS.get('theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; else delete document.documentElement.dataset.theme; }
+
+// ---------- actions ----------
+const A = {
+  go: el => go(el.dataset.v),
+  menu: () => openMenu(),
+  close: () => dlg().close(),
+  logout: () => logout(),
+  gateback: () => { S.gate = null; render(); },
+  say: el => say(el.dataset.t),
+  sayslow: el => say(el.dataset.t, true),
+  lvl: el => { S.lvl = el.dataset.v; LS.set('lvl', S.lvl); if (route()[0] !== 'learn') go('learn'); else render(); },
+  type: el => { S.type = el.dataset.v; S.cat = ''; render(); },
+  cat: el => { S.cat = S.cat === el.dataset.v && route()[0] === 'learn' ? '' : el.dataset.v; S.type = 'all'; if (S.cat && !UNITS.some(u => u.level === S.lvl && u.cat === S.cat)) S.lvl = 'dasar'; if (route()[0] !== 'learn') go('learn'); else render(); },
+  src: el => { S.src = el.dataset.v; LS.set('src', S.src); render(); },
+  unlock: () => { LS.set('unlock', '1'); render(); toast('Semua level terbuka.'); },
+  seeuser: el => { S.owner = el.dataset.v; go('prog'); },
+  quiz: el => { const u = UMAP.get(el.dataset.v); startQuiz(`${TYPES[u.type][0]} ${u.title}`, unitQs(u), u.id); },
+  flashunit: el => { const u = UMAP.get(el.dataset.v); startFlash(shuffle(u.W), '🃏 ' + u.title, u.id); },
+  game: el => startGame(el.dataset.v),
+  quit: () => { const R = S.run; S.run = null; clearInterval(tickT); try { R?.recog?.abort(); } catch {} window.speechSynthesis?.cancel(); render(); window.scrollTo(0, 0); },
+  playdlg: el => { // reads the dialog line by line, highlighting each bubble
+    const u = UMAP.get(el.dataset.v), sy = window.speechSynthesis; if (!sy) return; sy.cancel();
+    u.DL.forEach((d, i) => { const ut = new SpeechSynthesisUtterance(d.en); ut.lang = 'en-US'; ut.rate = LS.get('slow') === '1' ? 0.7 : 0.95; const v = enVoice(); if (v) ut.voice = v; if (d.sp !== 'A') ut.pitch = 0.8;
+      ut.onstart = () => { document.querySelectorAll('.bub.on').forEach(b => b.classList.remove('on')); const b = $('#dl-' + i); if (b) { b.classList.add('on'); b.scrollIntoView({ block: 'nearest', behavior: 'smooth' }); } };
+      ut.onend = () => { if (i === u.DL.length - 1) $('#dl-' + i)?.classList.remove('on'); }; sy.speak(ut); });
+  },
+  ans: el => { const R = S.run, q = R.qs[R.i]; if (R.ans !== null) return; R.ans = Number(el.dataset.v); answer(q.opts[R.ans] === q.a, q); render(); $('#next-btn')?.focus(); },
+  tok: el => { const q = S.run.qs[S.run.i]; q.sel.push(Number(el.dataset.v)); say(q.toks[Number(el.dataset.v)].t); render(); },
+  untok: el => { const q = S.run.qs[S.run.i]; q.sel.splice(Number(el.dataset.v), 1); render(); },
+  scrcheck: () => { const R = S.run, q = R.qs[R.i]; const got = q.sel.map(i => q.toks[i].t).join(' '); R.ans = norm(got) === norm(q.a); q.say = q.a; answer(R.ans, q); render(); $('#next-btn')?.focus(); },
+  next: () => { const R = S.run; R.i++; R.ans = null; R.typed = ''; if (R.i >= R.qs.length) finishQuiz(); render(); window.scrollTo(0, 0); speakQ(); setTimeout(() => $('#type-in')?.focus(), 30); },
+  flip: () => { S.run.flip = !S.run.flip; render(); if (S.run.flip && autoSay()) say(S.run.deck[S.run.i].ex); },
+  fknow: () => flashNext(true), fagain: () => flashNext(false),
+  spans: el => { const R = S.run, q = R.q, ok = q.opts[Number(el.dataset.v)] === q.a; R.total++; if (ok) R.right++; bumpWord(q.word, ok ? 1 : 0); R.flash = ok ? 'flash-ok' : 'flash-bad'; if (!ok) toast(`✗ ${q.a}`); nextSpeed(); render(); },
+  matchnext: () => { newMatch(); render(); },
+  mpick: el => {
+    const R = S.run, m = R.m, side = el.dataset.v[0], k = el.dataset.v.slice(1); m.bad = null;
+    if (side === 'L') { m.selL = k; say(m.left.find(w => w.k === k).en); } else m.selR = k;
+    if (m.selL && m.selR) {
+      const wl = m.left.find(w => w.k === m.selL), wr = m.right.find(w => w.k === m.selR);
+      if (wl.k === wr.k || wl.id === wr.id) { m.done.add(wl.k); if (wr.k !== wl.k) m.done.add(wr.k); bumpWord(wl.k, 1); addXp(1); }
+      else { m.miss++; m.bad = ['L' + m.selL, 'R' + m.selR]; setTimeout(() => { if (S.run?.m === m) { m.bad = null; render(); } }, 600); }
+      m.selL = m.selR = null;
+      if (m.done.size === m.left.length) addXp(5);
+    }
+    render();
+  },
+  hkey: el => {
+    const h = S.run.h, c = el.dataset.v; h.tried.add(c);
+    if (h.w.en.toLowerCase().includes(c)) h.got.add(c); else h.miss++;
+    const win = [...h.w.en.toLowerCase()].every(x => x === ' ' || h.got.has(x));
+    if (win) { S.run.won++; bumpWord(h.w.k, 1); addXp(3); say(h.w.en); }
+    else if (h.miss >= 6) { h.over = true; S.run.lost++; bumpWord(h.w.k, -1); say(h.w.en); }
+    render();
+  },
+  hangnext: () => { newHang(); render(); },
+  rec: () => {
+    const R = S.run; if (!SR || R.rec) return; window.speechSynthesis?.cancel();
+    const r = new SR(); r.lang = 'en-US'; r.interimResults = false; r.maxAlternatives = 3; R.recog = r; R.rec = true; R.err = ''; render();
+    r.onresult = ev => { const e = R.list[R.i], alts = [...ev.results[0]].map(a => a.transcript); let bestA = alts[0], sc = 0; for (const a of alts) { const s = similarity(e.en, a); if (s > sc) { sc = s; bestA = a; } } R.heard = bestA; const was = R.res?.ok; R.res = { score: sc, ok: sc >= 75 }; if (R.res.ok && !was) { R.right++; addXp(3); } };
+    r.onerror = ev => { R.err = ev.error === 'not-allowed' ? 'Izinkan akses mikrofon untuk bermain.' : ev.error === 'no-speech' ? 'Tidak terdengar suara. Coba lagi lebih dekat ke mikrofon.' : 'Pengenalan suara gagal (' + ev.error + ').'; };
+    r.onend = () => { R.rec = false; if (S.run === R) render(); };
+    try { r.start(); } catch { R.rec = false; render(); }
+  },
+  speaknext: () => { const R = S.run; R.i++; R.res = null; R.heard = ''; R.err = ''; render(); },
+  pinsave: () => {
+    const old = $('#pin-old')?.value || '', a = $('#pin-new').value, b = $('#pin-new2').value, out = $('#pin-msg');
+    if (!/^\d{4,12}$/.test(a)) { out.textContent = PIN_MSG.format; return; }
+    if (a !== b) { out.textContent = 'PIN baru tidak sama.'; return; }
+    if (S.hasPin && !old) { out.textContent = 'Masukkan PIN saat ini.'; return; }
+    pinChange(old, a, out);
+  },
+  pinoff: () => { const old = $('#pin-old')?.value || '', out = $('#pin-msg'); if (!old) { out.textContent = 'Masukkan PIN saat ini untuk menghapus.'; return; } pinChange(old, '', out); },
+  reset: el => { // two clicks: no confirm()/prompt() dialogs
+    if (!el.dataset.sure) { el.dataset.sure = '1'; el.textContent = '⚠ Yakin? Klik sekali lagi untuk menghapus'; setTimeout(() => { if (el.isConnected) { delete el.dataset.sure; el.textContent = '🗑 Hapus semua progres'; } }, 4000); return; }
+    for (const it of [...S.items.values()]) if (it.owner === S.user && !it.deleted) put({ ...it, data: {}, deleted: true }, true);
+    dlg().close(); render(); toast('Progres dihapus. Mulai dari 0%.');
+  }
+};
+function flashNext(ok) {
+  const R = S.run, w = R.deck[R.i];
+  bumpWord(w.k, ok ? 1 : -1); if (ok) { R.know++; addXp(1); } else if (R.deck.length < 40) R.deck.push(w); // again later in this session
+  R.i++; R.flip = false;
+  if (R.i >= R.deck.length && R.unit) addXp(5);
+  render(); if (R.i < R.deck.length && autoSay()) say(R.deck[R.i].en);
+}
+document.addEventListener('click', ev => {
+  const el = ev.target.closest('[data-a]'); if (!el || !A[el.dataset.a] || el.disabled) return;
+  ev.preventDefault(); ev.stopPropagation(); A[el.dataset.a](el);
+});
+document.addEventListener('input', ev => { if (ev.target.id === 'user-in') syncMask(); });
+document.addEventListener('change', ev => {
+  const t = ev.target;
+  if (t.name === 'theme') { t.value === 'auto' ? LS.del('theme') : LS.set('theme', t.value); applyTheme(); }
+  if (t.id === 'opt-autosay') t.checked ? LS.del('autosay') : LS.set('autosay', '0');
+  if (t.id === 'opt-slow') t.checked ? LS.set('slow', '1') : LS.del('slow');
+  if (t.id === 'opt-unlock') { t.checked ? LS.set('unlock', '1') : LS.del('unlock'); render(); }
+});
+document.addEventListener('keydown', ev => {
+  const R = S.run; if (!R || dlg().open || ev.metaKey || ev.ctrlKey || ev.altKey) return;
+  const typing = /^(INPUT|TEXTAREA|SELECT)$/.test(ev.target.tagName);
+  if (R.kind === 'quiz' && R.i < R.qs.length) {
+    const q = R.qs[R.i];
+    if (R.ans !== null && ev.key === 'Enter' && !typing) { ev.preventDefault(); A.next(); return; }
+    if (q.t === 'mc' && R.ans === null && /^[1-4]$/.test(ev.key)) { const b = document.querySelectorAll('.opt')[Number(ev.key) - 1]; if (b) A.ans(b); }
+  }
+  if (R.kind === 'speed' && /^[1-4]$/.test(ev.key)) { const b = document.querySelectorAll('.opt')[Number(ev.key) - 1]; if (b) A.spans(b); }
+  if (R.kind === 'hang' && !typing && /^[a-z]$/i.test(ev.key) && !R.h.over) { const b = document.querySelector(`.key[data-v="${ev.key.toLowerCase()}"]:not([disabled])`); if (b) A.hkey(b); }
+  if (R.kind === 'flash' && !typing) { if (ev.key === ' ') { ev.preventDefault(); A.flip(); } else if (ev.key === 'ArrowRight') A.fknow(); else if (ev.key === 'ArrowLeft') A.fagain(); }
+});
+document.addEventListener('submit', ev => {
+  const f = ev.target; ev.preventDefault();
+  if (f.id === 'type-form') {
+    const R = S.run, q = R.qs[R.i]; if (R.ans !== null) return;
+    R.typed = $('#type-in').value; if (!R.typed.trim()) return;
+    R.ans = norm(R.typed) === norm(q.a); answer(R.ans, q); render(); $('#next-btn')?.focus(); return;
+  }
+  if (f.id === 'gate-form') {
+    const btn = f.querySelector('button'); btn.disabled = true; btn.textContent = 'Membuka…';
+    const pinMode = !!S.gate, name = pinMode ? S.gate.name : $('#user-in').value, pin = pinMode ? $('#pin-in').value : '';
+    if (pinMode && !pin) { btn.disabled = false; btn.textContent = 'Masuk'; $('#gate-err').textContent = PIN_MSG.need; return; }
+    login(name, pinMode ? '' : $('#pass-in').value, $('#remember').checked, pin).then(render, e => {
+      if (e.needPin && !pinMode) { S.gate = { name: normUser(name), msg: '' }; render(); return; }
+      btn.disabled = false; btn.textContent = 'Masuk'; $('#gate-err').textContent = e.message; const pi = $('#pin-in'); if (pi) { pi.value = ''; pi.focus(); } });
+  }
+});
+dlg().addEventListener('click', ev => { if (ev.target === dlg()) dlg().close(); }); // click on backdrop
+
+// ---------- auto update + boot ----------
+async function checkUpdate() { // phones keep old copies; load the newer build when not in the middle of an exercise
+  if (dlg().open || S.queue.size || S.run) return;
+  try {
+    const r = await fetch(location.pathname + '?_=' + Date.now(), { cache: 'no-store' }); const m = /const BUILD = '([^']+)'/.exec(await r.text());
+    if (m && m[1] !== BUILD && m[1] !== '__BUILD__' && SS.get('reloaded') !== m[1]) { SS.set('reloaded', m[1]); location.replace(location.pathname + '?v=' + m[1] + location.hash); }
+  } catch {}
+}
+setInterval(() => { if (!document.hidden) syncNow(); }, 10000);
+setInterval(checkUpdate, 10 * 60e3);
+document.addEventListener('visibilitychange', () => { if (!document.hidden) syncNow(); });
+window.addEventListener('online', () => syncNow());
+window.addEventListener('focus', () => syncNow());
+
+function boot() {
+  applyTheme(); checkUpdate();
+  let s = null; try { s = JSON.parse(LS.get('session') || 'null'); } catch {}
+  const ssUser = SS.get('user'), ssAdmin = SS.get('admin');
+  if (s?.admin || ssAdmin) {
+    if (ssAdmin) { S.admin = true; S.pass = ssAdmin; loadCache(); render(); liveStart(); syncNow(); return; }
+    LS.del('session'); // admin password is never stored on the device; ask again
+  } else if (s?.user || ssUser) {
+    const name = s?.user || ssUser, pin = SS.get('pin.' + name) || '';
+    if (LS.get('u.' + name + '.haspin') && !pin) { S.gate = { name, msg: '' }; render(); return; } // PIN asked on every new visit
+    S.user = name; S.pin = pin; S.hasPin = !!LS.get('u.' + name + '.haspin'); loadCache();
+    render(); liveStart(); syncNow(); return;
+  }
+  render();
+}
+boot();
+</script>
+</body>
+</html>
