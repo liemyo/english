@@ -1395,7 +1395,7 @@ COURSE.push({
   ]
 });
 // English Course — kursus bahasa Inggris dengan terjemahan Indonesia. Akun (nama pengguna + PIN) sama dengan Planner & Notes; progres di Supabase (proyek saku-yuk), sinkron real time.
-const BUILD = '20261028-145216';
+const BUILD = '20261029-144400';
 const SB_URL = 'https://bbptcxpzzvgpxqylkrmw.supabase.co', SB_KEY = 'sb_publishable_Ny-WHCEZ3WmcLFsPBx9QeQ_9xgo7MxR'; // public key; tables closed, only en_*/pl_* functions
 const ADMIN = 'admin';
 
@@ -2012,7 +2012,7 @@ function finishQuiz() {
 const PDFLIB = 'https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.10/';
 const INK = '#1d2433', MUTED = '#5d6576', ACC = '#1f3d7a', RULE = '#d5dae3', FILL = '#f2f4f8';
 async function pdfLib() { if (!window.pdfMake) await loadScript(PDFLIB + 'pdfmake.min.js'); if (!window.pdfMake.vfs?.['Roboto-Regular.ttf']) await loadScript(PDFLIB + 'vfs_fonts.min.js'); return window.pdfMake; }
-const keep = (...nodes) => ({ stack: nodes.flat().filter(Boolean), unbreakable: true }); // never split across pages
+const keep = (...nodes) => ({ stack: nodes.flat().filter(Boolean).flatMap(n => n.unbreakable && n.stack ? n.stack : [n]), unbreakable: true }); // never split across pages (nested keeps flattened)
 const TBL = { hLineWidth: (i, n) => i === 0 || i === n.table.body.length ? 0.8 : 0.4, vLineWidth: () => 0, hLineColor: (i, n) => i <= 1 || i === n.table.body.length ? '#9aa3b2' : RULE, paddingLeft: () => 6, paddingRight: () => 6, paddingTop: () => 4, paddingBottom: () => 4, fillColor: i => i === 0 ? FILL : null };
 const th = t => ({ text: t, style: 'th' });
 function table(widths, head, rows) { return { table: { headerRows: head ? 1 : 0, dontBreakRows: true, widths, body: head ? [head.map(th), ...rows] : rows }, layout: head ? TBL : { ...TBL, fillColor: () => null }, margin: [0, 2, 0, 10] }; }
@@ -2041,9 +2041,9 @@ const note = text => ({ table: { widths: ['*'], body: [[{ text, style: 'note' }]
 const h3 = t => ({ text: t, style: 'h3' });
 function vocabTables(W, full) {
   if (full) return chunks(W.map((w, i) => [{ text: String(i + 1), style: 'num' }, { text: w.en, bold: true }, w.id, { stack: [w.ex, { text: w.exid, italics: true, color: MUTED }] }]), 12)
-    .map(rows => table([16, 92, 104, '*'], ['No', 'Kata', 'Arti', 'Contoh kalimat'], rows));
+    .map(rows => keep(table([16, 92, 104, '*'], ['No', 'Kata', 'Arti', 'Contoh kalimat'], rows))); // each chunk whole: moves to the next page instead of splitting
   const half = Math.ceil(W.length / 2), rows = [...Array(half)].map((_, i) => { const a = W[i], b = W[i + half]; return [{ text: a.en, bold: true }, a.id, b ? { text: b.en, bold: true } : '', b ? b.id : '']; });
-  return chunks(rows, 14).map(r => table([84, '*', 84, '*'], ['Kata', 'Arti', 'Kata', 'Arti'], r));
+  return chunks(rows, 14).map(r => keep(table([84, '*', 84, '*'], ['Kata', 'Arti', 'Kata', 'Arti'], r)));
 }
 function unitBlocks(u, mode, keyList, n) { // one unit: heading kept with its first block; every list/table kept whole
   const L = LEVEL(u.level), head = [{ text: `${L.name}  ·  Materi ${L.units.indexOf(u) + 1}  ·  ${TYPES[u.type]}`, style: 'kicker' }, { text: u.title, style: 'h2', tocItem: mode !== 'single', tocMargin: [14, 0, 0, 0] }, { text: u.en, style: 'sub' }];
