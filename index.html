@@ -37,7 +37,7 @@ a{color:inherit}
 .tag{display:inline-block;font-size:11.5px;font-weight:600;letter-spacing:.03em;padding:2px 8px;border-radius:6px;background:var(--acc-soft);color:var(--acc)}
 /* top bar */
 .top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-.top-in{max-width:1180px;margin:0 auto;padding:10px 24px;display:flex;align-items:center;gap:16px}
+.top-in{max-width:1560px;margin:0 auto;padding:10px 24px;display:flex;align-items:center;gap:16px}
 .brand{display:flex;align-items:center;gap:10px;font-weight:650;font-size:16px;text-decoration:none;flex:none}
 .logo{width:30px;height:30px;border-radius:8px;display:grid;place-items:center;background:var(--acc);color:var(--acc-ink);font-size:13px;font-weight:700}
 .tabs{display:flex;gap:2px;flex:1;justify-content:center}
@@ -50,7 +50,7 @@ a{color:inherit}
 .pill{font-weight:650;font-size:13px;padding:3px 9px;border-radius:6px;background:var(--acc-soft);color:var(--acc)}
 .sync{font-size:12px;color:var(--muted);white-space:nowrap}.sync.err{color:var(--red)}
 .chip{display:inline-flex;align-items:center;gap:4px;border:1px solid var(--line);background:var(--card);border-radius:8px;padding:5px 8px 5px 11px;cursor:pointer;font-weight:550;font-size:13px;white-space:nowrap}
-.main{max-width:1180px;margin:0 auto;padding:24px 24px 110px}
+.main{max-width:1560px;margin:0 auto;padding:20px 24px 40px}
 .viewing{margin-bottom:16px;padding:8px 12px;border-radius:8px;background:var(--acc-soft);display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-size:14px}
 .head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:12px}
 .head h1,.hero h1,.u-t h1{margin:0;font-size:24px}
@@ -81,7 +81,20 @@ a{color:inherit}
 .games.mini{grid-template-columns:repeat(3,minmax(0,1fr))}
 .gtile{display:flex;flex-direction:column;align-items:flex-start;gap:4px;padding:16px;cursor:pointer;text-align:left}
 .gtile:disabled{opacity:.5;cursor:not-allowed}
-.how ol{margin:0;padding:18px 22px 18px 40px;display:flex;flex-direction:column;gap:8px;color:var(--muted)}
+.how ol{margin:0;padding:4px 22px 16px 40px;display:flex;flex-direction:column;gap:6px;color:var(--muted)}
+.how{margin-top:16px}.how summary{cursor:pointer;padding:12px 16px;font-weight:600;list-style:none;display:flex;align-items:center;justify-content:space-between}
+.how summary::-webkit-details-marker{display:none}.how summary::after{content:'';width:7px;height:7px;border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);transform:rotate(45deg);margin:-4px 4px 0}
+.how[open] summary::after{transform:rotate(-135deg);margin-top:4px}
+/* home dashboard: everything on one screen — levels left, practice right */
+.dash{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:22px;align-items:start}
+.dash .sh{margin:18px 0 10px}.dash-r>.sh:first-child{margin-top:0}
+.dash .hero{padding:18px 22px;gap:22px}.dash .next{padding-top:10px;margin-top:2px}
+.dash .stats{margin-top:12px}.dash .stat{padding:10px 14px}
+.dash .lvl{padding:14px 16px}.dash .lvl p{margin:4px 0 0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.dash .lvl .bar{margin:8px 0 4px}
+.dash-r .cats{grid-template-columns:repeat(2,minmax(0,1fr))}.dash-r .catb{padding:9px 12px}
+.dash-r .games.mini{grid-template-columns:repeat(2,minmax(0,1fr))}.dash-r .gtile{padding:11px 13px}
+@media (max-width:1100px){.dash{grid-template-columns:1fr}.dash-r>.sh:first-child{margin-top:18px}.dash-r .cats,.dash-r .games.mini{grid-template-columns:repeat(3,minmax(0,1fr))}}
 .how b{color:var(--text);font-weight:600}
 /* learn */
 .seg4{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;background:var(--soft);padding:4px;border-radius:10px}
@@ -294,6 +307,16 @@ dialog::backdrop{background:rgba(10,12,18,.4)}
   .grid2{grid-template-columns:1fr}
   .cats{grid-template-columns:1fr 1fr}
   .games,.games.mini{grid-template-columns:1fr 1fr}
+  /* phone home: compact rows so the dashboard fits one screen */
+  .dash{gap:0}.dash .sh{margin:12px 0 7px;font-size:14px}
+  .dash .hero{flex-direction:row;text-align:left;gap:12px;padding:12px 14px}.dash .hero .ring{width:64px;height:64px}
+  .dash .hero h1{font-size:18px}.dash .hero-t{gap:3px}.dash .hero-t>p{font-size:12.5px;line-height:1.35}
+  .dash .next{flex-direction:row;align-items:center;gap:8px;padding-top:7px}.dash .next b{font-size:14px}.dash .next .btn{padding:6px 10px;font-size:13px}
+  .dash .stats{grid-template-columns:repeat(4,1fr);gap:6px;margin-top:8px}.dash .stat{padding:7px 8px;border-radius:10px}.dash .stat b{font-size:16px}.dash .stat span{font-size:10.5px;line-height:1.2}
+  .dash .grid2{grid-template-columns:1fr 1fr;gap:8px}.dash .lvl{padding:10px 11px}.dash .lvl-h{margin-bottom:2px}.dash .lvl-n{font-size:15px}.dash .lvl p,.dash .lvl>span:last-child{display:none}.dash .lvl .bar{margin:6px 0 0}
+  .dash-r>.sh:first-child{margin-top:12px}.dash-r .cats,.dash-r .games.mini{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+  .dash-r .catb,.dash-r .gtile{padding:7px 9px;border-radius:9px}.dash-r .catb b,.dash-r .gtile b{font-size:13px;line-height:1.25}.dash-r .catb .small{font-size:11px}
+  .dash .how{margin-top:10px}.dash .how summary{padding:9px 12px;font-size:14px}
   .gtile{padding:12px}.games.mini .gtile .small{display:none}
   .grid,.words{grid-template-columns:1fr}
   .seg4{grid-template-columns:1fr 1fr}
@@ -1395,7 +1418,7 @@ COURSE.push({
   ]
 });
 // English Course — kursus bahasa Inggris dengan terjemahan Indonesia. Akun (nama pengguna + PIN) sama dengan Planner & Notes; progres di Supabase (proyek saku-yuk), sinkron real time.
-const BUILD = '20261029-144400';
+const BUILD = '20261031-142037';
 const SB_URL = 'https://bbptcxpzzvgpxqylkrmw.supabase.co', SB_KEY = 'sb_publishable_Ny-WHCEZ3WmcLFsPBx9QeQ_9xgo7MxR'; // public key; tables closed, only en_*/pl_* functions
 const ADMIN = 'admin';
 
@@ -1723,8 +1746,8 @@ const stat = (v, l) => `<div class="stat"><b>${v}</b><span>${l}</span></div>`;
 
 function homeView() {
   const p = overall(), nx = nextUnit(), st = stats(), today = st.days?.[ymd(new Date())] || 0, nxtR = RANKS.find(r => r[0] > p);
-  return `<section class="hero card">
-      <div class="hero-ring">${ring(p)}</div>
+  return `<div class="dash"><div class="dash-l"><section class="hero card">
+      <div class="hero-ring">${ring(p, 104, 9)}</div>
       <div class="hero-t">
         <span class="eyebrow">Tingkat ${rank(p)[1]}</span>
         <h1>Selamat datang, ${esc(S.user)}</h1>
@@ -1734,19 +1757,18 @@ function homeView() {
       </div></section>
     <div class="stats">${stat(`${doneCount()}<small>/${UNITS.length}</small>`, 'Materi lulus')}${stat(`${mastered()}<small>/${WORDS.length}</small>`, 'Kata dikuasai')}${stat(streak(), 'Hari berturut-turut')}${stat(st.xp || 0, `Poin · hari ini ${today}`)}</div>
     <h2 class="sh">Level dan jalur belajar</h2>
-    <div class="grid2">${COURSE.map(levelCard).join('')}</div>
-    <h2 class="sh">Percakapan berdasarkan kebutuhan</h2>
+    <div class="grid2">${COURSE.map(levelCard).join('')}</div></div>
+    <div class="dash-r"><h2 class="sh">Percakapan berdasarkan kebutuhan</h2>
     <div class="cats">${Object.entries(CATS).map(([k, l]) => { const us = UNITS.filter(u => u.cat === k); return `<button type="button" class="catb" data-a="cat" data-v="${k}"><b>${l}</b><span class="muted small">${us.filter(u => prog(u.id)?.done).length} dari ${us.length} lulus</span></button>`; }).join('')}</div>
     <h2 class="sh">Latihan singkat</h2>
     <div class="games mini">${GAMES.slice(0, 6).map(gameTile).join('')}</div>
-    <h2 class="sh">Metode belajar</h2>
-    <div class="card how"><ol>
+    <details class="card how"><summary>Metode belajar</summary><ol>
       <li><b>Ikuti urutan materi.</b> Setiap level disusun dari kosakata, tata bahasa, percakapan, lalu bacaan. Tombol Lanjutkan selalu membuka materi berikutnya.</li>
       <li><b>Lulus latihan dengan nilai minimal ${PASS}%.</b> Ulangi materi untuk memperbaiki nilai terbaik.</li>
       <li><b>Dengarkan, lalu ucapkan.</b> Tirukan setiap kalimat dengan suara keras untuk melatih pelafalan.</li>
       <li><b>Latihan 10–15 menit setiap hari.</b> Kata dianggap dikuasai setelah ${MASTER} kali dijawab benar.</li>
       <li><b>Unduh modul PDF</b> untuk belajar tanpa layar atau dicetak sebagai pegangan.</li>
-    </ol></div>`;
+    </ol></details></div></div>`;
 }
 function levelCard(L) {
   const lp = levelPct(L.id), lk = !unlocked(L.id);
